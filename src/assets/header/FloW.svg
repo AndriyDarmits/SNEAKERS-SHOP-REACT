@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="108" height="21" viewBox="0 0 108 21">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 30px;
+        fill: #333;
+        text-anchor: middle;
+        font-family: Montserrat;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+    </style>
+  </defs>
+  <text id="FloW" class="cls-1" x="53.088" y="20.857"><tspan x="53.088">FloW</tspan></text>
+</svg>
