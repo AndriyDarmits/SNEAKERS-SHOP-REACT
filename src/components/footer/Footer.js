@@ -100,6 +100,22 @@ const Col2 = styled.div`
   }
 `;
 
+const Col3 = styled.div`
+  h3 {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 20px;
+    transition: transform 0.1s linear;
+    &:hover {
+      transform: translate(3px, -3px);
+    }
+  }
+  div {
+  }
+`;
+
 export default function Footer() {
   const scrollUp = () => {
     setTimeout(() => {
@@ -168,6 +184,25 @@ export default function Footer() {
               <Link to="/team">- Team</Link>
             </p>
           </Col2>
+          <Col3>
+            <h3>CONTACTS</h3>
+            <address>
+              <p>
+                <span></span>
+              </p>
+              <p>
+                <span></span>{" "}
+                <a href="mailto:webmaster@example.com">darmirs99@gmail.com</a>
+              </p>
+              <p>
+                <span></span> <a href="tel:+4733378901">+47 333 78 901</a>
+              </p>
+              <p>
+                <span></span> Open from <time>10:00</time> to <time>21:00</time>{" "}
+                every weekday.
+              </p>
+            </address>
+          </Col3>
         </FooterFlexBox>
       </Container>
     </section>
