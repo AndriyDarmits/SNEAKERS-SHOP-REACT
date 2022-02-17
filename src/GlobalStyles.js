@@ -12,4 +12,7 @@ a{
     text-decoration: none;
     
 }
+p{
+    margin:0;
+}
 `;

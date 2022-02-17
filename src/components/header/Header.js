@@ -1,16 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import searchIcon from "../../assets/header/Search.png";
-import accountIcon from "../../assets/header/Acc.png";
-import cartIcon from "../../assets/header/Cart.png";
+import searchIcon from "../../assets/icons/header/Search.png";
+import accountIcon from "../../assets/icons/header/Acc.png";
+import cartIcon from "../../assets/icons/header/Cart.png";
+import { Container } from "../../reusable-styles/reusableStyle";
 
-export const Container = styled.div`
-  max-width: 1170px;
-  padding: 0 15px;
-  margin: 0 auto;
-  position: relative;
-`;
 export const HeaderDiv = styled.header`
   display: flex;
   align-items: center;

@@ -1,6 +1,5 @@
-import logo from "./logo.svg";
-import "./App.css";
-import React from "react";
+import "./App.scss";
+import React, { useEffect } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Homepage from "./pages/Homepage";
@@ -15,6 +14,10 @@ import ProductItem from "./pages/productPage/ProductItem";
 import { GlobalStyles } from "./GlobalStyles";
 
 function App() {
+  // туво буде спливаюче вікно
+  useEffect(() => {
+    console.log("[tkjj");
+  }, []);
   return (
     <BrowserRouter>
       <Routes>

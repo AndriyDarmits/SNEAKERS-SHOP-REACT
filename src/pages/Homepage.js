@@ -1,5 +1,13 @@
 import React from "react";
 
 export default function Homepage() {
-  return <div>Home</div>;
+  return (
+    <div
+      style={{
+        marginTop: "80px",
+      }}
+    >
+      Home
+    </div>
+  );
 }
