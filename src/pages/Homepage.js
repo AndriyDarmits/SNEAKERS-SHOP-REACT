@@ -6,8 +6,6 @@ export default function Homepage() {
       style={{
         marginTop: "80px",
       }}
-    >
-      Home
-    </div>
+    ></div>
   );
 }
