@@ -101,6 +101,16 @@ const Col2 = styled.div`
 `;
 
 export default function Footer() {
+  const scrollUp = () => {
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+        /* you can also use 'auto' behaviour
+           in place of 'smooth' */
+      });
+    }, 1000);
+  };
   return (
     <section
       style={{
