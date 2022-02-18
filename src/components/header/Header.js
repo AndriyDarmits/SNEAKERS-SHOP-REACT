@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import searchIcon from "../../assets/icons/header/Search.png";
@@ -48,6 +48,22 @@ export const toggleActive = (active) => {
 };
 
 export default function Header() {
+  const [scrollTop, setScrollTop] = useState(0);
+
+  const onScrollProgress = () => {
+    const winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
+    let height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    setScrollTop(scrolled);
+  };
+
+  useEffect(() => {
+    document.addEventListener("scroll", onScrollProgress);
+  }, []);
+
   return (
     <div className="wrapper">
       <Container>
@@ -101,6 +117,27 @@ export default function Header() {
           </Navigation>
         </HeaderDiv>
       </Container>
+      <div
+        style={{
+          backgroundColor: "red",
+          height: "10px",
+          width: "100%",
+          position: "relative",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            backgroundColor: "green",
+            width: `${scrollTop}%`,
+            height: "100%",
+            top: 0,
+            left: 0,
+            borderBottomRightRadius: "5px",
+            borderTopRightRadius: "5px",
+          }}
+        ></div>
+      </div>
     </div>
   );
 }
