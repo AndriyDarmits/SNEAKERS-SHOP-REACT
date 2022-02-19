@@ -50,6 +50,7 @@ export const toggleActive = (active) => {
 export default function Header() {
   const [scrollTop, setScrollTop] = useState(0);
 
+  // scroll bar
   const onScrollProgress = () => {
     const winScroll =
       document.body.scrollTop || document.documentElement.scrollTop;
@@ -97,6 +98,7 @@ export default function Header() {
             </div>
 
             <div className="navButton">
+              {/* no ideas */}
               <NavLink to="/search">
                 <img src={searchIcon} alt="" />
               </NavLink>
@@ -117,6 +119,7 @@ export default function Header() {
           </Navigation>
         </HeaderDiv>
       </Container>
+      {/*scrollBar*/}
       <div
         style={{
           backgroundColor: "red",
