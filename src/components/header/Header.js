@@ -122,16 +122,16 @@ export default function Header() {
       {/*scrollBar*/}
       <div
         style={{
-          backgroundColor: "red",
-          height: "10px",
+          height: "2px",
           width: "100%",
           position: "relative",
         }}
       >
         <div
           style={{
+            content: "",
             position: "absolute",
-            backgroundColor: "green",
+            backgroundColor: "#ebebeb",
             width: `${scrollTop}%`,
             height: "100%",
             top: 0,
