@@ -7,6 +7,9 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Arial', sans-serif;
 
 }
+html{
+    font-size: 14px;
+}
 
 a{
     text-decoration: none;
@@ -16,3 +19,11 @@ p{
     margin:0;
 }
 `;
+
+//                                       ========VAR================
+
+export const backgrounds = {
+  grey: `#333333`,
+};
+
+export const colors = {};

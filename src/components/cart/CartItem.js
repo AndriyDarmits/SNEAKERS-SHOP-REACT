@@ -12,9 +12,7 @@ export default function CartItem(props) {
   const CartProductItem = styled.li`
     display: flex;
     align-items: center;
-    border-bottom: ${border};
-    border-left: ${border};
-    border-right: ${border};
+    border: ${border};
     background: #fff;
     width: 100%;
     padding: 15px 0;
@@ -28,6 +26,13 @@ export default function CartItem(props) {
     }
     & > div:nth-of-type(3) {
       width: 35%;
+      padding-left: 10px;
+      a {
+        color: #333333;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 14px;
+      }
     }
     & > div:nth-of-type(4) {
       width: 17%;

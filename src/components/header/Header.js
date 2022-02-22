@@ -40,7 +40,7 @@ export const Logo = styled.div`
     color: #000;
   }
 `;
-
+// uncompleted
 export const toggleActive = (active) => {
   return {
     color: active ? "red" : "black",
