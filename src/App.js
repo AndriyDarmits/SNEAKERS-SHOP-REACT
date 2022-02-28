@@ -10,7 +10,7 @@ import SearchPage from "./pages/SearchPage";
 import AccountPage from "./pages/AccountPage";
 import CartPage from "./pages/CartPage";
 import Notfoundpage from "./pages/Notfoundpage";
-import ProductItem from "./pages/productPage/ProductItem";
+import ProductDetails from "./pages/productPage/ProductDetails";
 import { GlobalStyles } from "./GlobalStyles";
 
 function App() {
@@ -23,8 +23,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Homepage />} />
-          <Route path="pruducts" element={<ShopPage />} />
-          <Route path="products/:itemId" element={<ProductItem />} />
+          <Route path="products" element={<ShopPage />} />
+          <Route path="products/1" element={<ProductDetails />} />
           <Route path="blog" element={<BlogPage />} />
           <Route path="lookbook" element={<LookBookPage />} />
           <Route path="search" element={<SearchPage />} />

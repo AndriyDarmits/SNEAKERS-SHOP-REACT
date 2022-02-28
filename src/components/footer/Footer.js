@@ -190,7 +190,7 @@ export default function Footer() {
         top: 0,
         behavior: "smooth",
       });
-    }, 1000);
+    }, 300);
   };
   return (
     <section

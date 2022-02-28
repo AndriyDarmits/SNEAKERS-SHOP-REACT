@@ -32,3 +32,14 @@ export const SectionWrapper = styled.section`
   margin-top: 180px;
   margin-bottom: 90px;
 `;
+export const Path = styled.div`
+  margin-bottom: 40px;
+  font-size: 14px;
+  span {
+    font-weight: 600;
+    color: #333333;
+  }
+  a {
+    color: #333333;
+  }
+`;

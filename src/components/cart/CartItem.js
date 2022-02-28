@@ -72,7 +72,9 @@ export default function CartItem(props) {
   const deleteItem = (product) => {
     props.onDeleteItem(product);
   };
-  const increaseQuantity = () => {};
+  const increaseQuantity = () => {
+    setProductQuantity((prev) => prev + 1);
+  };
   const decreaseQuantity = () => {};
 
   return (

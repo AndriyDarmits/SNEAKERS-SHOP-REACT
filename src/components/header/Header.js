@@ -6,6 +6,16 @@ import accountIcon from "../../assets/icons/header/Acc.png";
 import cartIcon from "../../assets/icons/header/Cart.png";
 import { Container } from "../../reusable-styles/reusableStyle";
 
+export const Wrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  height: 80px;
+  background-color: #fff;
+`;
 export const HeaderDiv = styled.header`
   display: flex;
   align-items: center;
@@ -40,7 +50,7 @@ export const Logo = styled.div`
     color: #000;
   }
 `;
-// uncompleted
+// !uncompleted
 export const toggleActive = (active) => {
   return {
     color: active ? "red" : "black",
@@ -66,7 +76,7 @@ export default function Header() {
   }, []);
 
   return (
-    <div className="wrapper">
+    <Wrapper>
       <Container>
         <HeaderDiv>
           <Logo>
@@ -78,7 +88,7 @@ export default function Header() {
                 Home
               </NavLink>
               <NavLink
-                to="/pruducts"
+                to="/products"
                 style={({ isActive }) => toggleActive(isActive)}
               >
                 Shop
@@ -141,6 +151,6 @@ export default function Header() {
           }}
         ></div>
       </div>
-    </div>
+    </Wrapper>
   );
 }
