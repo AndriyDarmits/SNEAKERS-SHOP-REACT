@@ -1,7 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 
-const DescriptionContainer = styled.div``;
+const DescriptionContainer = styled.div`
+  color: #666666;
+  line-height: 22px;
+  padding: 60px;
+  font-weight: 600;
+  border: 1px solid #ebebeb;
+  border-top: 0;
+  & > p:nth-of-type(1) {
+    margin-bottom: 25px;
+  }
+  ul {
+    margin-bottom: 25px;
+  }
+
+  span {
+    font-weight: 600;
+    color: #333333;
+  }
+`;
 
 export const ProductDescription = () => {
   return (
@@ -17,7 +35,7 @@ export const ProductDescription = () => {
           <span>Material </span>: 100 % cotton
         </li>
         <li>
-          <span>Length</span>: 100 % cotton
+          <span>Length</span>: 90cm
         </li>
         <li>
           <span>Guarantee</span> : 3 months

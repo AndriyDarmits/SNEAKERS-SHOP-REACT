@@ -33,6 +33,7 @@ const FlexContainerReviews = styled(FlexContainer)`
   & > a {
     color: #666666;
     font-weight: 600;
+    font-size: 18px;
     display: block;
     padding: 15px 50px;
   }
@@ -44,11 +45,9 @@ const FlexContainerReviews = styled(FlexContainer)`
 
 export default function ProductDetails() {
   const location = useLocation();
-  console.log(location.pathname);
   let { id } = useParams();
-  console.log(id);
-  const [activeLink, setActiveLink] = useState(true);
 
+  const [activeLink, setActiveLink] = useState(true);
   // toggle reviews and description
   useEffect(() => {
     if (location.pathname === `/products/${id}/reviews`) {

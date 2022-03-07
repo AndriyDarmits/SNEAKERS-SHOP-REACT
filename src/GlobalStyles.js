@@ -19,6 +19,9 @@ a{
 p{
     margin:0;
 }
+li{
+    list-style: none;
+}
 `;
 
 //                                       ========VAR================
