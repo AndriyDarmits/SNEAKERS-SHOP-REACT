@@ -12,6 +12,8 @@ import CartPage from "./pages/CartPage";
 import Notfoundpage from "./pages/Notfoundpage";
 import ProductDetails from "./pages/productPage/ProductDetails";
 import { GlobalStyles } from "./GlobalStyles";
+import { ProductDescription } from "./components/productDetails/ProductDescription";
+import { ProductReviews } from "./components/productDetails/ProductReviews";
 
 function App() {
   // туво буде спливаюче вікно
@@ -24,14 +26,17 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Homepage />} />
           <Route path="products" element={<ShopPage />} />
-          <Route path="products/1" element={<ProductDetails />} />
+          <Route path="products/:id" element={<ProductDetails />}>
+            <Route index element={<ProductDescription />} />
+            <Route path="reviews" element={<ProductReviews />} />
+          </Route>
           <Route path="blog" element={<BlogPage />} />
           <Route path="lookbook" element={<LookBookPage />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="account" element={<AccountPage />} />
           <Route path="cart" element={<CartPage />} />
-          <Route path="*" element={<Notfoundpage />} />
         </Route>
+        <Route path="*" element={<Notfoundpage />} />
       </Routes>
       <GlobalStyles />
     </BrowserRouter>

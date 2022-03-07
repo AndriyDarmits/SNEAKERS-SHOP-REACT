@@ -43,3 +43,11 @@ export const Path = styled.div`
     color: #333333;
   }
 `;
+
+// flex container
+
+export const FlexContainer = styled.div`
+  display: flex;
+`;
+
+// incrementing/ decrementing products quantity box

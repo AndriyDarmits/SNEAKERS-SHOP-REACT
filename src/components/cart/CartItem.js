@@ -4,70 +4,68 @@ import cancel from "../../assets/icons/cart/cancel.png";
 import inc from "../../assets/icons/cart/inc.png";
 import dec from "../../assets/icons/cart/dec.png";
 import { Link } from "react-router-dom";
+const border = `1px solid #ebebeb`;
+const CartProductItem = styled.li`
+  display: flex;
+  align-items: center;
+  border: ${border};
+  background: #fff;
+  width: 100%;
+  padding: 15px 0;
 
-export default function CartItem(props) {
-  const border = `1px solid #ebebeb`;
-
-  const [productQuantity, setProductQuantity] = useState(1);
-  const CartProductItem = styled.li`
-    display: flex;
-    align-items: center;
-    border: ${border};
-    background: #fff;
-    width: 100%;
-    padding: 15px 0;
-
-    & > div:nth-of-type(1) {
-      width: 5.5%;
-      text-align: center;
-    }
-    & > div:nth-of-type(2) {
-      width: 11.5%;
-    }
-    & > div:nth-of-type(3) {
-      width: 35%;
-      padding-left: 10px;
-      a {
-        color: #333333;
-        font-weight: 600;
-        text-transform: uppercase;
-        font-size: 14px;
-      }
-    }
-    & > div:nth-of-type(4) {
-      width: 17%;
-    }
-    & > div:nth-of-type(5) {
-      width: 15.5%;
-    }
-  `;
-
-  const ProductQuantityWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    width: 50%;
-    border: ${border};
-  `;
-  const ProductQuantity = styled.div`
-    font-size: 16px;
-    line-height: 22px;
-    color: #333333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-  `;
-  const ProductQuantityBtn = styled.div`
-    width: 50%;
-    border-left: ${border};
+  & > div:nth-of-type(1) {
+    width: 5.5%;
     text-align: center;
-    & > :nth-of-type(1) {
-      border-bottom: ${border};
+  }
+  & > div:nth-of-type(2) {
+    width: 11.5%;
+  }
+  & > div:nth-of-type(3) {
+    width: 35%;
+    padding-left: 10px;
+    a {
+      color: #333333;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 14px;
     }
-    & {
-      cursor: pointer;
-    }
-  `;
+  }
+  & > div:nth-of-type(4) {
+    width: 17%;
+  }
+  & > div:nth-of-type(5) {
+    width: 15.5%;
+  }
+`;
+// потрібно ці стилі зробити реюзабельні
+export const ProductQuantityWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  width: 50%;
+  border: ${border};
+`;
+export const ProductQuantity = styled.div`
+  font-size: 16px;
+  line-height: 22px;
+  color: #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+`;
+export const ProductQuantityBtn = styled.div`
+  width: 50%;
+  border-left: ${border};
+  text-align: center;
+  & > :nth-of-type(1) {
+    border-bottom: ${border};
+  }
+  & {
+    cursor: pointer;
+  }
+`;
+export default function CartItem(props) {
+  const [productQuantity, setProductQuantity] = useState(1);
 
   const deleteItem = (product) => {
     props.onDeleteItem(product);

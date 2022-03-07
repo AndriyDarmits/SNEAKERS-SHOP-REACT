@@ -11,7 +11,7 @@ import mail from "../../assets/icons/footer/mail.png";
 import phone from "../../assets/icons/footer/phone.png";
 import scedule from "../../assets/icons/footer/scedule.png";
 import emailBtn from "../../assets/icons/footer/emailBtn.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Logo } from "../header/Header";
 
 const Col1 = styled.div`
@@ -184,6 +184,7 @@ const EmailForm = styled.div`
 `;
 
 export default function Footer() {
+  const location = useLocation();
   const scrollUp = () => {
     setTimeout(() => {
       window.scrollTo({
@@ -204,7 +205,7 @@ export default function Footer() {
         <FooterFlexBox>
           <Col1>
             <LogoFooter onClick={scrollUp}>
-              <Link to="/">FLOW</Link>
+              <Link to={location.pathname}>FLOW</Link>
             </LogoFooter>
             <p>
               Lorem ipsum dolor sit consectetur adipiscing elited se do eiusmod

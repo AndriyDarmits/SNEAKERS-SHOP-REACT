@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import SmallImage from "./SmallImage";
 
+const InlineBlockContainer = styled.div`
+  display: inline-block;
+  width: 49%;
+`;
 const BigProductImage = styled.div`
-  margin-bottom: 10px;
+  width: 100%;
   img {
     max-width: 470px;
     width: 100%;
@@ -39,11 +43,7 @@ export default function ProductGallery() {
   }, [activeImg]);
 
   return (
-    <div
-      style={{
-        display: "inline-block",
-      }}
-    >
+    <InlineBlockContainer>
       <BigProductImage>
         <img src={activeImg} alt="" />
       </BigProductImage>
@@ -57,6 +57,6 @@ export default function ProductGallery() {
           />
         ))}
       </SmallProductImage>
-    </div>
+    </InlineBlockContainer>
   );
 }

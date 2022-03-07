@@ -1,0 +1,5 @@
+const SET_PRODUCTS_FROM_API = "SET_PRODUCTS_FROM_API";
+
+export default {
+  SET_PRODUCTS_FROM_API,
+};

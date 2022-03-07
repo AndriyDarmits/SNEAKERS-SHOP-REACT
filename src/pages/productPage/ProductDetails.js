@@ -1,18 +1,62 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useParams,
+} from "react-router-dom";
 import styled from "styled-components";
-import ProductGallery from "../../components/productDetails/ProductGallery";
+import ProductInfo from "../../components/productDetails/info/ProductInfo";
+import ProductGallery from "../../components/productDetails/gallery/ProductGallery";
 import {
   Container,
+  FlexContainer,
   Path,
   SectionWrapper,
 } from "../../reusable-styles/reusableStyle";
+import "./productPage.scss";
+
+const ProductItemWrapper = styled(SectionWrapper)`
+  margin-bottom: 50px;
+  margin-top: 122px;
+`;
+const FlexContainerInfo = styled(FlexContainer)`
+  justify-content: space-between;
+  margin-bottom: 50px;
+`;
+
+const FlexContainerReviews = styled(FlexContainer)`
+  text-transform: uppercase;
+  font-size: 15px;
+
+  & > a {
+    color: #666666;
+    font-weight: 600;
+    display: block;
+    padding: 15px 50px;
+  }
+  div {
+    flex: auto;
+    border-bottom: 1px solid #ebebeb;
+  }
+`;
 
 export default function ProductDetails() {
-  const ProductItemWrapper = styled(SectionWrapper)`
-    margin-bottom: 50px;
-    margin-top: 122px;
-  `;
+  const location = useLocation();
+  console.log(location.pathname);
+  let { id } = useParams();
+  console.log(id);
+  const [activeLink, setActiveLink] = useState(true);
+
+  // toggle reviews and description
+  useEffect(() => {
+    if (location.pathname === `/products/${id}/reviews`) {
+      setActiveLink(false);
+    } else {
+      setActiveLink(true);
+    }
+  });
 
   return (
     <ProductItemWrapper>
@@ -21,7 +65,26 @@ export default function ProductDetails() {
           <Link to="/">Home</Link> / <Link to="/shop">Shop</Link> /{" "}
           <span>{/* product name */}</span>
         </Path>
-        <ProductGallery />
+        <FlexContainerInfo>
+          <ProductGallery />
+          <ProductInfo />
+        </FlexContainerInfo>
+        <FlexContainerReviews>
+          <NavLink
+            className={activeLink ? "description-active" : "description"}
+            to=""
+          >
+            Description
+          </NavLink>
+          <NavLink
+            className={activeLink ? "description" : "description-active"}
+            to="reviews"
+          >
+            Reviews
+          </NavLink>
+          <div></div>
+        </FlexContainerReviews>
+        <Outlet />
       </Container>
     </ProductItemWrapper>
   );
