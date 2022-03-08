@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Link,
   NavLink,
@@ -16,6 +16,7 @@ import {
   SectionWrapper,
 } from "../../reusable-styles/reusableStyle";
 import "./productPage.scss";
+import { Context } from "../../Context";
 
 const ProductItemWrapper = styled(SectionWrapper)`
   margin-bottom: 50px;
@@ -55,7 +56,10 @@ export default function ProductDetails() {
     } else {
       setActiveLink(true);
     }
-  });
+  }, [location.pathname]);
+
+  //!context
+  const [context, setContext] = useContext(Context);
 
   return (
     <ProductItemWrapper>
@@ -79,7 +83,7 @@ export default function ProductDetails() {
             className={activeLink ? "description" : "description-active"}
             to="reviews"
           >
-            Reviews
+            Reviews ({context.length})
           </NavLink>
           <div></div>
         </FlexContainerReviews>

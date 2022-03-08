@@ -44,6 +44,31 @@ export const Path = styled.div`
   }
 `;
 
+export const ProductQuantity = styled.div`
+  display: flex;
+  width: 100px;
+  height: 45px;
+  & > div:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    color: #333333;
+  }
+  & > div:last-child {
+    display: block;
+    & > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50%;
+    }
+  }
+  & > div {
+    width: 50%;
+  }
+`;
+
 // flex container
 
 export const FlexContainer = styled.div`

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import {
   Button,
@@ -7,30 +7,36 @@ import {
 } from "../../reusable-styles/reusableStyle";
 import { Review } from "./Review";
 import { Rating } from "@mui/material";
+import { Context } from "../../Context";
 
 const Reviews = styled.div`
   border: 1px solid #ebebeb;
   border-top: 0;
   padding: 25px 65px;
 `;
-const FlexContainerReviews = styled(FlexContainer)`
-  justify-content: space-between;
-`;
-
-const ReviewInputField = styled.div`
-  width: 60%;
+const NoReviewMessage = styled.div`
   font-weight: 600;
+  margin-bottom: 25px;
   & > p {
     color: #333333;
+    margin-bottom: 5px;
     span {
-      font-weight: 600;
       font-size: 16px;
     }
     &:nth-child(3) {
       color: #a7a7a7;
       font-size: 12px;
+      margin-bottom: 0;
     }
   }
+`;
+const FlexContainerReviews = styled(FlexContainer)`
+  justify-content: space-between;
+  flex-wrap: wrap;
+`;
+
+const ReviewInputField = styled.div`
+  width: 60%;
 
   textarea {
     width: 100%;
@@ -49,6 +55,10 @@ const ReviewInputField = styled.div`
 `;
 const UserNameInputField = styled.div`
   width: 36%;
+  // rating styling
+  & > span {
+    margin-bottom: 15px;
+  }
 `;
 const ReviewSubmitButton = styled(Button)`
   button {
@@ -57,7 +67,15 @@ const ReviewSubmitButton = styled(Button)`
   }
 `;
 const UserNameInput = styled(Input)`
+  margin-bottom: 20px;
   input {
+    padding: 10px 15px;
+    width: 100%;
+    color: #999999;
+    &::placeholder {
+      font-size: 13px;
+      color: #999999;
+    }
   }
 `;
 
@@ -67,10 +85,11 @@ export const ProductReviews = () => {
   const [reviewText, setReviewText] = useState("");
   const [reviewerName, setReviewerName] = useState("");
   const [reviewerEmail, setReviewerEmail] = useState("");
+  //! context
+  const [context, setContext] = useContext(Context);
 
   const onAddReview = (e) => {
     e.preventDefault();
-    console.log(e);
     // add reviews
     if (
       reviewerName.length &&
@@ -97,22 +116,32 @@ export const ProductReviews = () => {
     setReviewerEmail("");
   };
 
+  //!!set context after updating state for reviews( swap to redux)
+  useEffect(() => {
+    setContext(reviews);
+  }, [reviews]);
   return (
     <Reviews>
+      {!reviews.length && (
+        <NoReviewMessage>
+          <p>There are no review yet</p>
+          <p>
+            Be the first to review <span>{`"Shoe title"`}</span>
+          </p>
+          <p>
+            Your email address will not be published. Required fields are marked
+            *
+          </p>
+        </NoReviewMessage>
+      )}
+
       <form action="/">
         <FlexContainerReviews>
           <ReviewInputField>
-            <p>There are no review yet</p>
-            <p>
-              Be the first to review <span>“Fun night outfit”</span>
-            </p>
-            <p>
-              Your email address will not be published. Required fields are
-              marked *
-            </p>
             <textarea
               value={reviewText}
               name="textarea"
+              required
               id=""
               placeholder="Your Review ..."
               onChange={(e) => setReviewText(e.target.value)}
@@ -122,6 +151,7 @@ export const ProductReviews = () => {
             <UserNameInput>
               <input
                 value={reviewerName}
+                required
                 type="text"
                 name="name"
                 placeholder="Your Name ..."
@@ -135,6 +165,7 @@ export const ProductReviews = () => {
                 name="email"
                 placeholder="Your Email"
                 onChange={(e) => setReviewerEmail(e.target.value)}
+                required
               />
             </UserNameInput>
             <Rating
