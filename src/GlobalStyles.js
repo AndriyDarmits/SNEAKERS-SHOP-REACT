@@ -15,9 +15,10 @@ export const device = {
 export const color = {
   black: "#000000",
   white: "#000000",
-  greyDark: "#999999",
+  greyDark: "#666666",
   greyMedium: "#666666",
-  greyLight: "#333333",
+  greyLight: "#999999",
+  bordercolorGrey: "ebebebe",
 };
 
 export const GlobalStyles = createGlobalStyle`
@@ -45,5 +46,9 @@ p{
 }
 li{
     list-style: none;
+}
+#root{
+display:flex;
+flex-direction:column;
 }
 `;

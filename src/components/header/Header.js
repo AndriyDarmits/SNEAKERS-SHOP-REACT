@@ -1,66 +1,32 @@
-import React, { useEffect, useRef, useState } from "react";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import searchIcon from "../../assets/icons/header/Search.png";
 import accountIcon from "../../assets/icons/header/Acc.png";
 import cartIcon from "../../assets/icons/header/Cart.png";
 import { Container } from "../../reusable-styles/reusableStyle";
+import { FaAlignLeft } from "react-icons/fa";
+import { FaAlignRight } from "react-icons/fa";
+import {
+  BurgerBlock,
+  HeaderDiv,
+  Logo,
+  Navigation,
+  ScrollBar,
+  Wrapper,
+} from "./Header.style.js";
 
-export const Wrapper = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1000;
-  height: 80px;
-  background-color: #fff;
-`;
-export const HeaderDiv = styled.header`
-  display: flex;
-  align-items: center;
-  height: 80px;
-  justify-content: space-between;
-`;
-
-export const Navigation = styled.nav`
-  display: flex;
-  width: 70%;
-  justify-content: space-between;
-  .naLink {
-    width: 75%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 14px;
-  }
-
-  .navButton {
-    width: 25%;
-    display: flex;
-    justify-content: space-evenly;
-  }
-`;
-
-export const Logo = styled.div`
-  font-size: 30px;
-  line-height: 18px;
-  font-weight: 500;
-  a {
-    color: #000;
-  }
-`;
 // !uncompleted
 export const toggleActive = (active) => {
   return {
-    color: active ? "red" : "black",
+    transition: "transform 0.2s linear",
+    transform: active ? "scale(1.2)" : "",
+    color: active ? "#999999" : "",
   };
 };
 
 export default function Header() {
-  const [scrollTop, setScrollTop] = useState(0);
-
   // scroll bar
+  const [scrollTop, setScrollTop] = useState(0);
   const onScrollProgress = () => {
     const winScroll =
       document.body.scrollTop || document.documentElement.scrollTop;
@@ -71,9 +37,16 @@ export default function Header() {
     setScrollTop(scrolled);
   };
 
+  const [showOrCloseMenu, setShowOrCloseMenu] = useState(false);
   useEffect(() => {
     document.addEventListener("scroll", onScrollProgress);
   }, []);
+
+  // close menu after going to other page
+  const location = useLocation();
+  useEffect(() => {
+    setShowOrCloseMenu(false);
+  }, [location.pathname]);
 
   return (
     <Wrapper>
@@ -82,7 +55,7 @@ export default function Header() {
           <Logo>
             <NavLink to="/">FLOW</NavLink>
           </Logo>
-          <Navigation>
+          <Navigation showOrCloseMenu={showOrCloseMenu}>
             <div className="naLink">
               <NavLink to="/" style={({ isActive }) => toggleActive(isActive)}>
                 Home
@@ -127,30 +100,20 @@ export default function Header() {
               </NavLink>
             </div>
           </Navigation>
+          <BurgerBlock onClick={() => setShowOrCloseMenu(!showOrCloseMenu)}>
+            {showOrCloseMenu ? <FaAlignRight /> : <FaAlignLeft />}
+          </BurgerBlock>
         </HeaderDiv>
       </Container>
-      {/*scrollBar*/}
-      <div
-        style={{
-          height: "2px",
-          width: "100%",
-          position: "relative",
-        }}
-      >
+      <ScrollBar>
         <div
           style={{
-            content: "",
-            position: "absolute",
-            backgroundColor: "#ebebeb",
             width: `${scrollTop}%`,
-            height: "100%",
-            top: 0,
-            left: 0,
-            borderBottomRightRadius: "5px",
-            borderTopRightRadius: "5px",
           }}
-        ></div>
-      </div>
+        >
+          {/*scroll bar*/}
+        </div>
+      </ScrollBar>
     </Wrapper>
   );
 }
