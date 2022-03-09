@@ -122,19 +122,6 @@ export const ProductReviews = () => {
   }, [reviews]);
   return (
     <Reviews>
-      {!reviews.length && (
-        <NoReviewMessage>
-          <p>There are no review yet</p>
-          <p>
-            Be the first to review <span>{`"Shoe title"`}</span>
-          </p>
-          <p>
-            Your email address will not be published. Required fields are marked
-            *
-          </p>
-        </NoReviewMessage>
-      )}
-
       <form action="/">
         <FlexContainerReviews>
           <ReviewInputField>
@@ -183,9 +170,20 @@ export const ProductReviews = () => {
           </UserNameInputField>
         </FlexContainerReviews>
       </form>
-      {reviews.map((review) => (
-        <Review review={review} />
-      ))}
+      {reviews.length ? (
+        reviews.map((review) => <Review review={review} />)
+      ) : (
+        <NoReviewMessage>
+          <p>There are no review yet</p>
+          <p>
+            Be the first to review <span>{`"Shoe title"`}</span>
+          </p>
+          <p>
+            Your email address will not be published. Required fields are marked
+            *
+          </p>
+        </NoReviewMessage>
+      )}
     </Reviews>
   );
 };

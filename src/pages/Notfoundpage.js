@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { SectionWrapper } from "../reusable-styles/reusableStyle";
-import notFoundBackground from "../assets/img/404.png";
+import errorStatusImg from "../assets/img/notFound/404.png";
 import Header from "../components/header/Header";
 const NotFoundWrapper = styled(SectionWrapper)`
-  background: linear-gradient(90deg, rgb(238, 190, 228), rgb(210, 245, 249));
+  background: linear-gradient(90deg, rgb(238, 190, 228), rgb(210, 245, 249))
+    center no-repeat;
+
   margin-bottom: 0;
   margin-top: 90px;
   height: calc(100vh - 90px);
@@ -27,7 +29,7 @@ export default function Notfoundpage() {
       <Header />
       <NotFoundWrapper>
         <ErrorStatus>
-          <img src={notFoundBackground} alt="" />
+          <img src={errorStatusImg} alt="" />
         </ErrorStatus>
       </NotFoundWrapper>
     </>

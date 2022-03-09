@@ -19,7 +19,7 @@ export const Button = styled.div`
   button {
     border: 0;
     padding: 15px 35px;
-    background-color: ${backgrounds.grey};
+    background-color: #333333;
     border-radius: 30px;
     transition: all 0.1s linear;
     &:hover {
@@ -44,6 +44,13 @@ export const Path = styled.div`
   }
 `;
 
+// flex container
+
+export const FlexContainer = styled.div`
+  display: flex;
+`;
+
+// incrementing/ decrementing products quantity box
 export const ProductQuantity = styled.div`
   display: flex;
   width: 100px;
@@ -68,11 +75,3 @@ export const ProductQuantity = styled.div`
     width: 50%;
   }
 `;
-
-// flex container
-
-export const FlexContainer = styled.div`
-  display: flex;
-`;
-
-// incrementing/ decrementing products quantity box

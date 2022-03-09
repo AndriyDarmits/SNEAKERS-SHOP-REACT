@@ -10,6 +10,49 @@ import {
   SectionWrapper,
 } from "../reusable-styles/reusableStyle";
 
+const CartWrapper = styled(SectionWrapper)`
+  background-color: #f8f8f8;
+`;
+const CartHeader = styled.div`
+  display: flex;
+  background-color: #333333;
+  & > div {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #fff;
+    font-size: 14px;
+    line-height: 30px;
+  }
+  & > div:nth-of-type(1) {
+    width: 5.5%;
+  }
+  & > div:nth-of-type(2) {
+    width: 11.5%;
+  }
+  & > div:nth-of-type(3) {
+    width: 35%;
+  }
+  & > div:nth-of-type(4) {
+    width: 17%;
+  }
+  & > div:nth-of-type(5) {
+    width: 15.5%;
+  }
+`;
+const CartList = styled.ul`
+  margin-bottom: 30px;
+`;
+const ApplyCoupon = styled.div`
+  margin-bottom: 5rem;
+  display: flex;
+  align-items: center;
+`;
+const CheckOut = styled(Button)`
+  button {
+    color: #fff;
+  }
+`;
+
 export default function CartPage() {
   const [cartItems, setCartItems] = useState([
     {
@@ -56,49 +99,7 @@ export default function CartPage() {
     },
   ]);
 
-  const CartWrapper = styled(SectionWrapper)`
-    background-color: #f8f8f8;
-  `;
-  const CartHeader = styled.div`
-    display: flex;
-    background-color: #333333;
-    & > div {
-      text-transform: uppercase;
-      font-weight: 600;
-      color: #fff;
-      font-size: 14px;
-      line-height: 30px;
-    }
-    & > div:nth-of-type(1) {
-      width: 5.5%;
-    }
-    & > div:nth-of-type(2) {
-      width: 11.5%;
-    }
-    & > div:nth-of-type(3) {
-      width: 35%;
-    }
-    & > div:nth-of-type(4) {
-      width: 17%;
-    }
-    & > div:nth-of-type(5) {
-      width: 15.5%;
-    }
-  `;
-  const CartList = styled.ul`
-    margin-bottom: 30px;
-  `;
-  const ApplyCoupon = styled.div`
-    margin-bottom: 5rem;
-    display: flex;
-    align-items: center;
-  `;
-  const CheckOut = styled(Button)`
-    button {
-      color: #fff;
-    }
-  `;
-  // temp
+  // !temp
   const onDeleteItem = (productToDelete) => {
     let prom = new Promise((resolve, reject) => {
       const filteredList = cartItems.filter(
