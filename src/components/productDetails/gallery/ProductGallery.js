@@ -1,62 +1,67 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import { useParams } from "react-router-dom";
+import {
+  BigProductImage,
+  InlineBlockContainer,
+  SmallProductImage,
+} from "./ProductGallery.style";
 import SmallImage from "./SmallImage";
 
-const InlineBlockContainer = styled.div`
-  display: inline-block;
-  width: 49%;
-`;
-const BigProductImage = styled.div`
-  width: 100%;
-  img {
-    max-width: 470px;
-    width: 100%;
-  }
-`;
-const SmallProductImage = styled.div`
-  display: flex;
-  justify-content: space-between;
-
-  & > div {
-    img {
-      max-width: 150px;
-      width: 100%;
-    }
-  }
-`;
-
 export default function ProductGallery() {
-  const [gallery, setGallery] = useState([
-    "https://images.stockx.com/images/Converse-Chuck-Taylor-All-Star-Pokemon-Poke-Ball.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1641606351",
-    "https://images.stockx.com/images/Converse-Chuck-Taylor-All-Star-Pokemon-Jigglypuff-TD.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1641606350",
-    "https://images.stockx.com/images/Air-Jordan-1-Retro-High-OG-Stage-Haze.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1641324076",
-  ]);
+  // використаємо параметр, щоб потім відфільтрувати дані
+  const { id } = useParams();
+  console.log(id);
 
-  const [activeImg, setActiveImg] = useState(gallery[0]);
+  const [gallery, setGallery] = useState([]);
+  const [activeImg, setActiveImg] = useState();
+  const [activeIndex, setActiveIndex] = useState(0);
+  useEffect(() => {
+    fetch("https://mocki.io/v1/cae53e84-6d5d-4be6-95d8-dcb6f5f556de").then(
+      (response) => {
+        response.json().then((data) => {
+          setTimeout(() => {
+            setActiveImg(data.images[0]);
+            setGallery(data.images);
+            setActiveIndex(0);
+          }, 1500);
+        });
+      }
+    );
+  }, []);
+
   const onChangePicture = (index) => {
     setActiveImg(gallery[index]);
   };
 
-  const [activeIndex, setActiveIndex] = useState(0);
   useEffect(() => {
     setActiveIndex(gallery.findIndex((el) => el === activeImg));
   }, [activeImg]);
 
   return (
-    <InlineBlockContainer>
-      <BigProductImage>
-        <img src={activeImg} alt="" />
-      </BigProductImage>
-      <SmallProductImage>
-        {gallery.map((image, index) => (
-          <SmallImage
-            index={index}
-            image={image}
-            activeIndex={activeIndex}
-            onChangePicture={() => onChangePicture(index)}
-          />
-        ))}
-      </SmallProductImage>
+    <InlineBlockContainer
+      style={{
+        backgroundColor: !gallery.length ? "#999999" : "",
+      }}
+    >
+      {gallery.length ? (
+        <>
+          <BigProductImage>
+            <img src={activeImg} alt="" />
+          </BigProductImage>
+          <SmallProductImage>
+            {gallery.map((image, index) => (
+              <SmallImage
+                index={index}
+                image={image}
+                activeIndex={activeIndex}
+                onChangePicture={() => onChangePicture(index)}
+              />
+            ))}
+          </SmallProductImage>
+        </>
+      ) : (
+        "Loading..."
+      )}
     </InlineBlockContainer>
   );
 }

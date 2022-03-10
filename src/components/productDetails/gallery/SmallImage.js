@@ -10,7 +10,7 @@ export default function SmallImage(props) {
         transition: "all 0.1s linear",
         border:
           props.index === props.activeIndex
-            ? "2px solid red"
+            ? "2px solid #666666"
             : "2px solid #ebebeb",
       }}
       onClick={() => changePicture(props.index)}
