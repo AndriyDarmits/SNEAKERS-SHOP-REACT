@@ -29,7 +29,7 @@ export const Button = styled.div`
 `;
 
 export const SectionWrapper = styled.section`
-  margin-top: 180px;
+  margin-top: 82px;
   margin-bottom: 90px;
 `;
 export const Path = styled.div`

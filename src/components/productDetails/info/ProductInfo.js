@@ -1,6 +1,5 @@
 import { Rating } from "@mui/material";
 import React, { useEffect, useState } from "react";
-
 import { ProductQuantity } from "../../../reusable-styles/reusableStyle";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";

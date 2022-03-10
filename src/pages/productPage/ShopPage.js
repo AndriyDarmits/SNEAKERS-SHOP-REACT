@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-
 export default function ShopPage() {
   const [data, setData] = useState({});
   useEffect(() => {
@@ -12,13 +11,16 @@ export default function ShopPage() {
       }
     );
   }, []);
+
   return (
-    <div
-      style={{
-        marginTop: "200px",
-      }}
-    >
-      <NavLink to={`/products/${data.id}`}>Details</NavLink>
-    </div>
+    <>
+      <div
+        style={{
+          marginTop: "200px",
+        }}
+      >
+        <NavLink to={`/products/${data.id}`}>Details</NavLink>
+      </div>
+    </>
   );
 }

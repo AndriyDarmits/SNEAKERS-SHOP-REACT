@@ -2,7 +2,7 @@ import "./App.scss";
 import React, { useEffect, useState } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Layout from "./pages/Layout";
-import Homepage from "./pages/Homepage";
+import Homepage from "./pages/home/Homepage";
 import ShopPage from "./pages/productPage/ShopPage";
 import BlogPage from "./pages/BlogPage";
 import LookBookPage from "./pages/LookBookPage";
@@ -14,7 +14,6 @@ import ProductDetails from "./pages/productPage/ProductDetails";
 import { GlobalStyles } from "./GlobalStyles";
 import { ProductDescription } from "./components/productDetails/ProductDescription";
 import { ProductReviews } from "./components/productDetails/ProductReviews";
-import { TabsContext } from "@mui/base";
 import { Context } from "./Context";
 
 function App() {
