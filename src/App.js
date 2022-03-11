@@ -9,18 +9,16 @@ import LookBookPage from "./pages/LookBookPage";
 import SearchPage from "./pages/SearchPage";
 import AccountPage from "./pages/AccountPage";
 import CartPage from "./pages/CartPage";
-import Notfoundpage from "./pages/Notfoundpage";
 import ProductDetails from "./pages/productPage/ProductDetails";
 import { GlobalStyles } from "./GlobalStyles";
 import { ProductDescription } from "./components/productDetails/ProductDescription";
 import { ProductReviews } from "./components/productDetails/ProductReviews";
 import { Context } from "./Context";
+import Notfoundpage from "./pages/notfound/Notfoundpage";
 
 function App() {
   // туво буде спливаюче вікно
-  useEffect(() => {
-    console.log("[tkjj");
-  }, []);
+  useEffect(() => {}, []);
   //! context
   const [context, setContext] = useState(0);
   return (

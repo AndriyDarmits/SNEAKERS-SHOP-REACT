@@ -5,7 +5,7 @@ export const SliderContainer = styled(Container)`
   max-width: 1750px;
 `;
 export const SliderItem = styled.div`
-  height: 50vh;
+  height: 75vh;
   border-radius: 5px;
 `;
 
