@@ -11,7 +11,7 @@ import phone from "../../assets/icons/footer/phone.png";
 import scedule from "../../assets/icons/footer/scedule.png";
 import emailBtn from "../../assets/icons/footer/emailBtn.png";
 import { Link, useLocation } from "react-router-dom";
-import { Logo } from "../header/Header.style";
+
 import {
   Col1,
   Col2,
@@ -74,14 +74,11 @@ export default function Footer() {
             <p>
               <Link to="/products">- Our Products</Link>
             </p>
-            <p>
-              <Link to="/brands">- Popular brands</Link>
-            </p>
             <p onClick={scrollUp}>
-              <Link to="/Blog">- Blog</Link>
+              <Link to="/blog">- Blog</Link>
             </p>
             <p>
-              <Link to="/team">- Team</Link>
+              <Link to="/contactUs">- Contact us</Link>
             </p>
           </Col2>
           <Col3>

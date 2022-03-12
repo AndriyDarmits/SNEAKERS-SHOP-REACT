@@ -8,6 +8,7 @@ export default function SmallImage(props) {
     <div
       style={{
         transition: "all 0.1s linear",
+        /* якщо індекси збігаються, малюємо рамку */
         border:
           props.index === props.activeIndex
             ? "2px solid #666666"

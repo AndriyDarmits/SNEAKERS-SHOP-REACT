@@ -43,7 +43,9 @@ const FlexContainerReviews = styled(FlexContainer)`
     border-bottom: 1px solid #ebebeb;
   }
 `;
-
+const PathProductDetails = styled(Path)`
+  margin-bottom: 40px;
+`;
 export default function ProductDetails() {
   const location = useLocation();
   let { id } = useParams();
@@ -64,10 +66,10 @@ export default function ProductDetails() {
   return (
     <ProductItemWrapper>
       <Container>
-        <Path>
+        <PathProductDetails>
           <Link to="/">Home</Link> / <Link to="/shop">Shop</Link> /{" "}
           <span>{/* product name */}</span>
-        </Path>
+        </PathProductDetails>
         <FlexContainerInfo>
           <ProductGallery />
           <ProductInfo />

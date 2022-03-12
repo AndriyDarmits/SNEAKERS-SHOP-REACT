@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { Logo } from "../header/Header.style";
 export const FooterSection = styled.section`
   background-color: #333333;
-  padding-top: 68px;
-  padding-bottom: 110px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 
   @media (max-width: 768px) {
     padding-top: 30px;

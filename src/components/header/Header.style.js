@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   right: 0;
   bottom: 0;
   z-index: 1000;
-  height: 80px;
+  height: 82px;
   background-color: #fff;
 `;
 export const HeaderDiv = styled.header`
@@ -93,6 +93,8 @@ export const Navigation = styled.nav`
     background-color: #ebebeb;
     width: 100%;
     height: 100vh;
+    overflow: hidden;
+    touch-action: none;
     transition: left 0.5s linear;
     z-index: 1000;
   }

@@ -24,7 +24,7 @@ export default function Notfoundpage() {
           <h1>Opps !</h1>
           <p>We can’t seem to find the page you’r looking for !</p>
           <NotFoundPageBtn>
-            <button onClick={() => navigate("products")}>
+            <button onClick={() => navigate("/", { replace: true })}>
               Back to homepage
             </button>
           </NotFoundPageBtn>
