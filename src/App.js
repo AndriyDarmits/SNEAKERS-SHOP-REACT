@@ -4,17 +4,17 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Homepage from "./pages/home/Homepage";
 import ShopPage from "./pages/productPage/ShopPage";
-import BlogPage from "./pages/BlogPage";
 import LookBookPage from "./pages/LookBookPage";
 import SearchPage from "./pages/SearchPage";
 import AccountPage from "./pages/AccountPage";
-import CartPage from "./pages/CartPage";
 import ProductDetails from "./pages/productPage/ProductDetails";
+import CartPage from "./pages/cart/CartPage";
 import { GlobalStyles } from "./GlobalStyles";
 import { ProductDescription } from "./components/productDetails/ProductDescription";
 import { ProductReviews } from "./components/productDetails/ProductReviews";
 import { Context } from "./Context";
 import Notfoundpage from "./pages/notfound/Notfoundpage";
+import BlogPage from "./pages/blog/BlogPage";
 
 function App() {
   // туво буде спливаюче вікно
