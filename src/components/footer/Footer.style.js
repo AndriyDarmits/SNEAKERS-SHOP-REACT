@@ -1,8 +1,30 @@
 import styled from "styled-components";
 import { Logo } from "../header/Header.style";
+export const FooterSection = styled.section`
+  background-color: #333333;
+  padding-top: 68px;
+  padding-bottom: 110px;
+
+  @media (max-width: 768px) {
+    padding-top: 30px;
+    padding-bottom: 55px;
+  }
+`;
+export const FooterFlexBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
 
 export const Col1 = styled.div`
   width: 32%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
   p {
     font-size: 14px;
     line-height: 24px;
@@ -27,7 +49,10 @@ export const SocialIcons = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-
+  @media (max-width: 768px) {
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+  }
   a {
     display: flex;
     justify-content: center;
@@ -70,13 +95,13 @@ export const LogoFooter = styled(Logo)`
     color: #fff;
   }
 `;
-export const FooterFlexBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
 
 export const Col2 = styled.div`
   width: 32%;
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
   h3 {
     font-size: 20px;
     line-height: 24px;
@@ -100,6 +125,9 @@ export const Col2 = styled.div`
 
 export const Col3 = styled.div`
   width: 32%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
   h3 {
     font-size: 20px;
     line-height: 24px;
@@ -135,6 +163,13 @@ export const EmailForm = styled.div`
       padding: 10px 0 10px 40px;
       display: flex;
       align-items: center;
+
+      @media (max-width: 768px) {
+        width: 350px;
+      }
+      @media (max-width: 375px) {
+        width: 100%;
+      }
 
       input {
         width: 80%;

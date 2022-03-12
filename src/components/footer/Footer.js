@@ -18,6 +18,7 @@ import {
   Col3,
   EmailForm,
   FooterFlexBox,
+  FooterSection,
   LogoFooter,
   SocialIcons,
 } from "../footer/Footer.style";
@@ -33,13 +34,7 @@ export default function Footer() {
     }, 300);
   };
   return (
-    <section
-      style={{
-        backgroundColor: "#333333",
-        paddingTop: "68px",
-        paddingBottom: "110px",
-      }}
-    >
+    <FooterSection>
       <Container>
         <FooterFlexBox>
           <Col1>
@@ -133,6 +128,6 @@ export default function Footer() {
           </Col3>
         </FooterFlexBox>
       </Container>
-    </section>
+    </FooterSection>
   );
 }
