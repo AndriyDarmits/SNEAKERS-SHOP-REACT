@@ -15,7 +15,6 @@ import {
   Wrapper,
 } from "./Header.style.js";
 
-// !uncompleted
 export const toggleActive = (active) => {
   return {
     transition: "transform 0.2s linear",
@@ -36,7 +35,7 @@ export default function Header() {
     const scrolled = (winScroll / height) * 100;
     setScrollTop(scrolled);
   };
-
+  // show or close menu
   const [showOrCloseMenu, setShowOrCloseMenu] = useState(false);
   useEffect(() => {
     document.addEventListener("scroll", onScrollProgress);
