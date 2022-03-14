@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../redux/actions/index";
-import { store } from "../../redux/reducers/store";
 export default function ShopPage() {
-  const [data, setData] = useState([]);
   const dispatch = useDispatch();
   const reduxStore = useSelector((state) => state);
   const { products } = reduxStore;
@@ -13,11 +11,21 @@ export default function ShopPage() {
       (response) => {
         response.json().then((data) => {
           const addedReviewsProperty = data.map((el) => {
-            el.reviews = "";
+            //initial rate, avaliable in wishlist, product reviews
+            el.rate = 0;
+            el.isInWishList = false;
+            el.reviews = [
+              {
+                rate: null,
+                reviewText: "",
+                name: "",
+                email: "",
+              },
+            ];
             return el;
           });
+          // dispatch data to redux store
           dispatch(actions.setProductFromApi(addedReviewsProperty));
-          setData(addedReviewsProperty);
         });
       }
     );

@@ -61,7 +61,7 @@ export default function ProductDetails() {
           </NavLink>
           <div></div>
         </FlexContainerReviews>
-        <Outlet /> {"block to display"}
+        <Outlet /> {/*"block to display"  */}
       </Container>
     </ProductItemWrapper>
   );

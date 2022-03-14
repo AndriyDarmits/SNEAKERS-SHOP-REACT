@@ -6,7 +6,6 @@ import {
   SmallProductImage,
 } from "./ProductGallery.style";
 import SmallImage from "./SmallImage";
-
 export default function ProductGallery() {
   // використаємо параметр, щоб потім відфільтрувати дані
   const { id } = useParams();

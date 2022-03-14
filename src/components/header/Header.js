@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import searchIcon from "../../assets/icons/header/Search.png";
 import accountIcon from "../../assets/icons/header/Acc.png";
 import cartIcon from "../../assets/icons/header/Cart.png";
 import { Container } from "../../reusable-styles/reusableStyle";
-import { FaAlignLeft } from "react-icons/fa";
-import { FaAlignRight } from "react-icons/fa";
+import { FaAlignLeft, FaAlignRight } from "react-icons/fa";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import {
   BurgerBlock,
   HeaderDiv,
@@ -81,6 +82,9 @@ export default function Header() {
 
             <div className="navButton">
               {/* no ideas */}
+              <Link to="/wishlist">
+                <FavoriteBorderIcon />
+              </Link>
               <NavLink to="/search">
                 <img src={searchIcon} alt="" />
               </NavLink>

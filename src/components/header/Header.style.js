@@ -29,6 +29,7 @@ export const Navigation = styled.nav`
   display: flex;
   width: 70%;
   justify-content: space-between;
+  align-items: center;
   .naLink {
     width: 75%;
     display: flex;
@@ -39,6 +40,7 @@ export const Navigation = styled.nav`
       display: block;
       color: #333333;
     }
+
     @media (max-width: 768px) {
       display: block;
       width: 100%;
@@ -62,9 +64,17 @@ export const Navigation = styled.nav`
     width: 25%;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     a {
       display: block;
+      svg {
+        display: block;
+      }
+      img {
+        display: block;
+      }
     }
+
     @media (max-width: 768px) {
       display: block;
       width: 100%;
@@ -107,7 +117,7 @@ export const ScrollBar = styled.div`
   & > div {
     content: "";
     position: absolute;
-    background-color: #ebebeb;
+    background-color: #444444;
     height: 100%;
     top: 0;
     left: 0;
