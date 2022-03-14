@@ -13,6 +13,9 @@ const Reviews = styled.div`
   border: 1px solid #ebebeb;
   border-top: 0;
   padding: 25px 65px;
+  @media (max-width: 768px) {
+    padding: 15px 35px;
+  }
 `;
 const NoReviewMessage = styled.div`
   font-weight: 600;
@@ -33,11 +36,16 @@ const NoReviewMessage = styled.div`
 const FlexContainerReviews = styled(FlexContainer)`
   justify-content: space-between;
   flex-wrap: wrap;
+  @media (max-width: 768px) {
+    display: block;
+  }
 `;
 
 const ReviewInputField = styled.div`
   width: 60%;
-
+  @media (max-width: 768px) {
+    width: 100%;
+  }
   textarea {
     width: 100%;
     resize: none;
@@ -55,6 +63,10 @@ const ReviewInputField = styled.div`
 `;
 const UserNameInputField = styled.div`
   width: 36%;
+  @media (max-width: 768px) {
+    width: 60%;
+    margin-bottom: 10px;
+  }
   // rating styling
   & > span {
     margin-bottom: 15px;
@@ -68,6 +80,9 @@ const ReviewSubmitButton = styled(Button)`
 `;
 const UserNameInput = styled(Input)`
   margin-bottom: 20px;
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
   input {
     padding: 10px 15px;
     width: 100%;

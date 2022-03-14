@@ -3,6 +3,9 @@ import { Button, FlexContainer } from "../../../reusable-styles/reusableStyle";
 
 export const InfoContainer = styled.div`
   width: 49%;
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `;
 export const ProductContent = styled.div`
   h2 {
@@ -11,6 +14,9 @@ export const ProductContent = styled.div`
     margin-bottom: 20px;
     text-transform: uppercase;
     font-weight: 600;
+    @media (max-width: 1024px) {
+      margin-top: 20px;
+    }
   }
 
   & > p {

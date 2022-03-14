@@ -12,6 +12,10 @@ export const ProductItemWrapper = styled(SectionWrapper)`
 export const FlexContainerInfo = styled(FlexContainer)`
   justify-content: space-between;
   margin-bottom: 50px;
+
+  @media (max-width: 1024px) {
+    display: block;
+  }
 `;
 
 export const FlexContainerReviews = styled(FlexContainer)`
@@ -24,6 +28,10 @@ export const FlexContainerReviews = styled(FlexContainer)`
     font-size: 18px;
     display: block;
     padding: 15px 50px;
+    @media (max-width: 768px) {
+      font-size: 16px;
+      padding: 10px 20px;
+    }
   }
   div {
     flex: auto;

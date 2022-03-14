@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { getDataFromLocalStorage, setToLacalStorage } from "../../../helper";
 import {
   BigProductImage,
   InlineBlockContainer,
@@ -7,6 +9,9 @@ import {
 } from "./ProductGallery.style";
 import SmallImage from "./SmallImage";
 export default function ProductGallery() {
+  // get data from redux store
+  const reduxStore = useSelector((state) => state);
+  const { products } = reduxStore;
   // використаємо параметр, щоб потім відфільтрувати дані
   const { id } = useParams();
   console.log(id);
@@ -15,18 +20,19 @@ export default function ProductGallery() {
   const [activeImg, setActiveImg] = useState();
   const [activeIndex, setActiveIndex] = useState(0);
   //! тимчасово, в майбутньому дані будуть приходити через пропс ( а може і нє)
+
   useEffect(() => {
-    fetch("https://mocki.io/v1/cae53e84-6d5d-4be6-95d8-dcb6f5f556de").then(
-      (response) => {
-        response.json().then((data) => {
-          setTimeout(() => {
-            setActiveImg(data.images[0]);
-            setGallery(data.images);
-            setActiveIndex(0);
-          }, 1500);
-        });
-      }
-    );
+    const product = products.filter((product) => product.id === id);
+    if (product.length) {
+      setToLacalStorage("product", ...product);
+    }
+    setTimeout(() => {
+      const data = getDataFromLocalStorage("product");
+      console.log(data);
+      setActiveImg(data.images[0]);
+      setGallery(data.images);
+      setActiveIndex(0);
+    }, 1500);
   }, []);
 
   const onChangePicture = (index) => {

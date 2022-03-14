@@ -39,7 +39,7 @@ export default function ProductDetails() {
     <ProductItemWrapper>
       <Container>
         <PathProductDetails>
-          <Link to="/">Home</Link> / <Link to="/shop">Shop</Link> /{" "}
+          <Link to="/">Home</Link> / <Link to="/products">Shop</Link> /{" "}
           <span>{/* product name */}</span>
         </PathProductDetails>
         <FlexContainerInfo>

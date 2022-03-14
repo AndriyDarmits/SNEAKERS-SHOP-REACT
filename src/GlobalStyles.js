@@ -2,14 +2,14 @@ import { createGlobalStyle } from "styled-components";
 import "./assets/fonts/fonts.css";
 
 export const breakpoint = {
-  mobileS: "374px",
-  mobile: "767px",
-  tablet: "1024px",
+  mobileM: "374px",
+  tablet: "767px",
+  laptop: "1024px",
 };
 export const device = {
-  mobileS: `max-width: ${breakpoint.mobileS}`,
-  mobile: `max-width: ${breakpoint.mobile}`,
-  tablet: `max-width: ${breakpoint.tablet}`,
+  mobileS: `max-width: ${breakpoint.mobileM}`,
+  mobile: `max-width: ${breakpoint.tablet}`,
+  tablet: `max-width: ${breakpoint.laptop}`,
 };
 
 export const color = {
@@ -50,5 +50,6 @@ li{
 #root{
 display:flex;
 flex-direction:column;
+overflow:hidden;
 }
 `;
