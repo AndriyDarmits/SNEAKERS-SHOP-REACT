@@ -6,46 +6,18 @@ import {
   useLocation,
   useParams,
 } from "react-router-dom";
-import styled from "styled-components";
 import ProductInfo from "../../components/productDetails/info/ProductInfo";
 import ProductGallery from "../../components/productDetails/gallery/ProductGallery";
-import {
-  Container,
-  FlexContainer,
-  Path,
-  SectionWrapper,
-} from "../../reusable-styles/reusableStyle";
+import { Container } from "../../reusable-styles/reusableStyle";
 import "./productPage.scss";
 import { Context } from "../../Context";
+import {
+  FlexContainerInfo,
+  FlexContainerReviews,
+  PathProductDetails,
+  ProductItemWrapper,
+} from "./ProductDetails.style";
 
-const ProductItemWrapper = styled(SectionWrapper)`
-  margin-bottom: 50px;
-  margin-top: 122px;
-`;
-const FlexContainerInfo = styled(FlexContainer)`
-  justify-content: space-between;
-  margin-bottom: 50px;
-`;
-
-const FlexContainerReviews = styled(FlexContainer)`
-  text-transform: uppercase;
-  font-size: 15px;
-
-  & > a {
-    color: #666666;
-    font-weight: 600;
-    font-size: 18px;
-    display: block;
-    padding: 15px 50px;
-  }
-  div {
-    flex: auto;
-    border-bottom: 1px solid #ebebeb;
-  }
-`;
-const PathProductDetails = styled(Path)`
-  margin-bottom: 40px;
-`;
 export default function ProductDetails() {
   const location = useLocation();
   let { id } = useParams();
