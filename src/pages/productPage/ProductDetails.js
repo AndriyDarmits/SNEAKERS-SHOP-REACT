@@ -17,6 +17,8 @@ import {
   PathProductDetails,
   ProductItemWrapper,
 } from "./ProductDetails.style";
+import { useSelector } from "react-redux";
+import { setToLacalStorage } from "../../helper";
 
 export default function ProductDetails() {
   const location = useLocation();
@@ -32,6 +34,27 @@ export default function ProductDetails() {
     }
   }, [location.pathname]);
 
+  //TODO:
+  const reduxStore = useSelector((state) => state);
+  const { products } = reduxStore;
+  // set data to setToLacalStorage from redux store
+  useEffect(() => {
+    const product = products.filter((product) => product.id === id);
+    if (product.length) {
+      setToLacalStorage("product", ...product);
+    }
+    console.log("full page rendered");
+  }, [products]);
+
+  // scroll up after page loading
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }, 300);
+  }, []);
   //!context
   const [context, setContext] = useContext(Context);
 
@@ -57,7 +80,7 @@ export default function ProductDetails() {
             className={activeLink ? "description" : "description-active"}
             to="reviews"
           >
-            Reviews ({context.length})
+            Reviews ({context.length || "0"})
           </NavLink>
           <div></div>
         </FlexContainerReviews>

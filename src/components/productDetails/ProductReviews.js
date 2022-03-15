@@ -8,6 +8,9 @@ import {
 import { Review } from "./Review";
 import { Rating } from "@mui/material";
 import { Context } from "../../Context";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { getDataFromLocalStorage } from "../../helper";
 
 const Reviews = styled.div`
   border: 1px solid #ebebeb;
@@ -96,12 +99,27 @@ const UserNameInput = styled(Input)`
 
 export const ProductReviews = () => {
   const [formRateValue, setFormRateValue] = useState(0);
-  const [reviews, addReview] = useState([]);
+  const [reviews, addReview] = useState([]); // TODO: will be using redux
   const [reviewText, setReviewText] = useState("");
   const [reviewerName, setReviewerName] = useState("");
   const [reviewerEmail, setReviewerEmail] = useState("");
   //! context
   const [context, setContext] = useContext(Context);
+
+  //getting data from redux
+  let { id } = useParams();
+
+  const reduxStore = useSelector((state) => state);
+  const { products } = reduxStore;
+  //TODO:
+  const [reviewsData, setReviewsData] = useState({});
+  useEffect(() => {
+    if (products.length) {
+      setReviewsData(...products.filter((product) => product.id === id));
+    } else {
+      setReviewsData(getDataFromLocalStorage("product"));
+    }
+  }, [products]);
 
   const onAddReview = (e) => {
     e.preventDefault();
@@ -112,6 +130,7 @@ export const ProductReviews = () => {
       reviewText.length &&
       formRateValue
     ) {
+      //TODO: замінити на редакс
       addReview([
         ...reviews,
         {

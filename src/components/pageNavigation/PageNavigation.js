@@ -18,7 +18,7 @@ export default function PageNavigation() {
   useEffect(() => {
     setPath((p) =>
       location.pathname === "/products"
-        ? "Shop"
+        ? "Products"
         : location.pathname === "/blog"
         ? "Blog"
         : location.pathname === "/lookbook"

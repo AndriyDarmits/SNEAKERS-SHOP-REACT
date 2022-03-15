@@ -36,10 +36,11 @@ export default function Header() {
     const scrolled = (winScroll / height) * 100;
     setScrollTop(scrolled);
   };
-  // show or close menu
+  // fire event when scrolling
   const [showOrCloseMenu, setShowOrCloseMenu] = useState(false);
   useEffect(() => {
     document.addEventListener("scroll", onScrollProgress);
+    return () => document.removeEventListener("scroll", onScrollProgress);
   }, []);
 
   // close menu after going to other page

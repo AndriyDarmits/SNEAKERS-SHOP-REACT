@@ -5,3 +5,10 @@ export const setProductFromApi = (products) => {
     payload: { products },
   };
 };
+
+export const updateProducts = (product) => {
+  return {
+    type: actions.UPDATE_PRODUCTS_FROM_API,
+    payload: { product },
+  };
+};

@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { getDataFromLocalStorage } from "../../helper";
 
 const DescriptionContainer = styled.div`
   color: #666666;
@@ -32,20 +35,26 @@ const DescriptionContainer = styled.div`
 `;
 
 export const ProductDescription = () => {
+  let { id } = useParams();
+
+  const reduxStore = useSelector((state) => state);
+  const { products } = reduxStore;
+  //TODO
+  const [descriptionData, setDescriptionData] = useState({});
+  useEffect(() => {
+    if (products.length) {
+      setDescriptionData(...products.filter((product) => product.id === id));
+    } else {
+      setDescriptionData(getDataFromLocalStorage("product"));
+    }
+  }, [products]);
+
   return (
     <DescriptionContainer>
-      <p>
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
-        illo al bigth inventore veritatis et quasi architecto beatae vitae dicta
-        sunt explicabo.
-      </p>
+      <p>{descriptionData.description}</p>
       <ul>
         <li>
           <span>Material </span>: 100 % cotton
-        </li>
-        <li>
-          <span>Length</span>: 90cm
         </li>
         <li>
           <span>Guarantee</span> : 3 months

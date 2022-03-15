@@ -17,8 +17,36 @@ import { Context } from "./Context";
 import Notfoundpage from "./pages/notfound/Notfoundpage";
 import BlogPage from "./pages/blog/BlogPage";
 import { Layout2 } from "./pages/Layout2";
+import { fetchData } from "./helper";
+import { useDispatch } from "react-redux";
+import actions from "./redux/actions/index";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetchData("https://mocki.io/v1/7d2ddf44-4043-4d06-adf6-7789bfecefae").then(
+      (data) => {
+        const additionalPropertyAdded = data.map((el) => {
+          //initial rate, avaliable in wishlist, product reviews
+          el.rate = 0;
+          el.isInWishList = false;
+          el.isInShoppingCart = false;
+          el.reviews = [
+            /*   {
+              rate: null,
+              reviewText: "",
+              name: "",
+              email: "",
+            }, */
+          ];
+          return el;
+        });
+        // dispatch data to redux store
+        dispatch(actions.setProductFromApi(additionalPropertyAdded));
+      }
+    );
+  }, []);
   // туво буде спливаюче вікно
   useEffect(() => {}, []);
   //! context
