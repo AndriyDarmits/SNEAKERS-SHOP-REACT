@@ -8,6 +8,7 @@ import {
   SmallProductImage,
 } from "./ProductGallery.style";
 import SmallImage from "./SmallImage";
+
 export default function ProductGallery() {
   // get data from redux store
   const reduxStore = useSelector((state) => state);
@@ -19,26 +20,22 @@ export default function ProductGallery() {
   const [gallery, setGallery] = useState([]);
   const [activeImg, setActiveImg] = useState();
   const [activeIndex, setActiveIndex] = useState(0);
-  //! тимчасово, в майбутньому дані будуть приходити через пропс ( а може і нє)
-
-  useEffect(() => {
-    const product = products.filter((product) => product.id === id);
-    if (product.length) {
-      setToLacalStorage("product", ...product);
-    }
-    setTimeout(() => {
-      const data = getDataFromLocalStorage("product");
-      console.log(data);
-      setActiveImg(data.images[0]);
-      setGallery(data.images);
-      setActiveIndex(0);
-    }, 1500);
-  }, []);
 
   const onChangePicture = (index) => {
     // приймаємо індекс фотто, на яке нажато з компонеета нижче і встановлюємо в стан
     setActiveImg(gallery[index]);
   };
+
+  //TODO:
+  useEffect(() => {
+    setTimeout(() => {
+      //get data from localStorage
+      const data = getDataFromLocalStorage("product");
+      setActiveImg(data.images[0]);
+      setGallery(data.images);
+      setActiveIndex(0);
+    }, 1500);
+  }, []);
 
   useEffect(() => {
     // встановлюємо індекс активної фотто і далі передаємо його через пропс до малих фото

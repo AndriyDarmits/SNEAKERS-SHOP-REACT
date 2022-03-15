@@ -19,10 +19,17 @@ import {
   WishlistAndSocialsFlexContainer,
   WishListIcon,
 } from "./ProductInfo.style";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { getDataFromLocalStorage } from "../../../helper";
 
 export default function ProductInfo() {
-  // rating state
-  const [value, setValue] = useState(0);
+  let { id } = useParams();
+  //TODO
+  const reduxStore = useSelector((state) => state);
+  const { products } = reduxStore;
+  const [productData, setProductData] = useState({});
+
   // shoe sizes
   const [sizes, setSizes] = useState([
     { size: "36", selected: false },
@@ -45,41 +52,70 @@ export default function ProductInfo() {
     { size: "44.5", selected: false },
     { size: "45", selected: false },
   ]);
-  //TODO: fix size selecting
+  //TODO: fix size selecting - upd:fixed)))
   const selectSize = (index, e) => {
-    const chengedSelectedEl = sizes.map((size, i) => {
-      if (i === index) {
-        size.selected = true;
+    setSizes((prev) => {
+      if (prev.filter((size) => size.selected === true).length < 1) {
+        const chengedSelectedEl = prev.map((size, i) => {
+          if (i === index) {
+            size.selected = true;
+          }
+          return size;
+        });
+        return chengedSelectedEl;
+      } else {
+        const chengedSelectedEl = prev.map((size, i) => {
+          if (i === index) {
+            size.selected = false;
+          }
+          return size;
+        });
+        return chengedSelectedEl;
       }
-      return size;
     });
-    setSizes(chengedSelectedEl);
   };
 
-  // wishlist icons
-  const [isInWishList, setisInWishList] = useState(false);
+  //TODO:wishlist (connect to redux)
+  const onSetIsInWishList = () => {
+    const data = { ...productData };
+    data.isInWishList = !data.isInWishList;
+    setProductData(data);
+  };
+
+  // productQuantityHandler
+  const [productQuantity, setProductQuantity] = useState(1);
+  const decrementHandler = () => {
+    setProductQuantity((prev) => {
+      if (prev <= 1) {
+        return 1;
+      }
+      return prev - 1;
+    });
+  };
+  const incrementHandler = () => {
+    setProductQuantity((prev) => {
+      return prev + 1;
+    });
+  };
+
+  useEffect(() => {
+    if (products.length) {
+      setProductData(...products.filter((product) => product.id === id));
+    } else {
+      setProductData(getDataFromLocalStorage("product"));
+    }
+  }, [products]);
+
   return (
     <InfoContainer>
       <ProductContent>
-        <h2>Product title</h2>
-        <p>Price</p>
+        <h2>{productData?.title}</h2>
+        <p>{productData?.price}$</p>
         <RaitingBlock>
-          <Rating
-            name="simple-controlled"
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
-            }}
-          ></Rating>{" "}
+          <Rating name="read-only" value={productData?.rate} readOnly />
           <span>({1} dksjvnjkdsnvkjd)</span>
         </RaitingBlock>
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque la moth udantium, totam rem aperiam, eaque ipsa
-          quae ab illo inventore veritatis et quasi architecton beatae vitae
-          dicta sunt explicabo. Nemo enim ipsam headech voluptatem quia voluptas
-          sitdup aspernatur aut odit aut fugit, sed quia consequuntur
-        </p>
+        <p>{productData?.description}</p>
       </ProductContent>
 
       <Size>
@@ -99,21 +135,21 @@ export default function ProductInfo() {
           <span>Availability :</span> <span>In stock</span>
         </div>
         <div>
-          <span>Category :</span> <span> Woman</span>
+          <span>Category :</span> <span>{productData?.category}</span>
         </div>
         <div>
-          <span>Tag :</span> <span>Sweater</span>
+          <span>Tag :</span> <span>Sneakers</span>
         </div>
       </AbvailabilityContainer>
       <FlexContainerAddToCart>
         <ProductQuantity>
-          <div>0</div>
+          <div>{productQuantity}</div>
           <div>
-            <div>
+            <div onClick={() => incrementHandler()}>
               <img src={inc} alt="increment" />
             </div>
 
-            <div>
+            <div onClick={() => decrementHandler()}>
               <img src={dec} alt="decrement" />
             </div>
           </div>
@@ -123,8 +159,8 @@ export default function ProductInfo() {
         </AddToCartBtn>
       </FlexContainerAddToCart>
       <WishlistAndSocialsFlexContainer>
-        <WishListIcon onClick={() => setisInWishList(!isInWishList)}>
-          {isInWishList ? (
+        <WishListIcon onClick={() => onSetIsInWishList()}>
+          {productData?.isInWishList ? (
             <FavoriteIcon
               style={{
                 color: "red",
