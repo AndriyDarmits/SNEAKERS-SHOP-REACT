@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Link,
   NavLink,
@@ -10,7 +10,6 @@ import ProductInfo from "../../components/productDetails/info/ProductInfo";
 import ProductGallery from "../../components/productDetails/gallery/ProductGallery";
 import { Container } from "../../reusable-styles/reusableStyle";
 import "./productPage.scss";
-import { Context } from "../../Context";
 import {
   FlexContainerInfo,
   FlexContainerReviews,
@@ -18,7 +17,7 @@ import {
   ProductItemWrapper,
 } from "./ProductDetails.style";
 import { useSelector } from "react-redux";
-import { setToLacalStorage } from "../../helper";
+import { getDataFromLocalStorage, setToLacalStorage } from "../../helper";
 
 export default function ProductDetails() {
   const location = useLocation();
@@ -43,7 +42,15 @@ export default function ProductDetails() {
     if (product.length) {
       setToLacalStorage("product", ...product);
     }
-    console.log("full page rendered");
+  }, [products]);
+
+  const [data, setData] = useState({});
+  useEffect(() => {
+    if (products.length) {
+      setData(...products.filter((product) => product.id === id));
+    } else {
+      setData(getDataFromLocalStorage("product"));
+    }
   }, [products]);
 
   // scroll up after page loading
@@ -55,8 +62,6 @@ export default function ProductDetails() {
       });
     }, 300);
   }, []);
-  //!context
-  const [context, setContext] = useContext(Context);
 
   return (
     <ProductItemWrapper>
@@ -80,7 +85,8 @@ export default function ProductDetails() {
             className={activeLink ? "description" : "description-active"}
             to="reviews"
           >
-            Reviews ({context.length || "0"})
+            Reviews ({data?.reviews?.length || "0"})
+            {/* .? - тому що при першому рендерингу даних ще не має і виникає помилка */}
           </NavLink>
           <div></div>
         </FlexContainerReviews>

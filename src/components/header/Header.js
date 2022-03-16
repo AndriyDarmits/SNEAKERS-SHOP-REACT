@@ -15,6 +15,7 @@ import {
   ScrollBar,
   Wrapper,
 } from "./Header.style.js";
+import { useSelector } from "react-redux";
 
 export const toggleActive = (active) => {
   return {
@@ -25,6 +26,9 @@ export const toggleActive = (active) => {
 };
 
 export default function Header() {
+  const reduxStore = useSelector((state) => state);
+  const { wishlist } = reduxStore;
+
   // scroll bar
   const [scrollTop, setScrollTop] = useState(0);
   const onScrollProgress = () => {
@@ -84,7 +88,11 @@ export default function Header() {
             <div className="navButton">
               {/* no ideas */}
               <Link to="/wishlist">
-                <FavoriteBorderIcon />
+                {wishlist.length ? (
+                  <FavoriteIcon style={{ color: "red" }} />
+                ) : (
+                  <FavoriteBorderIcon />
+                )}
               </Link>
               <NavLink to="/search">
                 <img src={searchIcon} alt="" />

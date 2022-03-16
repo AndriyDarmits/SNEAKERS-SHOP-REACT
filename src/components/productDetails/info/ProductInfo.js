@@ -19,15 +19,18 @@ import {
   WishlistAndSocialsFlexContainer,
   WishListIcon,
 } from "./ProductInfo.style";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getDataFromLocalStorage } from "../../../helper";
+import actions from "../../../redux/actions/index";
 
 export default function ProductInfo() {
   let { id } = useParams();
-  //TODO
+  //reudx
   const reduxStore = useSelector((state) => state);
-  const { products } = reduxStore;
+  const { products, wishlist } = reduxStore;
+  const dispatch = useDispatch();
+  // data state
   const [productData, setProductData] = useState({});
 
   // shoe sizes
@@ -75,11 +78,19 @@ export default function ProductInfo() {
     });
   };
 
-  //TODO:wishlist (connect to redux)
-  const onSetIsInWishList = () => {
-    const data = { ...productData };
-    data.isInWishList = !data.isInWishList;
-    setProductData(data);
+  //TODO:wishlist (connect to redux) - UPD: to do removing from wishlist
+  const onAddToWishlist = () => {
+    console.log(productData);
+    // dispatch data to redux store
+    if (!productData.isInWishList) {
+      // copy data without reference
+      const data = { ...productData };
+      data.isInWishList = true;
+      // add item to wishlist
+      dispatch(actions.addProductToWishlist(data));
+      // update changes in product data
+      dispatch(actions.updateProducts(data));
+    }
   };
 
   // productQuantityHandler
@@ -112,8 +123,19 @@ export default function ProductInfo() {
         <h2>{productData?.title}</h2>
         <p>{productData?.price}$</p>
         <RaitingBlock>
-          <Rating name="read-only" value={productData?.rate} readOnly />
-          <span>({1} dksjvnjkdsnvkjd)</span>
+          <Rating
+            name="read-only"
+            value={
+              productData?.reviews?.length
+                ? productData?.reviews.reduce((prev, current) => {
+                    return prev + current.rate;
+                  }, 0) / productData?.reviews?.length
+                : 0
+            }
+            precision={0.1}
+            readOnly
+          />
+          <span>({productData?.reviews?.length} dksjvnjkdsnvkjd)</span>
         </RaitingBlock>
         <p>{productData?.description}</p>
       </ProductContent>
@@ -159,7 +181,7 @@ export default function ProductInfo() {
         </AddToCartBtn>
       </FlexContainerAddToCart>
       <WishlistAndSocialsFlexContainer>
-        <WishListIcon onClick={() => onSetIsInWishList()}>
+        <WishListIcon onClick={() => onAddToWishlist()}>
           {productData?.isInWishList ? (
             <FavoriteIcon
               style={{

@@ -6,8 +6,8 @@ export const ProductReducer = (state = [], action) => {
       return [...action.payload.products];
     case actionTypes.UPDATE_PRODUCTS_FROM_API:
       const updatedPoducts = [...state].map((product) => {
-        if (product.id === action.id) {
-          return action;
+        if (product.id === action.payload.id) {
+          return action.payload;
         }
         return product;
       });
