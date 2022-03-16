@@ -22,11 +22,13 @@ export default function PageNavigation() {
         : location.pathname === "/blog"
         ? "Blog"
         : location.pathname === "/lookbook"
-        ? "lookbook"
+        ? "Lookbook"
         : location.pathname === "/account"
-        ? "account"
+        ? "Account"
         : location.pathname === "/contactUs"
-        ? "contactUs"
+        ? "ContactUs"
+        : location.pathname === "/wishlist"
+        ? "Wishlist"
         : "not found"
     );
     console.log(location.pathname);

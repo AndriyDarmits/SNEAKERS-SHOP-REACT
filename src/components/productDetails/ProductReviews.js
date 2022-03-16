@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import {
   Button,
@@ -7,10 +7,11 @@ import {
 } from "../../reusable-styles/reusableStyle";
 import { Review } from "./Review";
 import { Rating } from "@mui/material";
-import { Context } from "../../Context";
+
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getDataFromLocalStorage } from "../../helper";
+import actions from "../../redux/actions";
 
 const Reviews = styled.div`
   border: 1px solid #ebebeb;
@@ -99,13 +100,9 @@ const UserNameInput = styled(Input)`
 
 export const ProductReviews = () => {
   const [formRateValue, setFormRateValue] = useState(0);
-  const [reviews, addReview] = useState([]); // TODO: will be using redux
   const [reviewText, setReviewText] = useState("");
   const [reviewerName, setReviewerName] = useState("");
   const [reviewerEmail, setReviewerEmail] = useState("");
-  //! context
-  const [context, setContext] = useContext(Context);
-
   //getting data from redux
   let { id } = useParams();
 
@@ -120,7 +117,7 @@ export const ProductReviews = () => {
       setReviewsData(getDataFromLocalStorage("product"));
     }
   }, [products]);
-
+  const dispatch = useDispatch();
   const onAddReview = (e) => {
     e.preventDefault();
     // add reviews
@@ -130,16 +127,17 @@ export const ProductReviews = () => {
       reviewText.length &&
       formRateValue
     ) {
-      //TODO: замінити на редакс
-      addReview([
-        ...reviews,
+      const data = { ...reviewsData };
+      data.reviews = [
+        ...data.reviews,
         {
           name: reviewerName,
           email: reviewerEmail,
           text: reviewText,
           rate: formRateValue,
         },
-      ]);
+      ];
+      dispatch(actions.updateProducts(data));
     } else {
       return;
     }
@@ -150,10 +148,6 @@ export const ProductReviews = () => {
     setReviewerEmail("");
   };
 
-  //!!set context after updating state for reviews( swap to redux)
-  useEffect(() => {
-    setContext(reviews);
-  }, [reviews]);
   return (
     <Reviews>
       <form action="/">
@@ -204,20 +198,22 @@ export const ProductReviews = () => {
           </UserNameInputField>
         </FlexContainerReviews>
       </form>
-      {reviews.length ? (
-        reviews.map((review) => <Review review={review} />)
-      ) : (
-        <NoReviewMessage>
-          <p>There are no review yet</p>
-          <p>
-            Be the first to review <span>{`"Shoe title"`}</span>
-          </p>
-          <p>
-            Your email address will not be published. Required fields are marked
-            *
-          </p>
-        </NoReviewMessage>
-      )}
+      <>
+        {reviewsData?.reviews?.length ? (
+          reviewsData.reviews.map((review) => <Review review={review} />)
+        ) : (
+          <NoReviewMessage>
+            <p>There are no review yet</p>
+            <p>
+              Be the first to review <span>{`"Shoe title"`}</span>
+            </p>
+            <p>
+              Your email address will not be published. Required fields are
+              marked *
+            </p>
+          </NoReviewMessage>
+        )}
+      </>
     </Reviews>
   );
 };

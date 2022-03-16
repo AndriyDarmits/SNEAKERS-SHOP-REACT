@@ -29,6 +29,7 @@ export default function ProductGallery() {
   //TODO:
   useEffect(() => {
     setTimeout(() => {
+      // TODO: take data from redux
       //get data from localStorage
       const data = getDataFromLocalStorage("product");
       setActiveImg(data.images[0]);

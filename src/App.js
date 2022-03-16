@@ -20,6 +20,7 @@ import { Layout2 } from "./pages/Layout2";
 import { fetchData } from "./helper";
 import { useDispatch } from "react-redux";
 import actions from "./redux/actions/index";
+import { WishlistPage } from "./pages/wishlistPage/WishlistPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -71,6 +72,7 @@ function App() {
             <Route path="lookbook" element={<LookBookPage />} />
             <Route path="account" element={<AccountPage />} />
             <Route path="contactUs" element={<ContactUsPage />} />
+            <Route path="wishlist" element={<WishlistPage />} />
           </Route>
           <Route path="*" element={<Notfoundpage />} />
         </Routes>
