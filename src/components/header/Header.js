@@ -27,7 +27,7 @@ export const toggleActive = (active) => {
 
 export default function Header() {
   const reduxStore = useSelector((state) => state);
-  const { wishlist } = reduxStore;
+  const { productsCart, wishlist } = reduxStore;
 
   // scroll bar
   const [scrollTop, setScrollTop] = useState(0);
@@ -52,7 +52,7 @@ export default function Header() {
   useEffect(() => {
     setShowOrCloseMenu(false);
   }, [location.pathname]);
-
+  //
   return (
     <Wrapper>
       <Container>
@@ -107,7 +107,8 @@ export default function Header() {
                     alignItems: "center",
                   }}
                 >
-                  <img src={cartIcon} alt="" />(<div>0</div>)
+                  <img src={cartIcon} alt="" />(<div>{productsCart.length}</div>
+                  )
                 </div>
               </NavLink>
             </div>

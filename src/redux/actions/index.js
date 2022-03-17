@@ -1,5 +1,9 @@
 import { setProductFromApi, updateProducts } from "./productsAction";
-import { addProductToCart } from "./productsCartAction";
+import {
+  addProductToCart,
+  updateProductsCart,
+  deleteProductsFromCart,
+} from "./productsCartAction";
 import { addProductToWishlist } from "./productsWishListAction";
 
 export default {
@@ -7,4 +11,6 @@ export default {
   addProductToCart,
   updateProducts,
   addProductToWishlist,
+  updateProductsCart,
+  deleteProductsFromCart,
 };

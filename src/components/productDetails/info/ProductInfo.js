@@ -57,30 +57,31 @@ export default function ProductInfo() {
   ]);
   //TODO: fix size selecting - upd:fixed)))
   const selectSize = (index, e) => {
-    setSizes((prev) => {
-      if (prev.filter((size) => size.selected === true).length < 1) {
-        const chengedSelectedEl = prev.map((size, i) => {
-          if (i === index) {
-            size.selected = true;
-          }
-          return size;
-        });
-        return chengedSelectedEl;
-      } else {
-        const chengedSelectedEl = prev.map((size, i) => {
-          if (i === index) {
-            size.selected = false;
-          }
-          return size;
-        });
-        return chengedSelectedEl;
-      }
-    });
+    if (!productData.isInShoppingCart) {
+      setSizes((prev) => {
+        if (prev.filter((size) => size.selected === true).length < 1) {
+          const chengedSelectedEl = prev.map((size, i) => {
+            if (i === index) {
+              size.selected = true;
+            }
+            return size;
+          });
+          return chengedSelectedEl;
+        } else {
+          const chengedSelectedEl = prev.map((size, i) => {
+            if (i === index) {
+              size.selected = false;
+            }
+            return size;
+          });
+          return chengedSelectedEl;
+        }
+      });
+    }
   };
 
   //TODO:wishlist (connect to redux) - UPD: to do removing from wishlist
   const onAddToWishlist = () => {
-    console.log(productData);
     // dispatch data to redux store
     if (!productData.isInWishList) {
       // copy data without reference
@@ -90,23 +91,29 @@ export default function ProductInfo() {
       dispatch(actions.addProductToWishlist(data));
       // update changes in product data
       dispatch(actions.updateProducts(data));
-    }
+    } // тут ще має бути якщо ми заберемо сердечко, тоді тре видалити продукт з wishlist
   };
 
   // productQuantityHandler
   const [productQuantity, setProductQuantity] = useState(1);
   const decrementHandler = () => {
-    setProductQuantity((prev) => {
-      if (prev <= 1) {
-        return 1;
-      }
-      return prev - 1;
-    });
+    // if product is not in cart
+    if (!productData.isInShoppingCart) {
+      setProductQuantity((prev) => {
+        if (prev <= 1) {
+          return 1;
+        }
+        return prev - 1;
+      });
+    }
   };
   const incrementHandler = () => {
-    setProductQuantity((prev) => {
-      return prev + 1;
-    });
+    // if product is not in cart
+    if (!productData.isInShoppingCart) {
+      setProductQuantity((prev) => {
+        return prev + 1;
+      });
+    }
   };
 
   // adding to cart implementation
@@ -115,13 +122,14 @@ export default function ProductInfo() {
     console.log("hellp");
     const dataToCart = { ...productData };
     const dataToUpdateProduct = { ...productData };
+    //selected size
     const selectedSize = [...sizes].filter((size) => size.selected === true);
     if (selectedSize.length === 1 && productQuantity) {
       dataToCart.isInShoppingCart = true;
       dataToCart.size = selectedSize[0].size;
       dataToCart.count = productQuantity;
-      console.log(dataToCart);
       dispatch(actions.addProductToCart(dataToCart));
+
       dataToUpdateProduct.isInShoppingCart = true;
       dispatch(actions.updateProducts(dataToUpdateProduct));
     }
@@ -151,6 +159,7 @@ export default function ProductInfo() {
           <Rating
             name="read-only"
             value={
+              /* ?. - тому що при перщому рендерингу данів немає */
               productData?.reviews?.length
                 ? productData?.reviews.reduce((prev, current) => {
                     return prev + current.rate;
@@ -160,7 +169,7 @@ export default function ProductInfo() {
             precision={0.1}
             readOnly
           />
-          <span>({productData?.reviews?.length} dksjvnjkdsnvkjd)</span>
+          <span>({productData?.reviews?.length} reviews)</span>
         </RaitingBlock>
         <p>{productData?.description}</p>
       </ProductContent>

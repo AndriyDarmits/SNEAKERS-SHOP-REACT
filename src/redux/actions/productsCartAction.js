@@ -5,3 +5,15 @@ export const addProductToCart = (product) => {
     payload: product,
   };
 };
+export const updateProductsCart = (product) => {
+  return {
+    type: actions.UPDATE_PRODUCTS_CART,
+    payload: product,
+  };
+};
+export const deleteProductsFromCart = (product) => {
+  return {
+    type: actions.UPDATE_PRODUCTS_CART,
+    payload: product,
+  };
+};

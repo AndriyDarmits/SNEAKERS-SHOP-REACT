@@ -5,18 +5,26 @@ import inc from "../../assets/icons/cart/inc.png";
 import dec from "../../assets/icons/cart/dec.png";
 import { Link } from "react-router-dom";
 import { CartProductItem, ProductQuantityCart } from "./CartComponents.style";
-
+import { useDispatch } from "react-redux";
+import actions from "../../redux/actions/index";
 export default function CartItem({ product }) {
-  const [productQuantity, setProductQuantity] = useState(1);
+  const dispatch = useDispatch();
 
-  /* const deleteItem = (product) => {
-    props.onDeleteItem(product);
-  }; */
   const increaseQuantity = () => {
-    setProductQuantity((prev) => prev + 1);
+    const data = { ...product };
+    data.count = data.count + 1;
+    console.log(data);
+    dispatch(actions.updateProductsCart(data));
   };
   const decreaseQuantity = () => {
-    setProductQuantity((prev) => prev - 1);
+    const data = { ...product };
+    if (data.count <= 1) {
+      data.count = 1;
+    } else {
+      data.count = data.count - 1;
+    }
+    console.log(data);
+    dispatch(actions.updateProductsCart(data));
   };
 
   return (
