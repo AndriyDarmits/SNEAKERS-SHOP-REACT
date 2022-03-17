@@ -1,4 +1,3 @@
-import { logRoles } from "@testing-library/react";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { WishlistItem } from "../../components/wishlist/WishlistItem";
@@ -11,7 +10,6 @@ import {
 export const WishlistPage = () => {
   const redux = useSelector((state) => state);
   const { wishlist } = redux;
-  console.log(wishlist);
 
   return (
     <WishListWrapper>

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AddToCartBtn, WishItem } from "./WishlistItem.styled";
 import { AiFillDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export const WishlistItem = ({ wishProduct }) => {
   return (
@@ -15,9 +16,10 @@ export const WishlistItem = ({ wishProduct }) => {
       <div>
         <Link to={`/products/${wishProduct.id}`}>{wishProduct.title}</Link>
       </div>
-      <AddToCartBtn>
+      {/* TODO: implement adding product to cart*/}
+      {/* <AddToCartBtn>
         <button>Add to cart</button>
-      </AddToCartBtn>
+      </AddToCartBtn> */}
     </WishItem>
   );
 };

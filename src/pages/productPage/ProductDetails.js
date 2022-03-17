@@ -33,7 +33,7 @@ export default function ProductDetails() {
     }
   }, [location.pathname]);
 
-  //TODO:
+  //!redux
   const reduxStore = useSelector((state) => state);
   const { products } = reduxStore;
   // set data to setToLacalStorage from redux store
@@ -42,7 +42,7 @@ export default function ProductDetails() {
     if (product.length) {
       setToLacalStorage("product", ...product);
     }
-  }, [products]);
+  }, [products, id]);
 
   const [data, setData] = useState({});
   useEffect(() => {
@@ -51,7 +51,7 @@ export default function ProductDetails() {
     } else {
       setData(getDataFromLocalStorage("product"));
     }
-  }, [products]);
+  }, [products, id]);
 
   // scroll up after page loading
   useEffect(() => {

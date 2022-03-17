@@ -108,7 +108,8 @@ export const ProductReviews = () => {
 
   const reduxStore = useSelector((state) => state);
   const { products } = reduxStore;
-  //TODO:
+
+  //set data from redux products
   const [reviewsData, setReviewsData] = useState({});
   useEffect(() => {
     if (products.length) {
@@ -116,7 +117,8 @@ export const ProductReviews = () => {
     } else {
       setReviewsData(getDataFromLocalStorage("product"));
     }
-  }, [products]);
+  }, [products, id]);
+
   const dispatch = useDispatch();
   const onAddReview = (e) => {
     e.preventDefault();

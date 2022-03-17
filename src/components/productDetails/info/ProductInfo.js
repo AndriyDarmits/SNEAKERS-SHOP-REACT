@@ -28,7 +28,7 @@ export default function ProductInfo() {
   let { id } = useParams();
   //reudx
   const reduxStore = useSelector((state) => state);
-  const { products, wishlist } = reduxStore;
+  const { products } = reduxStore;
   const dispatch = useDispatch();
   // data state
   const [productData, setProductData] = useState({});
@@ -109,13 +109,38 @@ export default function ProductInfo() {
     });
   };
 
+  // adding to cart implementation
+  //PS: можна ще зробити, оновлення стану елементу кошика при доданні його в вішліст
+  const addToCart = () => {
+    console.log("hellp");
+    const dataToCart = { ...productData };
+    const dataToUpdateProduct = { ...productData };
+    const selectedSize = [...sizes].filter((size) => size.selected === true);
+    if (selectedSize.length === 1 && productQuantity) {
+      dataToCart.isInShoppingCart = true;
+      dataToCart.size = selectedSize[0].size;
+      dataToCart.count = productQuantity;
+      console.log(dataToCart);
+      dispatch(actions.addProductToCart(dataToCart));
+      dataToUpdateProduct.isInShoppingCart = true;
+      dispatch(actions.updateProducts(dataToUpdateProduct));
+    }
+    setSizes((prev) => {
+      return prev.map((size, i) => {
+        size.selected = false;
+        return size;
+      });
+    });
+    setProductQuantity(1);
+  };
+
   useEffect(() => {
     if (products.length) {
       setProductData(...products.filter((product) => product.id === id));
     } else {
       setProductData(getDataFromLocalStorage("product"));
     }
-  }, [products]);
+  }, [products, id]);
 
   return (
     <InfoContainer>
@@ -177,7 +202,13 @@ export default function ProductInfo() {
           </div>
         </ProductQuantity>
         <AddToCartBtn>
-          <button>Add to cart</button>
+          <button
+            onClick={() => addToCart()}
+            disabled={productData.isInShoppingCart ? "true" : ""}
+          >
+            {" "}
+            {productData.isInShoppingCart ? "In a cart" : "Add to cart"}
+          </button>
         </AddToCartBtn>
       </FlexContainerAddToCart>
       <WishlistAndSocialsFlexContainer>

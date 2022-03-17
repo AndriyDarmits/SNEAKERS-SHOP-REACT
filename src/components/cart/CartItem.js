@@ -6,12 +6,12 @@ import dec from "../../assets/icons/cart/dec.png";
 import { Link } from "react-router-dom";
 import { CartProductItem, ProductQuantityCart } from "./CartComponents.style";
 
-export default function CartItem(props) {
+export default function CartItem({ product }) {
   const [productQuantity, setProductQuantity] = useState(1);
 
-  const deleteItem = (product) => {
+  /* const deleteItem = (product) => {
     props.onDeleteItem(product);
-  };
+  }; */
   const increaseQuantity = () => {
     setProductQuantity((prev) => prev + 1);
   };
@@ -21,19 +21,19 @@ export default function CartItem(props) {
 
   return (
     <CartProductItem>
-      <div onClick={() => deleteItem(props.product)}>
+      <div>
         <img src={cancel} alt="" />
       </div>
       <div>
-        <img src={props.product.media.smallImageUrl} alt="" />
+        <img src={product.images[0]} alt="" />
       </div>
       <div>
-        <Link to={`/products`}>{props.product.name}</Link>
+        <Link to={`/products/${product.id}`}>{product.title}</Link>
       </div>
-      <div>$ {props.product.retailPrice.toFixed(2)}</div>
+      <div>$ {(+product.price).toFixed(2)}</div>
       <div>
         <ProductQuantityCart>
-          <div>{productQuantity}</div>
+          <div>{product.count}</div>
           <div>
             <div onClick={() => increaseQuantity()}>
               <img src={inc} alt="increment" />
@@ -45,7 +45,7 @@ export default function CartItem(props) {
         </ProductQuantityCart>
       </div>
 
-      <div>$ {(props.product.retailPrice * productQuantity).toFixed(2)}</div>
+      <div>$ {(+product.price * product.count).toFixed(2)}</div>
     </CartProductItem>
   );
 }
