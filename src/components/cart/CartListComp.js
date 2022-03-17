@@ -68,7 +68,7 @@ export const CartListComp = () => {
       <CartHeader>
         <div></div>
         <div>Product</div>
-        <div></div>
+        <div>Name</div>
         <div>Price</div>
         <div>Quantity</div>
         <div>Total</div>

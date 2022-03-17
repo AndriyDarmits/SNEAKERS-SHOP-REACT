@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Button } from "../../reusable-styles/reusableStyle";
 
 export const WishItem = styled.div`
   display: flex;
@@ -13,14 +14,14 @@ export const WishItem = styled.div`
   }
   & > div:nth-of-type(1) {
     display: flex;
-    align-items: center;
-    width: 20%;
+
+    width: 15%;
     padding-left: 5%;
     font-size: 22px;
     cursor: pointer;
   }
   & > div:nth-of-type(2) {
-    width: 35%;
+    width: 25%;
     img {
       max-width: 80%;
       max-height: 150px;
@@ -30,6 +31,8 @@ export const WishItem = styled.div`
   & > div:nth-of-type(3) {
     border-bottom: 1px solid transparent;
     transition: all 0.1s linear;
+    width: 25%;
+    text-align: center;
     &:hover {
       border-bottom: 1px solid #333333;
     }
@@ -38,6 +41,20 @@ export const WishItem = styled.div`
       color: #333333;
       font-weight: 600;
       font-size: 16px;
+      @media (max-width: 768px) {
+        font-size: 14px;
+      }
+    }
+  }
+`;
+
+export const AddToCartBtn = styled(Button)`
+  flex-grow: 1;
+  text-align: center;
+  button {
+    color: #fff;
+    @media (max-width: 768px) {
+      padding: 10px 20px;
     }
   }
 `;
