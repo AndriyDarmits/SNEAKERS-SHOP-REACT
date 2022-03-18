@@ -13,7 +13,7 @@ export const updateProductsCart = (product) => {
 };
 export const deleteProductsFromCart = (product) => {
   return {
-    type: actions.UPDATE_PRODUCTS_CART,
+    type: actions.DELETE_PRODUCTS_FROM_CART,
     payload: product,
   };
 };

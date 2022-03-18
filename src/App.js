@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Homepage from "./pages/home/Homepage";
-import ShopPage from "./pages/productPage/ShopPage";
 import LookBookPage from "./pages/LookBookPage";
 import SearchPage from "./pages/SearchPage";
 import AccountPage from "./pages/AccountPage";
@@ -21,6 +20,7 @@ import { fetchData } from "./helper";
 import { useDispatch } from "react-redux";
 import actions from "./redux/actions/index";
 import { WishlistPage } from "./pages/wishlistPage/WishlistPage";
+import ShopPage from "./pages/shopPage/ShopPage";
 
 function App() {
   const dispatch = useDispatch();

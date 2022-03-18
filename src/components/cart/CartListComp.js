@@ -19,7 +19,7 @@ export const CartListComp = () => {
       </CartHeader>
       <CartList>
         {productsCart.map((product) => (
-          <CartItem product={product} />
+          <CartItem productCart={product} />
         ))}
       </CartList>
     </CartListWrapper>

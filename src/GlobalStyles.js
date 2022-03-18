@@ -50,6 +50,6 @@ li{
 #root{
 display:flex;
 flex-direction:column;
-overflow:hidden;
+
 }
 `;

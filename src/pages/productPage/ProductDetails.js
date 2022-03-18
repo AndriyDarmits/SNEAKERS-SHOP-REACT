@@ -68,7 +68,7 @@ export default function ProductDetails() {
       <Container>
         <PathProductDetails>
           <Link to="/">Home</Link> / <Link to="/products">Shop</Link> /{" "}
-          <span>{/* product name */}</span>
+          <span> {data?.title}</span>
         </PathProductDetails>
         <FlexContainerInfo>
           <ProductGallery />

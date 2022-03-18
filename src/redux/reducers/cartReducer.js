@@ -15,7 +15,7 @@ export const CartReducer = (state = [], action) => {
       return [...updatedCartPoducts];
     case actionTypes.DELETE_PRODUCTS_FROM_CART:
       const filteredCartPoducts = [...state].filter((product) => {
-        return action.payload.id != product.id;
+        return action.payload.id !== product.id;
       });
       return [...filteredCartPoducts];
     default:
