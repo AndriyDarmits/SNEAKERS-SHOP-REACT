@@ -11,7 +11,7 @@ export default function CartTotalComp() {
       <h3>CART TOTAL</h3>
       <div>
         <div>DISCOUNT</div>
-        <div>$ 130.00</div>
+        <div>-20%</div>
       </div>
       <div>
         <div>TOTAL</div>

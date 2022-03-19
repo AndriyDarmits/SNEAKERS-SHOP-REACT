@@ -5,3 +5,9 @@ export const addProductToWishlist = (product) => {
     payload: product,
   };
 };
+export const deleteProductFromWishlist = (product) => {
+  return {
+    type: actions.DELETE_PRODUCTS_FROM_WISHLIST,
+    payload: product,
+  };
+};

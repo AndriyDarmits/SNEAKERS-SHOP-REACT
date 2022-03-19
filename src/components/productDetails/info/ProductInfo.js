@@ -82,16 +82,22 @@ export default function ProductInfo() {
 
   //TODO:wishlist (connect to redux) - UPD: to do removing from wishlist
   const onAddToWishlist = () => {
+    // copy data without reference
+    const data = { ...productData };
     // dispatch data to redux store
     if (!productData.isInWishList) {
-      // copy data without reference
-      const data = { ...productData };
       data.isInWishList = true;
       // add item to wishlist
       dispatch(actions.addProductToWishlist(data));
       // update changes in product data
       dispatch(actions.updateProducts(data));
-    } // тут ще має бути якщо ми заберемо сердечко, тоді тре видалити продукт з wishlist
+    } else {
+      // remove itemdelete products from wishlist
+      dispatch(actions.deleteProductFromWishlist(data));
+      // update changes in product data
+      data.isInWishList = false;
+      dispatch(actions.updateProducts(data));
+    }
   };
 
   // productQuantityHandler
@@ -141,7 +147,7 @@ export default function ProductInfo() {
     });
     setProductQuantity(1);
   };
-
+  // set data from redux
   useEffect(() => {
     if (products.length) {
       setProductData(...products.filter((product) => product.id === id));

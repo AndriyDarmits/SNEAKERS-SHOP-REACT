@@ -2,12 +2,21 @@ import React, { useEffect, useState } from "react";
 import { AddToCartBtn, WishItem } from "./WishlistItem.styled";
 import { AiFillDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import actions from "../../redux/actions/index";
 
 export const WishlistItem = ({ wishProduct }) => {
+  const dispatch = useDispatch();
+
+  const deleteProductsFromWishlist = () => {
+    const data = { ...wishProduct };
+    dispatch(actions.deleteProductFromWishlist(data));
+    data.isInWishList = false;
+    dispatch(actions.updateProducts(data));
+  };
   return (
     <WishItem>
-      <div>
+      <div onClick={() => deleteProductsFromWishlist()}>
         <AiFillDelete />
       </div>
       <div>
