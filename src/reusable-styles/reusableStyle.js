@@ -13,6 +13,10 @@ export const Input = styled.div`
     border: 1px solid #ebebeb;
     background-color: #fff;
     outline: none;
+    color: #999999;
+    &::placeholder {
+      color: #999999;
+    }
   }
 `;
 export const Button = styled.div`

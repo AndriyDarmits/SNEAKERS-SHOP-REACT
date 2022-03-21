@@ -21,6 +21,7 @@ import { useDispatch } from "react-redux";
 import actions from "./redux/actions/index";
 import { WishlistPage } from "./pages/wishlistPage/WishlistPage";
 import ShopPage from "./pages/shopPage/ShopPage";
+import { CheckoutPage } from "./pages/checkout/CheckoutPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -73,6 +74,7 @@ function App() {
             <Route path="account" element={<AccountPage />} />
             <Route path="contactUs" element={<ContactUsPage />} />
             <Route path="wishlist" element={<WishlistPage />} />
+            <Route path="checkout" element={<CheckoutPage />} />
           </Route>
           <Route path="*" element={<Notfoundpage />} />
         </Routes>

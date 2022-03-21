@@ -29,6 +29,8 @@ export default function PageNavigation() {
         ? "ContactUs"
         : location.pathname === "/wishlist"
         ? "Wishlist"
+        : location.pathname === "/checkout"
+        ? "Checkout"
         : "not found"
     );
     console.log(location.pathname);
