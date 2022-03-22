@@ -42,7 +42,7 @@ export const CheckingNotifications = styled.div`
     margin-right: 10px;
   }
 `;
-
+// form block
 export const BillingDetailsForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -57,15 +57,7 @@ export const BillingDetailsForm = styled.form`
     margin-bottom: 20px;
   }
 `;
-
-export const CustomerName = styled.div`
-  display: flex;
-  margin-bottom: 15px;
-  @media (max-width: 375px) {
-    display: block;
-  }
-`;
-
+// input pattern
 export const InputTextBillingForm = styled(Input)`
   width: 100%;
 
@@ -89,14 +81,24 @@ export const InputTextBillingForm = styled(Input)`
     }
   }
 `;
-
-export const EmailAndFrom = styled.div`
+// first and last name
+export const CustomerName = styled.div`
   display: flex;
   margin-bottom: 15px;
   @media (max-width: 375px) {
     display: block;
   }
 `;
+
+// email and phone
+export const EmailAndFhone = styled.div`
+  display: flex;
+  margin-bottom: 15px;
+  @media (max-width: 375px) {
+    display: block;
+  }
+`;
+// country selection
 export const Country = styled.div`
   margin-bottom: 20px;
   width: 100%;
@@ -115,7 +117,7 @@ export const Country = styled.div`
     font-size: 14px;
   }
 `;
-
+// city and address
 export const CityAndStreetAdress = styled.div`
   display: flex;
   margin-bottom: 15px;
@@ -123,10 +125,19 @@ export const CityAndStreetAdress = styled.div`
     display: block;
   }
 `;
+
+// create account checkbox
 export const IsCreateAccount = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 15px;
+  input {
+    margin-right: 15px;
+  }
+  label {
+    font-size: 14px;
+    color: #666666;
+  }
 `;
 
 export const Passwords = styled.div`
@@ -137,6 +148,7 @@ export const Passwords = styled.div`
   }
 `;
 
+// password input
 export const InputTextBillingFormPassword = styled(InputTextBillingForm)`
   position: relative;
   input {
@@ -244,6 +256,7 @@ export const Total = styled.div`
 export const Payment = styled.div`
   padding: 20px 30px;
   background-color: #f8f8f8;
+  color: #666666;
 `;
 export const CheckPayment = styled.div`
   margin-bottom: 15px;
@@ -266,6 +279,10 @@ export const Paypal = styled.div`
 
   & > * {
     margin-right: 10px;
+  }
+
+  a {
+    color: #444444;
   }
 `;
 export const PlaceOrder = styled(Button)`

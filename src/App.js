@@ -34,14 +34,7 @@ function App() {
           el.rate = 0;
           el.isInWishList = false;
           el.isInShoppingCart = false;
-          el.reviews = [
-            /*   {
-              rate: null,
-              reviewText: "",
-              name: "",
-              email: "",
-            }, */
-          ];
+          el.reviews = [];
           return el;
         });
         // dispatch data to redux store
@@ -49,7 +42,7 @@ function App() {
       }
     );
   }, []);
-  // туво буде спливаюче вікно
+  // туво буде спливаюче вікно авторизації
   useEffect(() => {}, []);
   //! context
   const [context, setContext] = useState(0);
@@ -67,7 +60,7 @@ function App() {
             <Route path="search" element={<SearchPage />} />
             <Route path="cart" element={<CartPage />} />
           </Route>
-          <Route path="/" element={<Layout2 />}>
+          <Route element={<Layout2 />}>
             <Route path="products" element={<ShopPage />} />
             <Route path="blog" element={<BlogPage />} />
             <Route path="lookbook" element={<LookBookPage />} />

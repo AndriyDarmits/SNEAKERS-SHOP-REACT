@@ -8,15 +8,14 @@ import { CartProductItem, ProductQuantityCart } from "./CartComponents.style";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../redux/actions/index";
 export default function CartItem({ productCart }) {
+  // get data from redux
   const redux = useSelector((state) => state);
   const { products } = redux;
-  console.log(products);
   const dispatch = useDispatch();
 
   const increaseQuantity = () => {
     const data = { ...productCart };
     data.count = data.count + 1;
-    console.log(data);
     dispatch(actions.updateProductsCart(data));
   };
   const decreaseQuantity = () => {
@@ -26,7 +25,6 @@ export default function CartItem({ productCart }) {
     } else {
       data.count = data.count - 1;
     }
-    console.log(data);
     dispatch(actions.updateProductsCart(data));
   };
 

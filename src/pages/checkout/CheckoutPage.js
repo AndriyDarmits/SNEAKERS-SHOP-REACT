@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container } from "../../reusable-styles/reusableStyle";
 import pageIcon from "../../assets/icons/checkout/page.png";
-import paypal from "../../assets/icons/checkout/paypal.png";
+import paypalIcon from "../../assets/icons/checkout/paypal.png";
 import {
   BillingDetailsForm,
   CheckingNotifications,
@@ -11,7 +11,7 @@ import {
   CityAndStreetAdress,
   Country,
   CustomerName,
-  EmailAndFrom,
+  EmailAndFhone,
   InputTextBillingForm,
   InputTextBillingFormPassword,
   IsCreateAccount,
@@ -32,11 +32,16 @@ import { useSelector } from "react-redux";
 
 export const CheckoutPage = () => {
   const navigate = useNavigate();
+  const flatRate = 4;
+  // get data from redux store
+  const reduxStore = useSelector((state) => state);
+  const { productsCart } = reduxStore;
+  // is created account
   const [isCreateAccount, setIsCreateAccount] = useState(false);
   const isCreateAccountCheckboxHendler = () => {
     setIsCreateAccount((state) => !state);
   };
-
+  // show/hide password
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
@@ -45,10 +50,31 @@ export const CheckoutPage = () => {
   const toggleConfirmPassword = () => {
     setconfirmPasswordShown(!confirmPasswordShown);
   };
+  const [isFlatRate, setFlatRate] = useState(true);
+  const [isFreeShipping, setFreeShipping] = useState(false);
 
-  const reduxStore = useSelector((state) => state);
-  const { productsCart } = reduxStore;
-  const flatRate = 4;
+  const flatRateHendler = () => {
+    setFlatRate((state) => !state);
+    setFreeShipping((state) => !state);
+  };
+
+  const freeShippingHendler = () => {
+    setFreeShipping((state) => !state);
+    setFlatRate((state) => !state);
+  };
+  const [checkPayment, setCheckPayment] = useState(true);
+  const [paypal, setPaypal] = useState(false);
+
+  const checkPaymentHendler = () => {
+    setCheckPayment((state) => !state);
+    setPaypal((state) => !state);
+  };
+
+  const paypalHendler = () => {
+    setPaypal((state) => !state);
+    setCheckPayment((state) => !state);
+  };
+
   return (
     <CheckoutSecrionWrapper>
       <Container>
@@ -90,7 +116,7 @@ export const CheckoutPage = () => {
             </InputTextBillingForm>
           </CustomerName>
 
-          <EmailAndFrom>
+          <EmailAndFhone>
             <InputTextBillingForm>
               <label htmlFor="email" id="email">
                 Email Adress <span>*</span>
@@ -103,7 +129,7 @@ export const CheckoutPage = () => {
               </label>
               <input type="tel" id="phone" />
             </InputTextBillingForm>
-          </EmailAndFrom>
+          </EmailAndFhone>
 
           <Country>
             <label htmlFor="" id="country">
@@ -142,7 +168,7 @@ export const CheckoutPage = () => {
               onChange={(e) => isCreateAccountCheckboxHendler()}
             />{" "}
             <label htmlFor="isAccount" id="isAccount">
-              Creat An account ?
+              Create an account ?
             </label>
           </IsCreateAccount>
           {/* якщо ми чекаєм, що хочемо творити акк, то пповиться поле з паролями  */}
@@ -175,10 +201,9 @@ export const CheckoutPage = () => {
             </Passwords>
           )}
         </BillingDetailsForm>
-
+        {/* =========order================== */}
         <Order>
           <h4>Your order</h4>
-
           <OrderHeader>
             <div>Product</div>
             <div>Total</div>
@@ -202,25 +227,42 @@ export const CheckoutPage = () => {
             <div>Shipping</div>
             <div>
               <div>
-                <input type="checkbox" name="" id="" />{" "}
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  checked={isFlatRate}
+                  onChange={() => flatRateHendler()}
+                />{" "}
                 <label htmlFor="">Flat rate : $ {flatRate.toFixed(2)}</label>
               </div>
               <div>
-                <input type="checkbox" name="" id="" />{" "}
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  checked={isFreeShipping}
+                  onChange={() => freeShippingHendler()}
+                />{" "}
                 <label htmlFor="">Free shipping</label>
               </div>
             </div>
           </Shipping>
           <Total>
             <div>Total</div>
-            {}
             <div>${/*суми включаючи доставкц*/}</div>
           </Total>
         </Order>
         <Payment>
           <CheckPayment>
             <div>
-              <input type="checkbox" name="" id="isAccount" />
+              <input
+                type="checkbox"
+                name=""
+                id="isAccount"
+                checked={checkPayment}
+                onChange={() => checkPaymentHendler()}
+              />
               <label htmlFor="isAccount" id="isAccount">
                 Check payment
               </label>
@@ -231,11 +273,20 @@ export const CheckoutPage = () => {
             </p>
           </CheckPayment>
           <Paypal>
-            <input type="checkbox" name="" id="isAccount" />
+            <input
+              type="checkbox"
+              name=""
+              id="isAccount"
+              checked={paypal}
+              onChange={() => paypalHendler()}
+            />
             <label htmlFor="isAccount" id="isAccount">
               Paypal
             </label>
-            <img src={paypal} alt="" /> <a href="#">What is Paypal ?</a>
+            <img src={paypalIcon} alt="" />{" "}
+            <a href="https://uk.wikipedia.org/wiki/PayPal" target="blank">
+              What is Paypal ?
+            </a>
           </Paypal>
           <PlaceOrder>
             <button type="submit">Place order</button>
