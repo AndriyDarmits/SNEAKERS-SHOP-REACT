@@ -52,4 +52,7 @@ display:flex;
 flex-direction:column;
 
 }
+input[type="checkbox"] {
+        accent-color: #dddddd;
+      }
 `;

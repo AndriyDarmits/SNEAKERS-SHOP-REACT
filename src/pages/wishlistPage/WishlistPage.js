@@ -20,7 +20,13 @@ export const WishlistPage = () => {
               <WishlistItem wishProduct={wishProduct} />
             ))
           ) : (
-            <h2>No products in wishlist</h2>
+            <h2
+              style={{
+                textAlign: "center",
+              }}
+            >
+              No products in wishlist
+            </h2>
           )}
         </WishListDiv>
       </WishListContainer>

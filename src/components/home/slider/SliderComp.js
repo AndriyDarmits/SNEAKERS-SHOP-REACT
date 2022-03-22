@@ -81,7 +81,7 @@ export const SliderComp = () => {
                     <button onClick={navigateToProducts}>Shop now</button>
                   </ShowNowBtn>
                 </div>
-                <SlideNumber>01</SlideNumber>
+                <SlideNumber>03</SlideNumber>
               </SliderFlexDiv>
             </SliderContentContainer>
           </SliderItemThird>
