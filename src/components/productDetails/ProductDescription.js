@@ -39,7 +39,7 @@ export const ProductDescription = () => {
 
   const reduxStore = useSelector((state) => state);
   const { products } = reduxStore;
-  //TODO
+
   const [descriptionData, setDescriptionData] = useState({});
   useEffect(() => {
     if (products.length) {

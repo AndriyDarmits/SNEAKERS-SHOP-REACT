@@ -55,7 +55,6 @@ export default function ProductInfo() {
     { size: "44.5", selected: false },
     { size: "45", selected: false },
   ]);
-  //TODO: fix size selecting - upd:fixed)))
   const selectSize = (index, e) => {
     if (!productData.isInShoppingCart) {
       setSizes((prev) => {
@@ -80,7 +79,7 @@ export default function ProductInfo() {
     }
   };
 
-  //TODO:wishlist (connect to redux) - UPD: to do removing from wishlist
+  //TODO:make reusable
   const onAddToWishlist = () => {
     // copy data without reference
     const data = { ...productData };

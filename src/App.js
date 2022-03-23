@@ -27,7 +27,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchData("https://mocki.io/v1/7d2ddf44-4043-4d06-adf6-7789bfecefae").then(
+    fetchData("https://mocki.io/v1/c2978c01-7d3b-4fe2-a179-9ae07db63789").then(
       (data) => {
         const additionalPropertyAdded = data.map((el) => {
           //initial rate, avaliable in wishlist, product reviews

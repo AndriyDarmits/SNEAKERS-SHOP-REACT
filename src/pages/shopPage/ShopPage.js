@@ -11,6 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { ProductItem } from "../../components/shopPage/productItem/ProductItem";
 
 const ShopPageSectionWrapper = styled(SectionWrapper)`
   margin-top: 42px;
@@ -36,13 +37,7 @@ const ProductListDiv = styled.div`
   flex-wrap: wrap;
   width: 75%;
   transition: all 0.5s linear;
-`;
-
-const ProductItem = styled.div`
-  width: 270px;
-  height: 300px;
-  background-color: #333333;
-  margin: 5px;
+  margin-left: 20px;
 `;
 
 export default function ShopPage() {
@@ -50,7 +45,7 @@ export default function ShopPage() {
   const { products } = reduxStore;
 
   function valuetext(value) {
-    return `$${value}`;
+    return `${value}`;
   }
 
   const [value, setValue] = React.useState([10, 440]);
@@ -93,9 +88,7 @@ export default function ShopPage() {
           </SideBar>
           <ProductListDiv>
             {products.map((element) => (
-              <ProductItem>
-                <NavLink to={`/products/${element.id}`}>Details</NavLink>
-              </ProductItem>
+              <ProductItem product={element} />
             ))}
           </ProductListDiv>
         </ShopPageWrapper>
