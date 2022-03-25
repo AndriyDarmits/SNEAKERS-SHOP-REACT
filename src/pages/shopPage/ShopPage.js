@@ -14,6 +14,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 /* import { ProductItem } from "../../components/shopPage/productItem/ProductItem"; */
 import { Products } from "../../components/shopPage/products/Products";
 import { Pagination } from "../../components/shopPage/pagination/Pagination";
+import { scrollUp } from "../../helper";
 
 const ShopPageSectionWrapper = styled(SectionWrapper)`
   margin-top: 42px;
@@ -33,6 +34,10 @@ const SideBar = styled.aside`
   transition: all 0.5s linear;
   padding: 0 10px;
 `;
+const ProductsWrapper = styled.div`
+  width: 75%;
+  margin-left: 20px;
+`;
 
 export default function ShopPage() {
   const reduxStore = useSelector((state) => state);
@@ -48,12 +53,12 @@ export default function ShopPage() {
     setValue(newValue);
   };
 
-  //filtering
+  //!filtering
 
   const [men, setMen] = useState(false);
   const [women, setWomen] = useState(false);
-
-  /*   useEffect(() => {
+  /*
+    useEffect(() => {
     const dataFromRedux = [...products].filter((product) => {
       if (men && women) {
         return product;
@@ -103,11 +108,14 @@ export default function ShopPage() {
     setSearchParams({ page: pageNumber });
     setCurrentPage(pageNumber);
   };
-
-  /*
+  // scroll up, after switching page
   useEffect(() => {
-    setSearchParams({ page: currentPage });
-  }, [currentPage]); */
+    scrollUp(250);
+  }, [currentPage]);
+
+  useEffect(() => {
+    setSearchParams({ page: 1 });
+  }, []);
 
   return (
     <ShopPageSectionWrapper>
@@ -178,16 +186,19 @@ export default function ShopPage() {
                 max={400}
               />
             </div>
+            {/* edit */}
           </SideBar>
-          <Products
-            products={getCurrentPoducts(currentPage, productsPerPage)}
-          />
+          <ProductsWrapper>
+            <Products
+              products={getCurrentPoducts(currentPage, productsPerPage)}
+            />
+            <Pagination
+              productsPerPage={productsPerPage}
+              totalProducts={products.length}
+              paginate={paginate}
+            />
+          </ProductsWrapper>
         </ShopPageWrapper>
-        <Pagination
-          productsPerPage={productsPerPage}
-          totalProducts={products.length}
-          paginate={paginate}
-        />
       </Container>
     </ShopPageSectionWrapper>
   );
