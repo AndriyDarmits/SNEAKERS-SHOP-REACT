@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import styled from "@emotion/styled";
 import { Container, SectionWrapper } from "../../reusable-styles/reusableStyle";
@@ -11,7 +11,9 @@ import {
   Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { ProductItem } from "../../components/shopPage/productItem/ProductItem";
+/* import { ProductItem } from "../../components/shopPage/productItem/ProductItem"; */
+import { Products } from "../../components/shopPage/products/Products";
+import { Pagination } from "../../components/shopPage/pagination/Pagination";
 
 const ShopPageSectionWrapper = styled(SectionWrapper)`
   margin-top: 42px;
@@ -32,33 +34,87 @@ const SideBar = styled.aside`
   padding: 0 10px;
 `;
 
-const ProductListDiv = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 75%;
-  transition: all 0.5s linear;
-  margin-left: 20px;
-`;
-
 export default function ShopPage() {
   const reduxStore = useSelector((state) => state);
   const { products } = reduxStore;
-
+  // const [data, setData] = useState([]);
+  //slider
+  //TODO: fix
+  const [value, setValue] = useState([10, 440]);
   function valuetext(value) {
     return `${value}`;
   }
-
-  const [value, setValue] = React.useState([10, 440]);
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  //filtering
+
+  const [men, setMen] = useState(false);
+  const [women, setWomen] = useState(false);
+
+  /*   useEffect(() => {
+    const dataFromRedux = [...products].filter((product) => {
+      if (men && women) {
+        return product;
+      } else if (men) {
+        return product.category === "Man's";
+      } else if (women) {
+        return product.category === "Woman's";
+      }
+      return product;
+    });
+    if (men && women) {
+      setSearchParams({ page: 1, mans: true, womans: true });
+    } else if (men) {
+      setSearchParams({ page: 1, mans: true });
+    } else if (women) {
+      setSearchParams({ page: 1, womans: true });
+    } else {
+      setSearchParams({ page: 1 });
+    }
+
+    setCurrentPage(1);
+    setData(dataFromRedux);
+
+    console.log(dataFromRedux);
+  }, [men, women]);
+ */
+  // !PAGINATION
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [productsPerPage, setProductsPerPage] = useState(12);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  //get currnet post
+  // cuttent page = 3
+  const getCurrentPoducts = (currentPage, productsPerPage) => {
+    const indexOfLastProduct = currentPage * productsPerPage; // 30
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage; // 30-10 = 20
+    const currentProducts = products.slice(
+      indexOfFirstProduct,
+      indexOfLastProduct
+    );
+
+    return currentProducts;
+  };
+
+  const paginate = (pageNumber) => {
+    setSearchParams({ page: pageNumber });
+    setCurrentPage(pageNumber);
+  };
+
+  /*
+  useEffect(() => {
+    setSearchParams({ page: currentPage });
+  }, [currentPage]); */
 
   return (
     <ShopPageSectionWrapper>
       <Container>
         <ShopPageWrapper>
           <SideBar>
+            {/* TODO: to style accordion */}
             <Accordion>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -69,12 +125,49 @@ export default function ShopPage() {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  <p>Men's</p>
-                  <p>Women's</p>
+                  <p
+                    onClick={() => setMen((state) => !state)}
+                    style={{
+                      borderBottom: men
+                        ? "1px solid #ebebeb"
+                        : "1px solid transparent",
+                    }}
+                  >
+                    Men's
+                  </p>
+                  <p
+                    onClick={() => setWomen((state) => !state)}
+                    style={{
+                      borderBottom: women
+                        ? "1px solid #ebebeb"
+                        : "1px solid transparent",
+                    }}
+                  >
+                    Women's
+                  </p>
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <Typography>BRAND</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  <p>adidas</p>
+                  <p>nike</p>
+                  <p>puma</p>
+                  <p>new balance</p>
+                  <p>native</p>
                 </Typography>
               </AccordionDetails>
             </Accordion>
             <div>
+              {/* TODO: to style slider */}
               <Slider
                 getAriaLabel={() => "Temperature range"}
                 value={value}
@@ -86,12 +179,15 @@ export default function ShopPage() {
               />
             </div>
           </SideBar>
-          <ProductListDiv>
-            {products.map((element) => (
-              <ProductItem product={element} />
-            ))}
-          </ProductListDiv>
+          <Products
+            products={getCurrentPoducts(currentPage, productsPerPage)}
+          />
         </ShopPageWrapper>
+        <Pagination
+          productsPerPage={productsPerPage}
+          totalProducts={products.length}
+          paginate={paginate}
+        />
       </Container>
     </ShopPageSectionWrapper>
   );

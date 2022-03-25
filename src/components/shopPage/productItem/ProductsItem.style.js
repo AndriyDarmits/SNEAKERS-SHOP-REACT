@@ -42,7 +42,7 @@ export const AddToCartAndViewIcons = styled.div`
     height: 35px;
     border-radius: 50%;
     background-color: #fff;
-    transition: all 0.2s ease-in;
+    transition: all 0.3s ease-in;
     svg {
       color: #444444;
       &:hover {

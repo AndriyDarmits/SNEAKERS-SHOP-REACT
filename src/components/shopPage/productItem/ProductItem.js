@@ -55,6 +55,7 @@ export const ProductItem = ({ product }) => {
             <span>
               <FaEye />
             </span>
+
             <span>
               <FaCartPlus />
             </span>
