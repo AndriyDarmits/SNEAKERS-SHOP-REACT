@@ -124,7 +124,6 @@ export default function ProductInfo() {
   // adding to cart implementation
   //PS: можна ще зробити, оновлення стану елементу кошика при доданні його в вішліст
   const addToCart = () => {
-    console.log("hellp");
     const dataToCart = { ...productData };
     const dataToUpdateProduct = { ...productData };
     //selected size

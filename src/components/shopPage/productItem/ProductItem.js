@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   ProductContent,
   ProductImageWrapper,
@@ -12,11 +12,13 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useDispatch } from "react-redux";
 import actions from "../../../redux/actions/index";
-import { FaEye, FaCartPlus } from "react-icons/fa";
+import { FaEye, FaCartPlus, FaCheck } from "react-icons/fa";
 
 export const ProductItem = ({ product }) => {
   const [isVisiableIcon, setIsVisiableIcon] = useState(false);
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   //TODO: make reusable
   const onAddToWishlist = () => {
@@ -53,11 +55,15 @@ export const ProductItem = ({ product }) => {
         >
           <AddToCartAndViewIcons>
             <span>
-              <FaEye />
+              <FaEye onClick={() => navigate(`${product.id}`)} />
             </span>
 
             <span>
-              <FaCartPlus />
+              {product.isInShoppingCart ? (
+                <FaCheck />
+              ) : (
+                <FaCartPlus onClick={() => navigate(`${product.id}`)} />
+              )}
             </span>
           </AddToCartAndViewIcons>
           <WishListIcon onClick={() => onAddToWishlist()}>
