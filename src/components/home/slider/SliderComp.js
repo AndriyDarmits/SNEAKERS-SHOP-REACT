@@ -29,10 +29,11 @@ export const SliderComp = () => {
     speed: 2000,
     autoplaySpeed: 5000,
     cssEase: "ease-out",
-    /*autoplay: true,*/
+    autoplay: true,
   };
   const navigate = useNavigate();
   const navigateToProducts = () => navigate("products");
+  /* TODO: slider responsive styling */
   return (
     <SectionWrapper>
       <SliderContainer>

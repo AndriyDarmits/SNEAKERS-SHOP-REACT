@@ -11,6 +11,7 @@ import phone from "../../assets/icons/footer/phone.png";
 import scedule from "../../assets/icons/footer/scedule.png";
 import emailBtn from "../../assets/icons/footer/emailBtn.png";
 import { Link, useLocation } from "react-router-dom";
+import { scrollUp } from "../../helper";
 
 import {
   Col1,
@@ -25,20 +26,12 @@ import {
 
 export default function Footer() {
   const location = useLocation();
-  const scrollUp = () => {
-    setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }, 300);
-  };
   return (
     <FooterSection>
       <Container>
         <FooterFlexBox>
           <Col1>
-            <LogoFooter onClick={scrollUp}>
+            <LogoFooter onClick={() => scrollUp(0)}>
               <Link to={location.pathname}>FLOW</Link>
             </LogoFooter>
             <p>

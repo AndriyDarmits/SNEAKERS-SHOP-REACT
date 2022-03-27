@@ -4,9 +4,14 @@ import searchIcon from "../../assets/icons/header/Search.png";
 import accountIcon from "../../assets/icons/header/Acc.png";
 import cartIcon from "../../assets/icons/header/Cart.png";
 import { Container } from "../../reusable-styles/reusableStyle";
-import { FaAlignLeft, FaAlignRight } from "react-icons/fa";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import {
+  FaAlignLeft,
+  FaAlignRight,
+  FaSearch,
+  FaRegHeart,
+  FaHeart,
+  FaUserAlt,
+} from "react-icons/fa";
 import {
   BurgerBlock,
   HeaderDiv,
@@ -89,16 +94,16 @@ export default function Header() {
               {/* no ideas */}
               <Link to="/wishlist">
                 {wishlist.length ? (
-                  <FavoriteIcon style={{ color: "red" }} />
+                  <FaHeart style={{ color: "red" }} />
                 ) : (
-                  <FavoriteBorderIcon />
+                  <FaRegHeart />
                 )}
               </Link>
               <NavLink to="/search">
-                <img src={searchIcon} alt="" />
+                <FaSearch />
               </NavLink>
               <NavLink to="/account">
-                <img src={accountIcon} alt="" />
+                <FaUserAlt />
               </NavLink>
               <NavLink to="/cart">
                 <div

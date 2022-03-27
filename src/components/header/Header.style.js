@@ -68,8 +68,10 @@ export const Navigation = styled.nav`
     align-items: center;
     a {
       display: block;
+      color: #444444;
       svg {
         display: block;
+        font-size: 18px;
       }
       img {
         display: block;

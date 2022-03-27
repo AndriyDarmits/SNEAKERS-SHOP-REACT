@@ -3,51 +3,47 @@ import { useSearchParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import styled from "@emotion/styled";
 import { Container, SectionWrapper } from "../../reusable-styles/reusableStyle";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Slider,
-  Typography,
-} from "@mui/material";
+import { Typography } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 /* import { ProductItem } from "../../components/shopPage/productItem/ProductItem"; */
 import { Products } from "../../components/shopPage/products/Products";
 import { Pagination } from "../../components/shopPage/pagination/Pagination";
 import { scrollUp } from "../../helper";
+import {
+  MuiAccordion,
+  MuiAccordionDetails,
+  MuiAccordionSummary,
+  MuiSlider,
+  ProductsWrapper,
+  ShopPageSectionWrapper,
+  ShopPageWrapper,
+  SliderWrapper,
+} from "./ShopPage.style";
 
-const ShopPageSectionWrapper = styled(SectionWrapper)`
-  margin-top: 42px;
-  margin-bottom: 45px;
-`;
-const ShopPageWrapper = styled.div`
-  display: flex;
-  align-items: flex-start;
-`;
-const SideBar = styled.aside`
+export const SideBar = styled.aside`
   margin-top: 5px;
   margin-right: -5px;
-  background-color: #444444;
   position: sticky;
   width: 25%;
   top: 82px;
   transition: all 0.5s linear;
-  padding: 0 10px;
-`;
-const ProductsWrapper = styled.div`
-  width: 75%;
-  margin-left: 20px;
+  h2 {
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
 `;
 
 export default function ShopPage() {
   const reduxStore = useSelector((state) => state);
   const { products } = reduxStore;
   // const [data, setData] = useState([]);
+
   //slider
-  //TODO: fix
   const [value, setValue] = useState([10, 440]);
-  function valuetext(value) {
-    return `${value}`;
+  function valueLabelFormat(value) {
+    return `$ ${value}`;
   }
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -91,7 +87,7 @@ export default function ShopPage() {
   const [productsPerPage, setProductsPerPage] = useState(12);
   const [currentPage, setCurrentPage] = useState(1);
 
-  //get currnet post
+  //get current post
   // cuttent page = 3
   const getCurrentPoducts = (currentPage, productsPerPage) => {
     const indexOfLastProduct = currentPage * productsPerPage; // 30
@@ -122,16 +118,16 @@ export default function ShopPage() {
       <Container>
         <ShopPageWrapper>
           <SideBar>
-            {/* TODO: to style accordion */}
-            <Accordion>
-              <AccordionSummary
+            <h2>Categories</h2>
+            <MuiAccordion>
+              <MuiAccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
                 <Typography>GENDER</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
+              </MuiAccordionSummary>
+              <MuiAccordionDetails>
                 <Typography>
                   <p
                     onClick={() => setMen((state) => !state)}
@@ -154,17 +150,17 @@ export default function ShopPage() {
                     Women's
                   </p>
                 </Typography>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion>
-              <AccordionSummary
+              </MuiAccordionDetails>
+            </MuiAccordion>
+            <MuiAccordion>
+              <MuiAccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
                 <Typography>BRAND</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
+              </MuiAccordionSummary>
+              <MuiAccordionDetails>
                 <Typography>
                   <p>adidas</p>
                   <p>nike</p>
@@ -172,21 +168,20 @@ export default function ShopPage() {
                   <p>new balance</p>
                   <p>native</p>
                 </Typography>
-              </AccordionDetails>
-            </Accordion>
-            <div>
-              {/* TODO: to style slider */}
-              <Slider
-                getAriaLabel={() => "Temperature range"}
+              </MuiAccordionDetails>
+            </MuiAccordion>
+            <h2>Categories</h2>
+            <SliderWrapper>
+              <MuiSlider
                 value={value}
                 onChange={handleChange}
-                valueLabelDisplay="auto"
-                getAriaValueText={valuetext}
+                valueLabelDisplay="on"
+                getAriaValueText={valueLabelFormat}
+                valueLabelFormat={valueLabelFormat}
                 min={10}
                 max={400}
               />
-            </div>
-            {/* edit */}
+            </SliderWrapper>
           </SideBar>
           <ProductsWrapper>
             <Products

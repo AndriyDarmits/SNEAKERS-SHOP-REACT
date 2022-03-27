@@ -33,7 +33,6 @@ export default function PageNavigation() {
         ? "Checkout"
         : "not found"
     );
-    console.log(location.pathname);
   }, [location.pathname]);
 
   //TODO: динамічна зміна фото та заднього фону
