@@ -219,7 +219,6 @@ export default function ProductInfo() {
             onClick={() => addToCart()}
             disabled={productData.isInShoppingCart ? "true" : ""}
           >
-            {" "}
             {productData.isInShoppingCart ? "In a cart" : "Add to cart"}
           </button>
         </AddToCartBtn>
@@ -239,16 +238,16 @@ export default function ProductInfo() {
         </WishListIcon>
         <SocialIcons>
           <div>Share:</div>
-          <a href="">
+          <a href="#">
             <FaFacebookF />
           </a>
-          <a href="">
+          <a href="#">
             <FaDribbble />
           </a>
-          <a href="">
+          <a href="#">
             <FaGoogle />
           </a>
-          <a href="">
+          <a href="#">
             <FaTwitter />
           </a>
         </SocialIcons>

@@ -1,102 +1,20 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import {
-  Button,
-  FlexContainer,
-  Input,
-} from "../../reusable-styles/reusableStyle";
-import { Review } from "./Review";
+import { Review } from "../review/Review";
 import { Rating } from "@mui/material";
 
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getDataFromLocalStorage } from "../../helper";
-import actions from "../../redux/actions";
-
-const Reviews = styled.div`
-  border: 1px solid #ebebeb;
-  border-top: 0;
-  padding: 25px 65px;
-  @media (max-width: 768px) {
-    padding: 15px 35px;
-  }
-`;
-const NoReviewMessage = styled.div`
-  font-weight: 600;
-  margin-bottom: 25px;
-  & > p {
-    color: #333333;
-    margin-bottom: 5px;
-    span {
-      font-size: 16px;
-    }
-    &:nth-child(3) {
-      color: #a7a7a7;
-      font-size: 12px;
-      margin-bottom: 0;
-    }
-  }
-`;
-const FlexContainerReviews = styled(FlexContainer)`
-  justify-content: space-between;
-  flex-wrap: wrap;
-  @media (max-width: 768px) {
-    display: block;
-  }
-`;
-
-const ReviewInputField = styled.div`
-  width: 60%;
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-  textarea {
-    width: 100%;
-    resize: none;
-    outline: none;
-    border: 1px solid #ebebeb;
-    height: 130px;
-    padding: 15px 25px;
-    color: #a7a7a7;
-    font-size: 14px;
-    &::placeholder {
-      color: #a7a7a7;
-      font-size: 14px;
-    }
-  }
-`;
-const UserNameInputField = styled.div`
-  width: 36%;
-  @media (max-width: 768px) {
-    width: 60%;
-    margin-bottom: 10px;
-  }
-  // rating styling
-  & > span {
-    margin-bottom: 15px;
-  }
-`;
-const ReviewSubmitButton = styled(Button)`
-  button {
-    color: #fff;
-    background-color: #333333;
-  }
-`;
-const UserNameInput = styled(Input)`
-  margin-bottom: 20px;
-  @media (max-width: 768px) {
-    margin-bottom: 10px;
-  }
-  input {
-    padding: 10px 15px;
-    width: 100%;
-    color: #999999;
-    &::placeholder {
-      font-size: 13px;
-      color: #999999;
-    }
-  }
-`;
+import { getDataFromLocalStorage } from "../../../helper";
+import actions from "../../../redux/actions";
+import {
+  FlexContainerReviews,
+  NoReviewMessage,
+  ReviewInputField,
+  Reviews,
+  ReviewSubmitButton,
+  UserNameInput,
+  UserNameInputField,
+} from "./ProductReviews.style";
 
 export const ProductReviews = () => {
   const [formRateValue, setFormRateValue] = useState(0);

@@ -5,21 +5,18 @@ import inc from "../../assets/icons/cart/inc.png";
 import dec from "../../assets/icons/cart/dec.png";
 import { Link } from "react-router-dom";
 import { CartProductItem, ProductQuantityCart } from "./CartComponents.style";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import actions from "../../redux/actions/index";
-export default function CartItem({ productCart }) {
-  // get data from redux
-  const redux = useSelector((state) => state);
-  const { products } = redux;
+export default function CartItem({ product }) {
   const dispatch = useDispatch();
 
   const increaseQuantity = () => {
-    const data = { ...productCart };
+    const data = { ...product };
     data.count = data.count + 1;
     dispatch(actions.updateProductsCart(data));
   };
   const decreaseQuantity = () => {
-    const data = { ...productCart };
+    const data = { ...product };
     if (data.count <= 1) {
       data.count = 1;
     } else {
@@ -29,12 +26,10 @@ export default function CartItem({ productCart }) {
   };
 
   const deleteProductsFromCart = () => {
-    const data = [
-      ...products.filter((product) => product.id === productCart.id),
-    ][0];
+    const data = { ...product };
     data.isInShoppingCart = false;
     // delete product from shopping cart
-    dispatch(actions.deleteProductsFromCart(productCart));
+    dispatch(actions.deleteProductsFromCart(data));
     // update isInShoppingCart prop. in products state
     dispatch(actions.updateProducts(data));
   };
@@ -45,15 +40,15 @@ export default function CartItem({ productCart }) {
         <img src={cancel} alt="" />
       </div>
       <div>
-        <img src={productCart.images[0]} alt="" />
+        <img src={product.images[0]} alt="" />
       </div>
       <div>
-        <Link to={`/products/${productCart.id}`}>{productCart.title}</Link>
+        <Link to={`/products/${product.id}`}>{product.title}</Link>
       </div>
-      <div>$ {(+productCart.price).toFixed(2)}</div>
+      <div>$ {(+product.price).toFixed(2)}</div>
       <div>
         <ProductQuantityCart>
-          <div>{productCart.count}</div>
+          <div>{product.count}</div>
           <div>
             <div onClick={() => increaseQuantity()}>
               <img src={inc} alt="increment" />
@@ -64,8 +59,7 @@ export default function CartItem({ productCart }) {
           </div>
         </ProductQuantityCart>
       </div>
-
-      <div>$ {(+productCart.price * productCart.count).toFixed(2)}</div>
+      <div>$ {(product.price * product.count).toFixed(2)}</div>
     </CartProductItem>
   );
 }

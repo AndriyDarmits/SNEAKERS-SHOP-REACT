@@ -57,6 +57,7 @@ export default function ProductGallery() {
           <SmallProductImage>
             {gallery.map((image, index) => (
               <SmallImage
+                key={index}
                 index={index}
                 image={image}
                 activeIndex={activeIndex}

@@ -7,7 +7,6 @@ export const CartReducer = (state = [], action) => {
     case actionTypes.UPDATE_PRODUCTS_CART:
       const updatedCartPoducts = [...state].map((product) => {
         if (product.id === action.payload.id) {
-          console.log(product);
           return action.payload;
         }
         return product;

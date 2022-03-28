@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import CartItem from "./CartItem";
 import { CartHeader, CartList, CartListWrapper } from "./CartComponents.style";
 import { useSelector } from "react-redux";
@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 export const CartListComp = () => {
   const reduxStore = useSelector((state) => state);
   const { productsCart } = reduxStore;
-  console.log(productsCart);
+
   return (
     <CartListWrapper>
       <CartHeader>
@@ -18,8 +18,8 @@ export const CartListComp = () => {
         <div>Total</div>
       </CartHeader>
       <CartList>
-        {productsCart.map((product) => (
-          <CartItem productCart={product} />
+        {productsCart.map((product, index) => (
+          <CartItem product={product} key={index} />
         ))}
       </CartList>
     </CartListWrapper>

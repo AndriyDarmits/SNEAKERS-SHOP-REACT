@@ -10,8 +10,8 @@ const ProductListDiv = styled.div`
 export const Products = ({ products }) => {
   return (
     <ProductListDiv>
-      {products.map((element) => (
-        <ProductItem product={element} />
+      {products.map((element, index) => (
+        <ProductItem product={element} key={index} />
       ))}
     </ProductListDiv>
   );
