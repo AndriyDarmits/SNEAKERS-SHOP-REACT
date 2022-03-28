@@ -33,6 +33,7 @@ export const SliderComp = () => {
   };
   const navigate = useNavigate();
   const navigateToProducts = () => navigate("products");
+
   /* TODO: slider responsive styling */
   return (
     <SectionWrapper>

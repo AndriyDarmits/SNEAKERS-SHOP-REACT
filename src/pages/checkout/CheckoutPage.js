@@ -83,7 +83,7 @@ export const CheckoutPage = () => {
             <img src={pageIcon} alt="" />
           </div>
           <div>
-            <span>Returning customer?</span>{" "}
+            <span>Returning customer ?</span>{" "}
             <span onClick={() => navigate("login")}>Click here to login</span>
           </div>
         </CheckingNotifications>
@@ -92,7 +92,7 @@ export const CheckoutPage = () => {
             <img src={pageIcon} alt="" />
           </div>
           <div>
-            <span>Have a coupon?</span>{" "}
+            <span>Have a coupon ?</span>{" "}
             <span onClick={() => navigate("login")}>
               Click here to enter your code
             </span>
@@ -218,8 +218,13 @@ export const CheckoutPage = () => {
           })}
           <Subtotal>
             <div>Subtotal</div>
-            {/* TODO:порахувати суму */}
-            <div>{}</div>
+
+            <div>
+              <span>$ </span>
+              {productsCart.reduce((prev, current) => {
+                return prev + current.price * current.count;
+              }, 0)}
+            </div>
           </Subtotal>
 
           <Shipping>

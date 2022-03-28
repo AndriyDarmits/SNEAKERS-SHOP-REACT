@@ -238,16 +238,16 @@ export default function ProductInfo() {
         </WishListIcon>
         <SocialIcons>
           <div>Share:</div>
-          <a href="#">
+          <a href="https://www.facebook.com/">
             <FaFacebookF />
           </a>
-          <a href="#">
+          <a href="https://dribbble.com/">
             <FaDribbble />
           </a>
-          <a href="#">
+          <a href="https://www.google.com.ua/">
             <FaGoogle />
           </a>
-          <a href="#">
+          <a href="https://twitter.com/?lang=uk">
             <FaTwitter />
           </a>
         </SocialIcons>
