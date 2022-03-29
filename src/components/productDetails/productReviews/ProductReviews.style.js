@@ -3,6 +3,7 @@ import {
   Button,
   FlexContainer,
   Input,
+  TextArea,
 } from "../../../reusable-styles/reusableStyle";
 
 export const Reviews = styled.div`
@@ -37,24 +38,13 @@ export const FlexContainerReviews = styled(FlexContainer)`
   }
 `;
 
-export const ReviewInputField = styled.div`
+export const ReviewInputField = styled(TextArea)`
   width: 60%;
   @media (max-width: 768px) {
     width: 100%;
   }
   textarea {
-    width: 100%;
-    resize: none;
-    outline: none;
-    border: 1px solid #ebebeb;
     height: 130px;
-    padding: 15px 25px;
-    color: #a7a7a7;
-    font-size: 14px;
-    &::placeholder {
-      color: #a7a7a7;
-      font-size: 14px;
-    }
   }
 `;
 export const UserNameInputField = styled.div`

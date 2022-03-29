@@ -32,6 +32,21 @@ export const Button = styled.div`
     }
   }
 `;
+export const TextArea = styled.div`
+  textarea {
+    width: 100%;
+    resize: none;
+    outline: none;
+    border: 1px solid #ebebeb;
+    padding: 15px 25px;
+    color: #a7a7a7;
+    font-size: 14px;
+    &::placeholder {
+      color: #a7a7a7;
+      font-size: 14px;
+    }
+  }
+`;
 
 export const SectionWrapper = styled.section`
   margin-top: 82px;

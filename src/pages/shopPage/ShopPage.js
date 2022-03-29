@@ -17,23 +17,9 @@ import {
   ProductsWrapper,
   ShopPageSectionWrapper,
   ShopPageWrapper,
+  SideBar,
   SliderWrapper,
 } from "./ShopPage.style";
-
-export const SideBar = styled.aside`
-  margin-top: 5px;
-  margin-right: -5px;
-  position: sticky;
-  width: 25%;
-  top: 82px;
-  transition: all 0.5s linear;
-  h2 {
-    font-size: 18px;
-    color: #333333;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-  }
-`;
 
 export default function ShopPage() {
   const reduxStore = useSelector((state) => state);
@@ -104,6 +90,7 @@ export default function ShopPage() {
     setSearchParams({ page: pageNumber });
     setCurrentPage(pageNumber);
   };
+
   // scroll up, after switching page
   useEffect(() => {
     scrollUp(250);

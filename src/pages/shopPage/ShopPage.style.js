@@ -20,6 +20,20 @@ export const ProductsWrapper = styled.div`
   width: 75%;
   margin-left: 5px;
 `;
+export const SideBar = styled.aside`
+  margin-top: 5px;
+  margin-right: -5px;
+  position: sticky;
+  width: 25%;
+  top: 82px;
+  transition: all 0.5s linear;
+  h2 {
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+`;
 
 // !Material UI accordion customization
 export const MuiAccordion = styled(Accordion)(({ theme }) => ({
