@@ -18,6 +18,7 @@ import {
   ShopPageSectionWrapper,
   ShopPageWrapper,
   SideBar,
+  SideBarWrapper,
   SliderWrapper,
 } from "./ShopPage.style";
 
@@ -104,72 +105,74 @@ export default function ShopPage() {
     <ShopPageSectionWrapper>
       <Container>
         <ShopPageWrapper>
-          <SideBar>
-            <h2>Categories</h2>
-            <MuiAccordion>
-              <MuiAccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography>GENDER</Typography>
-              </MuiAccordionSummary>
-              <MuiAccordionDetails>
-                <Typography>
-                  <p
-                    onClick={() => setMen((state) => !state)}
-                    style={{
-                      borderBottom: men
-                        ? "1px solid #ebebeb"
-                        : "1px solid transparent",
-                    }}
-                  >
-                    Men's
-                  </p>
-                  <p
-                    onClick={() => setWomen((state) => !state)}
-                    style={{
-                      borderBottom: women
-                        ? "1px solid #ebebeb"
-                        : "1px solid transparent",
-                    }}
-                  >
-                    Women's
-                  </p>
-                </Typography>
-              </MuiAccordionDetails>
-            </MuiAccordion>
-            <MuiAccordion>
-              <MuiAccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography>BRAND</Typography>
-              </MuiAccordionSummary>
-              <MuiAccordionDetails>
-                <Typography>
-                  <p>adidas</p>
-                  <p>nike</p>
-                  <p>puma</p>
-                  <p>new balance</p>
-                  <p>native</p>
-                </Typography>
-              </MuiAccordionDetails>
-            </MuiAccordion>
-            <h2>Categories</h2>
-            <SliderWrapper>
-              <MuiSlider
-                value={value}
-                onChange={handleChange}
-                valueLabelDisplay="on"
-                getAriaValueText={valueLabelFormat}
-                valueLabelFormat={valueLabelFormat}
-                min={10}
-                max={400}
-              />
-            </SliderWrapper>
-          </SideBar>
+          <SideBarWrapper>
+            <SideBar>
+              <h2>Categories</h2>
+              <MuiAccordion>
+                <MuiAccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <Typography>GENDER</Typography>
+                </MuiAccordionSummary>
+                <MuiAccordionDetails>
+                  <Typography>
+                    <p
+                      onClick={() => setMen((state) => !state)}
+                      style={{
+                        borderBottom: men
+                          ? "1px solid #ebebeb"
+                          : "1px solid transparent",
+                      }}
+                    >
+                      Men's
+                    </p>
+                    <p
+                      onClick={() => setWomen((state) => !state)}
+                      style={{
+                        borderBottom: women
+                          ? "1px solid #ebebeb"
+                          : "1px solid transparent",
+                      }}
+                    >
+                      Women's
+                    </p>
+                  </Typography>
+                </MuiAccordionDetails>
+              </MuiAccordion>
+              <MuiAccordion>
+                <MuiAccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <Typography>BRAND</Typography>
+                </MuiAccordionSummary>
+                <MuiAccordionDetails>
+                  <Typography>
+                    <p>adidas</p>
+                    <p>nike</p>
+                    <p>puma</p>
+                    <p>new balance</p>
+                    <p>native</p>
+                  </Typography>
+                </MuiAccordionDetails>
+              </MuiAccordion>
+              <h2>Categories</h2>
+              <SliderWrapper>
+                <MuiSlider
+                  value={value}
+                  onChange={handleChange}
+                  valueLabelDisplay="on"
+                  getAriaValueText={valueLabelFormat}
+                  valueLabelFormat={valueLabelFormat}
+                  min={10}
+                  max={400}
+                />
+              </SliderWrapper>
+            </SideBar>
+          </SideBarWrapper>
           <ProductsWrapper>
             <Products
               products={getCurrentPoducts(currentPage, productsPerPage)}

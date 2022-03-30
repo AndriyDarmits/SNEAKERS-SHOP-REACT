@@ -5,7 +5,9 @@ import {
   SectionWrapper,
 } from "../../reusable-styles/reusableStyle";
 
-export const SearchPageWrapper = styled(SectionWrapper)``;
+export const SearchPageWrapper = styled(SectionWrapper)`
+  margin-top: 102px;
+`;
 export const SearchField = styled.div`
   display: flex;
   justify-content: space-between;
@@ -36,6 +38,7 @@ export const SearchBtn = styled(Button)`
 export const SearchResult = styled.div`
   padding-left: 20px;
   background-color: #f9f9f9;
+  
 `;
 export const ResultItem = styled.div`
   margin-bottom: 5px;

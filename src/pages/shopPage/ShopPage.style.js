@@ -20,13 +20,17 @@ export const ProductsWrapper = styled.div`
   width: 75%;
   margin-left: 5px;
 `;
-export const SideBar = styled.aside`
+export const SideBarWrapper = styled.div`
   margin-top: 5px;
   margin-right: -5px;
-  position: sticky;
-  width: 25%;
-  top: 82px;
   transition: all 0.5s linear;
+  width: 25%;
+`;
+
+export const SideBar = styled.aside`
+  position: sticky;
+  width: 100%;
+  top: 82px;
   h2 {
     font-size: 18px;
     color: #333333;
@@ -34,7 +38,9 @@ export const SideBar = styled.aside`
     text-transform: uppercase;
   }
 `;
-
+export const SliderWrapper = styled.div`
+  margin: 0 5px;
+`;
 // !Material UI accordion customization
 export const MuiAccordion = styled(Accordion)(({ theme }) => ({
   backgroundColor: "transparent",
@@ -73,9 +79,6 @@ export const MuiAccordionDetails = styled(AccordionDetails)(({ theme }) => ({
   padding: "12px",
 }));
 
-export const SliderWrapper = styled.div`
-  margin: 0 5px;
-`;
 // !Material UI slider customization
 export const MuiSlider = styled(Slider)(({ theme }) => ({
   color: "#333333",
