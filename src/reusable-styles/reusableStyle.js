@@ -7,6 +7,12 @@ export const Container = styled.div`
   margin: 0 auto;
   position: relative;
 `;
+export const LayoutWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+`;
 
 export const Input = styled.div`
   input {

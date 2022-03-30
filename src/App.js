@@ -1,7 +1,7 @@
 import "./App.scss";
 import React, { useEffect, useState } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Layout from "./pages/Layout";
+import {Layout} from "./pages/Layout";
 import Homepage from "./pages/home/Homepage";
 import LookBookPage from "./pages/LookBookPage";
 import SearchPage from "./pages/searchPage/SearchPage";

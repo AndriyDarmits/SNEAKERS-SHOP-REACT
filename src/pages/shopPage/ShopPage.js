@@ -104,6 +104,7 @@ export default function ShopPage() {
   return (
     <ShopPageSectionWrapper>
       <Container>
+        
         <ShopPageWrapper>
           <SideBarWrapper>
             <SideBar>
@@ -159,7 +160,7 @@ export default function ShopPage() {
                   </Typography>
                 </MuiAccordionDetails>
               </MuiAccordion>
-              <h2>Categories</h2>
+              <h2>Price</h2>
               <SliderWrapper>
                 <MuiSlider
                   value={value}

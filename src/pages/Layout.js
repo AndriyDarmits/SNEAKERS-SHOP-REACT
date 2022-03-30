@@ -2,15 +2,15 @@ import React from "react";
 import Header from "../components/header/Header";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/footer/Footer";
+import styled from "@emotion/styled";
+import { LayoutWrapper } from "../reusable-styles/reusableStyle";
 
-function Layout() {
+export const Layout = () => {
   return (
-    <div>
+    <LayoutWrapper>
       <Header />
       <Outlet />
       <Footer />
-    </div>
+    </LayoutWrapper>
   );
-}
-
-export default Layout;
+};

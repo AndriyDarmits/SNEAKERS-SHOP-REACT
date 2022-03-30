@@ -38,7 +38,6 @@ export const SearchBtn = styled(Button)`
 export const SearchResult = styled.div`
   padding-left: 20px;
   background-color: #f9f9f9;
-  
 `;
 export const ResultItem = styled.div`
   margin-bottom: 5px;
