@@ -4,7 +4,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Homepage from "./pages/home/Homepage";
 import LookBookPage from "./pages/LookBookPage";
-import SearchPage from "./pages/SearchPage";
+import SearchPage from "./pages/searchPage/SearchPage";
 import AccountPage from "./pages/AccountPage";
 import ProductDetails from "./pages/productPage/ProductDetails";
 import { ContactUsPage } from "./pages/contactUs/ContactUsPage";

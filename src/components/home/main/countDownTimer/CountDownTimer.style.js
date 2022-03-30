@@ -55,6 +55,9 @@ export const CountDownTimerContent = styled.div`
     @media (max-width: 1024px) {
       font-size: 26px;
     }
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
   }
   & > div {
     padding-left: 10px;

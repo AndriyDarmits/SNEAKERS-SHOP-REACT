@@ -91,7 +91,6 @@ export default function Header() {
             </div>
 
             <div className="navButton">
-              {/* no ideas */}
               <Link to="/wishlist">
                 {wishlist.length ? (
                   <FaHeart style={{ color: "red" }} />
