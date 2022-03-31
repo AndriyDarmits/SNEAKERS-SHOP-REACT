@@ -46,6 +46,7 @@ export const CheckoutPage = () => {
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
+  //shipping
   const [confirmPasswordShown, setconfirmPasswordShown] = useState(false);
   const toggleConfirmPassword = () => {
     setconfirmPasswordShown(!confirmPasswordShown);
@@ -62,6 +63,7 @@ export const CheckoutPage = () => {
     setFreeShipping((state) => !state);
     setFlatRate((state) => !state);
   };
+  // Payment
   const [checkPayment, setCheckPayment] = useState(true);
   const [paypal, setPaypal] = useState(false);
 

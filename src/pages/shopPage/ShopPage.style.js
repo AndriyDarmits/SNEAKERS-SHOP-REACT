@@ -20,11 +20,13 @@ export const ProductsWrapper = styled.div`
   width: 75%;
   margin-left: 5px;
 `;
+// sidebar
 export const SideBarWrapper = styled.div`
   margin-top: 5px;
   margin-right: -5px;
   transition: all 0.5s linear;
   width: 25%;
+  padding: 10px;
 `;
 
 export const SideBar = styled.aside`

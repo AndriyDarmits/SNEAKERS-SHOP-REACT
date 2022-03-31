@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  ProductContent,
-  ProductImageWrapper,
-  ProductItemDiv,
-  ProductImageOverlay,
-  AddToCartAndViewIcons,
-  WishListIcon,
-} from "./ProductItem.style";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useDispatch } from "react-redux";
 import actions from "../../../redux/actions/index";
 import { FaEye, FaCartPlus, FaCheck } from "react-icons/fa";
 
-export const ProductItem = ({ product }) => {
+import {
+  ProductContent,
+  ProductImageWrapper,
+  ProductItemWrapper,
+  ProductPrice,
+  Description,
+  ViewAndWishlistIcons,
+  AddToCartBtn,
+} from "./ProductSingleItem.style";
+
+export const ProductSingleItem = ({ product, onToTop }) => {
   const [isVisiableIcon, setIsVisiableIcon] = useState(false);
   const dispatch = useDispatch();
 
@@ -41,32 +43,19 @@ export const ProductItem = ({ product }) => {
   };
 
   return (
-    <ProductItemDiv
-      onMouseLeave={() => setIsVisiableIcon((state) => !state)}
-      onMouseEnter={() => setIsVisiableIcon((state) => !state)}
-    >
+    <ProductItemWrapper>
       <ProductImageWrapper>
         <img src={product.images[0]} alt="" />
-        <ProductImageOverlay
-          style={{
-            visibility: isVisiableIcon ? "visible" : "hidden",
-            top: isVisiableIcon ? "0" : "5px",
-          }}
-        >
-          <AddToCartAndViewIcons>
-            <span>
-              <FaEye onClick={() => navigate(`${product.id}`)} />
-            </span>
-
-            <span>
-              {product.isInShoppingCart ? (
-                <FaCheck />
-              ) : (
-                <FaCartPlus onClick={() => navigate(`${product.id}`)} />
-              )}
-            </span>
-          </AddToCartAndViewIcons>
-          <WishListIcon onClick={() => onAddToWishlist()}>
+      </ProductImageWrapper>
+      <ProductContent>
+        <h2>{product.title}</h2>
+        <ProductPrice>$ {product.price}</ProductPrice>
+        <Description>{product.description.slice(0, 80)}...</Description>
+        <ViewAndWishlistIcons>
+          <span>
+            <FaEye onClick={() => navigate(`${product.id}`)} />
+          </span>
+          <span onClick={() => onAddToWishlist()}>
             {product?.isInWishList ? (
               <FavoriteIcon
                 style={{
@@ -74,18 +63,14 @@ export const ProductItem = ({ product }) => {
                 }}
               />
             ) : (
-              <FavoriteBorderIcon style={{ color: `#666666` }} />
+              <FavoriteBorderIcon />
             )}
-          </WishListIcon>
-        </ProductImageOverlay>
-      </ProductImageWrapper>
-      <ProductContent>
-        <h5>
-          <Link to={`${product.id}`}>{product.title}</Link>
-        </h5>
-
-        <p>$ {(+product.price).toFixed(2)}</p>
+          </span>
+        </ViewAndWishlistIcons>
+        <AddToCartBtn>
+          <button onClick={() => navigate(`${product.id}`)}>Add to cart</button>
+        </AddToCartBtn>
       </ProductContent>
-    </ProductItemDiv>
+    </ProductItemWrapper>
   );
 };

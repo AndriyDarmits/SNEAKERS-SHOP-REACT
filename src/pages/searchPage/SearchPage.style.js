@@ -23,6 +23,9 @@ export const InputSearcher = styled(Input)`
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
   }
+  @media (max-width: 768px) {
+    width: 70%;
+  }
 `;
 export const SearchBtn = styled(Button)`
   width: 20%;
@@ -33,6 +36,12 @@ export const SearchBtn = styled(Button)`
     color: #fff;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    @media (max-width: 768px) {
+      padding: 20px 20px;
+    }
+  }
+  @media (max-width: 768px) {
+    width: 30%;
   }
 `;
 export const SearchResult = styled.div`

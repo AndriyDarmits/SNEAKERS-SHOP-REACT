@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import styled from "@emotion/styled";
-import { Container, SectionWrapper } from "../../reusable-styles/reusableStyle";
+import { Container } from "../../reusable-styles/reusableStyle";
 import { Typography } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 /* import { ProductItem } from "../../components/shopPage/productItem/ProductItem"; */
@@ -88,7 +87,9 @@ export default function ShopPage() {
   };
 
   const paginate = (pageNumber) => {
-    setSearchParams({ page: pageNumber });
+    const params = {};
+    params.page = pageNumber;
+    setSearchParams(params);
     setCurrentPage(pageNumber);
   };
 
@@ -104,7 +105,6 @@ export default function ShopPage() {
   return (
     <ShopPageSectionWrapper>
       <Container>
-        
         <ShopPageWrapper>
           <SideBarWrapper>
             <SideBar>

@@ -26,7 +26,7 @@ export default function ProductGallery() {
     setActiveImg(gallery[index]);
   };
 
-  //TODO:
+
   useEffect(() => {
     setTimeout(() => {
       // TODO: take data from redux
