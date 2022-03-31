@@ -18,9 +18,11 @@ export const CartListComp = () => {
         <div>Total</div>
       </CartHeader>
       <CartList>
-        {productsCart.map((product, index) => (
-          <CartItem product={product} key={index} />
-        ))}
+        {productsCart.length > 0
+          ? productsCart.map((product, index) => (
+              <CartItem product={product} key={index} />
+            ))
+          : "The cart is empty...."}
       </CartList>
     </CartListWrapper>
   );

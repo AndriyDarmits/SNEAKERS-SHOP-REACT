@@ -2,40 +2,7 @@ import styled from "@emotion/styled";
 import React, { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { FaAngleDoubleRight, FaAngleDoubleLeft } from "react-icons/fa";
-const PaginationNav = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #f8f8f8;
-  // загальні стилі для всіх кнопок
-  button {
-    background-color: transparent;
-    border: 0;
-    color: #cccccc;
-  }
-`;
-const PagitationBtn = styled.ul`
-  display: flex;
-  justify-content: center;
-  & > li {
-    margin-right: 15px;
-  }
-  & > li:last-of-type {
-    margin-right: 0;
-  }
-`;
-const PrevBtn = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const NextBtn = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
+import {NextBtn, PaginationNav, PagitationBtn, PrevBtn} from "./Pagination.style"
 export const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
   /* page quantity */
   const pageNumbers = [];
