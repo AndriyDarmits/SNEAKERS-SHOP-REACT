@@ -62,9 +62,11 @@ export const CountDownTimer = () => {
               <span>$ {products[0]?.price * 0.6}</span>
             </ProductPrice>
             <Description>{products[0]?.description}</Description>
-            <Countdown date={Date.now() + 1000000000} renderer={renderer}>
+            {/* */}
+            <Countdown date={Date.now() + 1036800000} renderer={renderer}>
               <Completionist />
             </Countdown>
+            {/*  */}
             <AddToCartBtn>
               <button onClick={() => navigate(`products/${products[0]?.id}`)}>
                 {products[0]?.isInShoppingCart ? "In the cart" : "Add to cart"}

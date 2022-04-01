@@ -5,7 +5,7 @@ import {
   AccordionSummary,
   Slider,
 } from "@mui/material";
-import { SectionWrapper } from "../../reusable-styles/reusableStyle";
+import { Button, SectionWrapper } from "../../reusable-styles/reusableStyle";
 
 export const ShopPageSectionWrapper = styled(SectionWrapper)`
   margin-top: 42px;
@@ -40,8 +40,14 @@ export const SideBar = styled.aside`
     text-transform: uppercase;
   }
 `;
+export const FilterBtn = styled(Button)`
+  button {
+    color: #fff;
+  }
+`;
 export const SliderWrapper = styled.div`
   margin: 0 5px;
+  margin-bottom: 20px;
 `;
 // !Material UI accordion customization
 export const MuiAccordion = styled(Accordion)(({ theme }) => ({

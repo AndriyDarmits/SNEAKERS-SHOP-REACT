@@ -9,6 +9,7 @@ import { Products } from "../../components/shopPage/products/Products";
 import { Pagination } from "../../components/shopPage/pagination/Pagination";
 import { scrollUp } from "../../helper";
 import {
+  FilterBtn,
   MuiAccordion,
   MuiAccordionDetails,
   MuiAccordionSummary,
@@ -172,6 +173,9 @@ export default function ShopPage() {
                   max={400}
                 />
               </SliderWrapper>
+              <FilterBtn>
+                <button>Filter</button>
+              </FilterBtn>
             </SideBar>
           </SideBarWrapper>
           <ProductsWrapper>

@@ -55,6 +55,9 @@ export default function ProductInfo() {
     { size: "44.5", selected: false },
     { size: "45", selected: false },
   ]);
+  // product quantity state
+  const [productQuantity, setProductQuantity] = useState(1);
+
   const selectSize = (index, e) => {
     if (!productData.isInShoppingCart) {
       setSizes((prev) => {
@@ -100,7 +103,6 @@ export default function ProductInfo() {
   };
 
   // productQuantityHandler
-  const [productQuantity, setProductQuantity] = useState(1);
   const decrementHandler = () => {
     // if product is not in cart
     if (!productData.isInShoppingCart) {
@@ -145,6 +147,7 @@ export default function ProductInfo() {
     });
     setProductQuantity(1);
   };
+
   // set data from redux
   useEffect(() => {
     if (products.length) {
@@ -182,6 +185,7 @@ export default function ProductInfo() {
         <div>
           {sizes.map((s, index) => (
             <SizeItem
+              key={index}
               selected={s.selected}
               onClick={(e) => selectSize(index, e)}
             >
