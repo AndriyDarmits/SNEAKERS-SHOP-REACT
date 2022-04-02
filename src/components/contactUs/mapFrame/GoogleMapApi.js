@@ -17,7 +17,6 @@ const options = {
 };
 
 const GoogleMapApi = () => {
-  //TODO: доробити, отримати білінговий ключ
   return (
     <LoadScript googleMapsApiKey="AIzaSyCaqgKD8JpCG-8tUi9w3U7ug55NYKZhWXw">
       <GoogleMap

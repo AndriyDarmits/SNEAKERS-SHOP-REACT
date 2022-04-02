@@ -2,6 +2,13 @@ import styled from "@emotion/styled";
 
 export const BlogItem = styled.div`
   width: 49%;
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 40px;
+    &:last-of-type {
+      margin: 0;
+    }
+  }
 `;
 export const BlogImg = styled.div`
   position: relative;
@@ -11,11 +18,13 @@ export const BlogImg = styled.div`
     object-fit: cover;
   }
   div {
+    transition: all 0.3s ease-in;
     position: absolute;
     z-index: 5;
     top: -10px;
-    right: 10px;
-    background-color: #333333;
+    right: ${(props) => (props.enterPointer ? "15px" : "10px")};
+    background-color: ${(props) =>
+      props.enterPointer ? "#444444" : "#333333"};
     padding: 10px 15px;
     color: #fff;
     text-align: center;
@@ -31,14 +40,16 @@ export const BlogImg = styled.div`
     }
   }
   span {
+    transition: all 0.3s ease-in;
     position: absolute;
     top: -10px;
-    right: 77px;
+    right: ${(props) => (props.enterPointer ? "82px" : "76px")};
     width: 0;
     height: 0;
     border-style: solid;
     border-width: 0 0 10px 10px;
-    border-color: transparent transparent #333333 transparent;
+    border-color: transparent transparent
+      ${(props) => (props.enterPointer ? "#444444" : "#333333")} transparent;
   }
 `;
 export const BlogContent = styled.div`
@@ -47,11 +58,17 @@ export const BlogContent = styled.div`
   min-height: 200px;
 
   h4 {
+    display: inline-block;
     font-size: 24px;
     color: #333333;
     margin-bottom: 10px;
     font-style: normal;
     font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: border 0.2s ease-in-out;
+    &:hover {
+      border-bottom: 2px solid #333333;
+    }
   }
   p {
     color: #666666;

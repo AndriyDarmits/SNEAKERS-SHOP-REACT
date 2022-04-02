@@ -10,14 +10,26 @@ export const RecentBlogPageSection = styled(SectionWrapper)`
 export const RecentBlogPageWrapper = styled.div`
   padding: 40px 0;
   h2 {
+    display: inline-block;
     font-size: 36px;
     text-transform: uppercase;
-    font-size: #333333;
     font-style: normal;
     font-weight: 600;
     margin-bottom: 20px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      border-bottom: 2px solid #333333;
+    }
+    a {
+      color: #333333;
+    }
   }
 `;
 export const RecentBlogFlex = styled(FlexContainer)`
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
 `;

@@ -33,7 +33,6 @@ export const SliderContentContainer = styled(Container)`
   height: 100%;
 `;
 export const Like = styled.p`
-  /* TODO: font size */
   display: inline-block;
   background-position: center;
   background-size: contain;
@@ -52,7 +51,6 @@ export const Like = styled.p`
   }
 `;
 export const FashionInstaP = styled.h1`
-  /* TODO: font size */
   font-size: 90px;
   color: #f67575;
   padding-left: 15px;
@@ -60,7 +58,6 @@ export const FashionInstaP = styled.h1`
 `;
 
 export const SlideNumber = styled.div`
-  /* TODO: font size */
   font-size: 395px;
   color: #fff;
   font-weight: 600;
