@@ -19,16 +19,13 @@ const options = {
 const GoogleMapApi = () => {
   //TODO: доробити, отримати білінговий ключ
   return (
-    <LoadScript googleMapsApiKey="AIzaSyADB9mqHtKIEoO0nh4py340wXCJ0PseaJI">
+    <LoadScript googleMapsApiKey="AIzaSyCaqgKD8JpCG-8tUi9w3U7ug55NYKZhWXw">
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
         zoom={15}
         options={options}
-      >
-        {/* Child components, such as markers, info windows, etc. */}
-        <></>
-      </GoogleMap>
+      ></GoogleMap>
     </LoadScript>
   );
 };

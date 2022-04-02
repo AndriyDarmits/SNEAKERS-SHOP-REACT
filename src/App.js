@@ -21,6 +21,7 @@ import actions from "./redux/actions/index";
 import { WishlistPage } from "./pages/wishlistPage/WishlistPage";
 import ShopPage from "./pages/shopPage/ShopPage";
 import { CheckoutPage } from "./pages/checkout/CheckoutPage";
+import { Auth } from "./Auth";
 
 function App() {
   const dispatch = useDispatch();
