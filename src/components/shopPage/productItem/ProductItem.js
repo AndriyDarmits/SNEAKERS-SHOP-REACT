@@ -17,7 +17,6 @@ import { FaEye, FaCartPlus, FaCheck } from "react-icons/fa";
 export const ProductItem = ({ product }) => {
   const [isVisiableIcon, setIsVisiableIcon] = useState(false);
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
 
   //TODO: make reusable

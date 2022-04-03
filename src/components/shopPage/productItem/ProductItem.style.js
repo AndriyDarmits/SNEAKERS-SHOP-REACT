@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ProductItemDiv = styled.div`
   margin: 5px;
-  width: 240px;
+  width: 270px;
   transition: all 0.1s ease-in-out;
   &:hover {
     box-shadow: 0px 0px 10px 1px rgba(51, 51, 51, 0.67);

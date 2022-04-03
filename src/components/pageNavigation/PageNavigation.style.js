@@ -14,14 +14,14 @@ export const Navigation = styled.div`
   justify-content: center;
   align-items: flex-end;
   height: 250px;
-  & > div:first-child {
+  & > div:first-of-type {
     font-size: 25px;
     text-transform: uppercase;
     margin-bottom: 10px;
     font-weight: 600;
     color: #fff;
   }
-  & > div:last-child {
+  & > div:last-of-type {
     font-size: 14px;
     font-weight: 600;
   }

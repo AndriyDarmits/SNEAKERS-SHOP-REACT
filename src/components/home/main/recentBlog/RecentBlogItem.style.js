@@ -12,10 +12,15 @@ export const BlogItem = styled.div`
 `;
 export const BlogImg = styled.div`
   position: relative;
+  overflow: hidden;
   img {
     width: 100%;
     height: 300px;
     object-fit: cover;
+    transition: all 0.2s linear;
+    &:hover {
+      transform: scale(1.1) rotate(2deg);
+    }
   }
   div {
     transition: all 0.3s ease-in;

@@ -42,12 +42,10 @@ function App() {
       }
     );
   }, []);
-  // туво буде спливаюче вікно авторизації
-  useEffect(() => {}, []);
-
   return (
     <BrowserRouter>
       <Routes>
+        {/*  <Route path="/" element={<Auth />}> */}
         <Route path="/" element={<Layout />}>
           <Route index element={<Homepage />} />
           <Route path="products/:id" element={<ProductDetails />}>
@@ -66,6 +64,7 @@ function App() {
           <Route path="wishlist" element={<WishlistPage />} />
           <Route path="checkout" element={<CheckoutPage />} />
         </Route>
+        {/*   </Route> */}
         <Route path="*" element={<Notfoundpage />} />
       </Routes>
       <GlobalStyles />

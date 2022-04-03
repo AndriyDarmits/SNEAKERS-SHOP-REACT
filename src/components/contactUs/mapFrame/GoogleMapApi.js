@@ -1,6 +1,6 @@
 import React from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
-import mapCustomStyle from "./mapCustomStyle.js";
+import { mapCustomStyle } from "./mapCustomStyle.js";
 const containerStyle = {
   width: "100%",
   minHeight: "550px",

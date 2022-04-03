@@ -212,7 +212,7 @@ export const CheckoutPage = () => {
           </OrderHeader>
           {productsCart.map((product) => {
             return (
-              <OrderList>
+              <OrderList key={product.id}>
                 <div>{product.title}</div>
                 <div>$ {product.price * product.count}</div>
               </OrderList>

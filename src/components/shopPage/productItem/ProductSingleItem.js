@@ -16,10 +16,8 @@ import {
   AddToCartBtn,
 } from "./ProductSingleItem.style";
 
-export const ProductSingleItem = ({ product, onToTop }) => {
-  const [isVisiableIcon, setIsVisiableIcon] = useState(false);
+export const ProductSingleItem = ({ product }) => {
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
 
   //TODO: make reusable

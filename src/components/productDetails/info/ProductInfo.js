@@ -221,7 +221,7 @@ export default function ProductInfo() {
         <AddToCartBtn>
           <button
             onClick={() => addToCart()}
-            disabled={productData.isInShoppingCart ? "true" : ""}
+            disabled={productData.isInShoppingCart ? true : false}
           >
             {productData.isInShoppingCart ? "In a cart" : "Add to cart"}
           </button>

@@ -65,7 +65,7 @@ export default function SearchPage() {
                     </ResultItem>
                   );
                 })
-            : "No products"}
+            : "Type product title to search specific products..."}
         </SearchResult>
       </Container>
     </SearchPageWrapper>
