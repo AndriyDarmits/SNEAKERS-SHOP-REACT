@@ -6,7 +6,7 @@ export const getDataFromLocalStorage = (name) =>
 export const scrollUp = (top = 0) => {
   setTimeout(() => {
     window.scrollTo({
-      top: 250,
+      top: top,
       behavior: "smooth",
     });
   }, 300);

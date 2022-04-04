@@ -3,8 +3,8 @@ import React from "react";
 import { ProductSingleItem } from "../productItem/ProductSingleItem";
 import { ProductItem } from "../productItem/ProductItem";
 const ProductListFlex = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 280px);
   justify-content: center;
 `;
 const ProductListSingleBlock = styled.div`
@@ -16,7 +16,7 @@ export const Products = ({ products }) => {
   return (
     <ProductListFlex>
       {products.map((element, index) => (
-        <ProductItem product={element} key={index} />
+        <ProductItem product={element} key={index} path = "/" />
         /*  <ProductSingleItem product={element} key={index} /> */
       ))}
     </ProductListFlex>

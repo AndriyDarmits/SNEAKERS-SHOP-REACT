@@ -54,14 +54,16 @@ export const ProductItem = ({ product }) => {
         >
           <AddToCartAndViewIcons>
             <span>
-              <FaEye onClick={() => navigate(`${product.id}`)} />
+              <FaEye onClick={() => navigate(`/products/${product.id}`)} />
             </span>
 
             <span>
               {product.isInShoppingCart ? (
                 <FaCheck />
               ) : (
-                <FaCartPlus onClick={() => navigate(`${product.id}`)} />
+                <FaCartPlus
+                  onClick={() => navigate(`/products/${product.id}`)}
+                />
               )}
             </span>
           </AddToCartAndViewIcons>
@@ -80,7 +82,7 @@ export const ProductItem = ({ product }) => {
       </ProductImageWrapper>
       <ProductContent>
         <h5>
-          <Link to={`${product.id}`}>{product.title}</Link>
+          <Link to={`/products/${product.id}`}>{product.title}</Link>
         </h5>
 
         <p>$ {(+product.price).toFixed(2)}</p>

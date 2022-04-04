@@ -16,14 +16,17 @@ export const RecentBlogItem = ({ blogData }) => {
     <BlogItem
       onPointerEnter={() => enterItem()}
       onPointerLeave={() => leaveItem()}
+      enterPointer={enterPointer}
     >
-      <BlogImg enterPointer={enterPointer}>
+      {/* absolute block */}
+      <span></span>
+      <div>
+        <h3>{blogData.day}</h3>
+        <p>{blogData.month}</p>
+      </div>
+      {/* absolute block */}
+      <BlogImg>
         <img src={blogData.imageURL} alt="" />
-        <div>
-          <h3>{blogData.day}</h3>
-          <p>{blogData.month}</p>
-        </div>
-        <span></span>
       </BlogImg>
       <BlogContent>
         <h4>

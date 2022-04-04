@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 import { dataBlog } from "./dataBlog";
 
 export const RecentBlog = () => {
-  console.log(dataBlog);
   return (
     <RecentBlogPageSection>
       <Container>

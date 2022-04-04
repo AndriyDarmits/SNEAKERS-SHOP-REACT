@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const BlogItem = styled.div`
   width: 49%;
+  position: relative;
   @media (max-width: 768px) {
     width: 100%;
     margin-bottom: 40px;
@@ -9,20 +10,7 @@ export const BlogItem = styled.div`
       margin: 0;
     }
   }
-`;
-export const BlogImg = styled.div`
-  position: relative;
-  overflow: hidden;
-  img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    transition: all 0.2s linear;
-    &:hover {
-      transform: scale(1.1) rotate(2deg);
-    }
-  }
-  div {
+  & > div:first-of-type {
     transition: all 0.3s ease-in;
     position: absolute;
     z-index: 5;
@@ -55,6 +43,19 @@ export const BlogImg = styled.div`
     border-width: 0 0 10px 10px;
     border-color: transparent transparent
       ${(props) => (props.enterPointer ? "#444444" : "#333333")} transparent;
+  }
+`;
+export const BlogImg = styled.div`
+  position: relative;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: all 0.2s linear;
+    &:hover {
+      transform: scale(1.1) rotate(2deg);
+    }
   }
 `;
 export const BlogContent = styled.div`

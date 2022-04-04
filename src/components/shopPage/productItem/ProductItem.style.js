@@ -11,11 +11,14 @@ export const ProductItemDiv = styled.div`
 `;
 export const ProductImageWrapper = styled.div`
   width: 100%;
+
   background-color: #333333;
   position: relative;
   img {
     display: block;
+    height: 270px;
     width: 100%;
+    object-fit: cover;
   }
 `;
 export const ProductImageOverlay = styled.div`
