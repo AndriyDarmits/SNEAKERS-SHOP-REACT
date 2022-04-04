@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import cancel from "../../assets/icons/cart/cancel.png";
 import inc from "../../assets/icons/cart/inc.png";
 import dec from "../../assets/icons/cart/dec.png";

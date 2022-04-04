@@ -10,24 +10,34 @@ import { ApplyCoupon, CartWrapper, CheckOut } from "./CartPage.style";
 export default function CartPage() {
   const redux = useSelector((state) => state);
   const { productsCart } = redux;
+  const [discount, setDiscount] = useState(false);
+  const [discountAmount, setDiscountAmount] = useState(1);
 
   return (
     <CartWrapper>
       <Container>
         <CartListComp />
-        <ApplyCoupon>
-          <Coupon />
-        </ApplyCoupon>
-        <CartTotalComp />
-        {/* TODO: перевірити, може зробити приватний роут */}
-        {productsCart.length ? (
-          <Link to="/checkout">
-            <CheckOut>
-              <button>Process to check out</button>
-            </CheckOut>
-          </Link>
-        ) : (
-          ""
+        {productsCart.length > 0 && (
+          <>
+            <ApplyCoupon>
+              <Coupon
+                setDiscount={setDiscount}
+                setDiscountAmount={setDiscountAmount}
+              />
+            </ApplyCoupon>
+            <CartTotalComp
+              discount={discount}
+              discountAmount={discountAmount}
+            />
+            {/* TODO: перевірити, може зробити приватний роут */}
+            {productsCart.length ? (
+              <Link to="/checkout">
+                <CheckOut>
+                  <button>Process to check out</button>
+                </CheckOut>
+              </Link>
+            ) : null}
+          </>
         )}
       </Container>
     </CartWrapper>

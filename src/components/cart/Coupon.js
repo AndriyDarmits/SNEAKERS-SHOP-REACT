@@ -1,39 +1,26 @@
-import { keyframes } from "@emotion/react";
-import styled from "@emotion/styled";
 import React, { useState } from "react";
-import { CuponButton, CuponInput } from "./CartComponents.style";
-const fade_in = keyframes`
-0% {
-  right:-100%;
-}10%{
-  right:0%;
-}90%{
-  right:0%;
-}100%{
-  right:-100%;
-}`;
+import {
+  CuponButton,
+  CuponInput,
+  ValidationMessage,
+} from "./CartComponents.style";
 
-const ValidationMessage = styled.div`
-  position: absolute;
-  right: 5px;
-  color: #fff;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 10px 20px;
-
-  animation: ${fade_in} 2s ease-in-out;
-`;
-export default function Cupon() {
+export default function Coupon({ setDiscount, setDiscountAmount }) {
   const [couponeValue, setCouponValue] = useState("");
-  const [validationMessage, setValidationMessage] = useState(false);
+  const [notValidateMessage, setNotValidateMessage] = useState(false);
   const promoCodes = ["summer2022", "winter2022", "spring2022", "autumn2022"];
-  // TODO: доробити
+  // TODO: connect to redux store
   const applyCoupon = () => {
     if (promoCodes.includes(couponeValue.toLowerCase())) {
+      setDiscountAmount(1.2);
+      setDiscount(true);
+      setCouponValue("");
+      console.log("dksvmsdkmkS");
     } else {
-      setValidationMessage(true);
+      setNotValidateMessage(true);
+      setCouponValue("");
       setTimeout(() => {
-        setValidationMessage(false);
+        setNotValidateMessage(false);
       }, 2000);
     }
   };
@@ -50,7 +37,7 @@ export default function Cupon() {
       <CuponButton>
         <button onClick={() => applyCoupon()}>Apply coupon</button>
       </CuponButton>
-      {validationMessage ? (
+      {notValidateMessage ? (
         <ValidationMessage>incorrert promocode...</ValidationMessage>
       ) : (
         ""

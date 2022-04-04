@@ -1,4 +1,5 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
+import { keyframes } from "styled-components";
 import {
   Button,
   Input,
@@ -166,4 +167,24 @@ export const CuponButton = styled(Button)`
       padding: 12.5px 15px;
     }
   }
+`;
+const fade_in = keyframes`
+0% {
+  right:-100%;
+}10%{
+  right:0%;
+}90%{
+  right:0%;
+}100%{
+  right:-100%;
+}`;
+
+export const ValidationMessage = styled.div`
+  position: absolute;
+  right: 5px;
+  color: #fff;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  animation: ${fade_in} 2s ease-in-out;
 `;

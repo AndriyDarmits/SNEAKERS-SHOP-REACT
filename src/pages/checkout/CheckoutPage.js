@@ -76,7 +76,7 @@ export const CheckoutPage = () => {
     setPaypal((state) => !state);
     setCheckPayment((state) => !state);
   };
-
+  //TODO: break down into components
   return (
     <CheckoutSecrionWrapper>
       <Container>
