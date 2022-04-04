@@ -17,6 +17,8 @@ export const CartReducer = (state = [], action) => {
         return action.payload.id !== product.id;
       });
       return [...filteredCartPoducts];
+    case actionTypes.CLEAR_ALL_PRODUCTS_FROM_CART:
+      return [];
     default:
       return state;
   }

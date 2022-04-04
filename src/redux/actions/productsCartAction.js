@@ -17,3 +17,8 @@ export const deleteProductsFromCart = (product) => {
     payload: product,
   };
 };
+export const clearAllProductsFromCart = () => {
+  return {
+    type: actions.CLEAR_ALL_PRODUCTS_FROM_CART,
+  };
+};
