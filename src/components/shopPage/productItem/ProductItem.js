@@ -45,7 +45,7 @@ export const ProductItem = ({ product }) => {
       onMouseEnter={() => setIsVisiableIcon((state) => !state)}
     >
       <ProductImageWrapper>
-        <img src={product.images[0]} alt="" />
+        <img src={product.images[0]} alt="" loading="lazy" />
         <ProductImageOverlay
           style={{
             visibility: isVisiableIcon ? "visible" : "hidden",

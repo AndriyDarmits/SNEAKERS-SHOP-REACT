@@ -19,6 +19,9 @@ export const ShopPageWrapper = styled.div`
 export const ProductsWrapper = styled.div`
   width: 75%;
   margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 // sidebar
 export const SideBarWrapper = styled.div`
@@ -77,6 +80,7 @@ export const MuiAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
     p: {
       fontSize: "14px",
       fontFamily: "'Poppins',sans-serif",
+      corsor: "pointer",
     },
     ".MuiAccordionSummary-expandIconWrapper": {
       color: "#999999",

@@ -23,8 +23,10 @@ import {
 } from "./ShopPage.style";
 
 export default function ShopPage() {
+  //TODO: brake down into components
   const reduxStore = useSelector((state) => state);
   const { products } = reduxStore;
+  const [productsData, setProductsData] = useState(products);
 
   //slider
   const [value, setValue] = useState([10, 440]);
@@ -39,46 +41,89 @@ export default function ShopPage() {
 
   const [men, setMen] = useState(false);
   const [women, setWomen] = useState(false);
-  /*
-    useEffect(() => {
-    const dataFromRedux = [...products].filter((product) => {
-      if (men && women) {
-        return product;
-      } else if (men) {
-        return product.category === "Man's";
-      } else if (women) {
-        return product.category === "Woman's";
+  const [brands, setBrands] = useState({
+    all: true,
+    adidas: false,
+    nike: false,
+    puma: false,
+    "new balance": false,
+    native: false,
+    converse: false,
+    reebok: false,
+  });
+
+  //TODO: add pop up to display that filtering has been done
+  const selectBrands = (selectedBrand) => {
+    //get length of selected categories to prevent selecting 2 categories in a row
+    const getLength = Object.values(brands).filter((value) => value).length;
+    if (getLength < 1) {
+      for (let brand in brands) {
+        if (selectedBrand === brand) {
+          setBrands((state) => {
+            return {
+              ...state,
+              [brand]: true,
+            };
+          });
+        }
       }
-      return product;
-    });
-    if (men && women) {
-      setSearchParams({ page: 1, mans: true, womans: true });
-    } else if (men) {
-      setSearchParams({ page: 1, mans: true });
-    } else if (women) {
-      setSearchParams({ page: 1, womans: true });
     } else {
-      setSearchParams({ page: 1 });
+      for (let brand in brands) {
+        if (selectedBrand === brand) {
+          setBrands((state) => {
+            const copyState = { ...state };
+            for (let copyElement in copyState) {
+              copyState[copyElement] = false;
+            }
+            return {
+              ...copyState,
+              [brand]: true,
+            };
+          });
+        }
+      }
     }
+  };
+  // filter products by selected categories
+  const applyFilter = () => {
+    const productsCopy = [...products];
+    const filteredProducts = productsCopy
+      .filter((product) => {
+        return (
+          (men && women) ||
+          (men && product.category === "Man's") ||
+          (women && product.category === "Woman's") ||
+          (!men && !women)
+        );
+      })
+      .filter((product) => {
+        if (brands.all) {
+          return product;
+        }
+        let check;
+        for (let elem in brands) {
+          if (brands[elem]) {
+            check = elem;
+          }
+        }
+        return product.brand === check;
+      })
+      .filter((product) => {
+        return +product.price >= value[0] && +product.price <= value[1];
+      });
+    setProductsData(filteredProducts);
+  };
 
-    setCurrentPage(1);
-    setData(dataFromRedux);
-
-    console.log(dataFromRedux);
-  }, [men, women]);
- */
   // !PAGINATION
-
   const [, setSearchParams] = useSearchParams();
   const [productsPerPage] = useState(12);
   const [currentPage, setCurrentPage] = useState(1);
 
   //get current post
-  // cuttent page = 3
   const getCurrentPoducts = (currentPage, productsPerPage) => {
-    const indexOfLastProduct = currentPage * productsPerPage; // 30
-    const indexOfFirstProduct = indexOfLastProduct - productsPerPage; // 30-10 = 20
-    const currentProducts = products.slice(
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = productsData.slice(
       indexOfFirstProduct,
       indexOfLastProduct
     );
@@ -96,12 +141,18 @@ export default function ShopPage() {
   // scroll up, after switching page
   useEffect(() => {
     scrollUp(250);
-  }, [currentPage]);
+  }, [currentPage, productsData]);
 
   useEffect(() => {
     setSearchParams({ page: 1 });
   }, []);
-
+  const undelineSelectedItem = (selectedItem) => {
+    return {
+      borderBottom: selectedItem
+        ? "1px solid #ebebeb"
+        : "1px solid transparent",
+    };
+  };
   return (
     <ShopPageSectionWrapper>
       <Container>
@@ -122,23 +173,15 @@ export default function ShopPage() {
                   <Typography>
                     <p
                       onClick={() => setMen((state) => !state)}
-                      style={{
-                        borderBottom: men
-                          ? "1px solid #ebebeb"
-                          : "1px solid transparent",
-                      }}
+                      style={undelineSelectedItem(men)}
                     >
-                      Men's
+                      Man's
                     </p>
                     <p
                       onClick={() => setWomen((state) => !state)}
-                      style={{
-                        borderBottom: women
-                          ? "1px solid #ebebeb"
-                          : "1px solid transparent",
-                      }}
+                      style={undelineSelectedItem(women)}
                     >
-                      Women's
+                      Woman's
                     </p>
                   </Typography>
                 </MuiAccordionDetails>
@@ -153,15 +196,21 @@ export default function ShopPage() {
                 </MuiAccordionSummary>
                 <MuiAccordionDetails>
                   <Typography>
-                    <p>adidas</p>
-                    <p>nike</p>
-                    <p>puma</p>
-                    <p>new balance</p>
-                    <p>native</p>
+                    {Object.keys(brands).map((brand) => {
+                      return (
+                        <p
+                          onClick={() => selectBrands(brand)}
+                          style={undelineSelectedItem(brands[brand])}
+                        >
+                          {brand.slice(0, 1).toUpperCase() + brand.slice(1)}
+                        </p>
+                      );
+                    })}
                   </Typography>
                 </MuiAccordionDetails>
               </MuiAccordion>
               <h2>Price</h2>
+              {/* =====slider price range===== */}
               <SliderWrapper>
                 <MuiSlider
                   value={value}
@@ -173,23 +222,24 @@ export default function ShopPage() {
                   max={400}
                 />
               </SliderWrapper>
-              <FilterBtn>
+              {/* =========button=========== */}
+              <FilterBtn onClick={() => applyFilter()}>
                 <button>Filter</button>
               </FilterBtn>
             </SideBar>
           </SideBarWrapper>
-          {/* ========================= */}
+          {/* ============products============= */}
           <ProductsWrapper>
             <Products
               products={getCurrentPoducts(currentPage, productsPerPage)}
             />
+            {/* =======pagination=========== */}
             <Pagination
               productsPerPage={productsPerPage}
-              totalProducts={products.length}
+              totalProducts={productsData.length}
               paginate={paginate}
             />
           </ProductsWrapper>
-          {/* ========================= */}
         </ShopPageWrapper>
       </Container>
     </ShopPageSectionWrapper>
