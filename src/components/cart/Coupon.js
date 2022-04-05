@@ -15,7 +15,6 @@ export default function Coupon({ setDiscount, setDiscountAmount }) {
       setDiscountAmount(1.2);
       setDiscount(true);
       setCouponValue("");
-      console.log("dksvmsdkmkS");
     } else {
       setNotValidateMessage(true);
       setCouponValue("");

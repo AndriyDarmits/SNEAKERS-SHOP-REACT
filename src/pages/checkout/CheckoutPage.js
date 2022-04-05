@@ -86,7 +86,7 @@ export const CheckoutPage = () => {
           </div>
           <div>
             <span>Returning customer ?</span>{" "}
-            <span onClick={() => navigate("login")}>Click here to login</span>
+            <span onClick={() => navigate("/login")}>Click here to login</span>
           </div>
         </CheckingNotifications>
         <CheckingNotifications>
@@ -95,7 +95,7 @@ export const CheckoutPage = () => {
           </div>
           <div>
             <span>Have a coupon ?</span>{" "}
-            <span onClick={() => navigate("login")}>
+            <span onClick={() => navigate(-1)}>
               Click here to enter your code
             </span>
           </div>

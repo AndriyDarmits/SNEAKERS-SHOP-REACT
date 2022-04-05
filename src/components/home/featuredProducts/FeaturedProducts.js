@@ -44,8 +44,9 @@ export const FeaturedProducts = () => {
     }
     setCurentSlice((state) => state + 1);
   };
-  //change products quantity to display depending on the screen width
+  //change products quantity to display depended on the screen width
   useEffect(() => {
+    //TODO:fix width range
     setProductsQuantityToDisplay((state) => {
       return isLaptopTo && isLaptopFrom
         ? 6

@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 
 export const Auth = () => {
+  //Authorization checker
   const [isAuthorized, setIsAuthorized] = useState(false);
   const navigate = useNavigate();
+  
   const toggle = () => {
     setIsAuthorized(true);
     localStorage.setItem("logChecker", true);

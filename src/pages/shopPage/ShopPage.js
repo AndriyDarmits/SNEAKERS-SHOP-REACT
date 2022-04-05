@@ -25,7 +25,6 @@ import {
 export default function ShopPage() {
   const reduxStore = useSelector((state) => state);
   const { products } = reduxStore;
-  // const [data, setData] = useState([]);
 
   //slider
   const [value, setValue] = useState([10, 440]);
@@ -70,8 +69,8 @@ export default function ShopPage() {
  */
   // !PAGINATION
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [productsPerPage, setProductsPerPage] = useState(12);
+  const [, setSearchParams] = useSearchParams();
+  const [productsPerPage] = useState(12);
   const [currentPage, setCurrentPage] = useState(1);
 
   //get current post
@@ -107,6 +106,7 @@ export default function ShopPage() {
     <ShopPageSectionWrapper>
       <Container>
         <ShopPageWrapper>
+          {/* ========================= */}
           <SideBarWrapper>
             <SideBar>
               <h2>Categories</h2>
@@ -178,6 +178,7 @@ export default function ShopPage() {
               </FilterBtn>
             </SideBar>
           </SideBarWrapper>
+          {/* ========================= */}
           <ProductsWrapper>
             <Products
               products={getCurrentPoducts(currentPage, productsPerPage)}
@@ -188,6 +189,7 @@ export default function ShopPage() {
               paginate={paginate}
             />
           </ProductsWrapper>
+          {/* ========================= */}
         </ShopPageWrapper>
       </Container>
     </ShopPageSectionWrapper>
