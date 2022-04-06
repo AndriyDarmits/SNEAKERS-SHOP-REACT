@@ -13,9 +13,7 @@ export default function ProductGallery() {
   // get data from redux store
   const reduxStore = useSelector((state) => state);
   const { products } = reduxStore;
-  // використаємо параметр, щоб потім відфільтрувати дані
-  const { id } = useParams();
-  console.log(id);
+
   // для цього потрібний рефекторинг, мб буде використано редакс
   const [gallery, setGallery] = useState([]);
   const [activeImg, setActiveImg] = useState();
@@ -25,7 +23,6 @@ export default function ProductGallery() {
     // приймаємо індекс фотто, на яке нажато з компонеета нижче і встановлюємо в стан
     setActiveImg(gallery[index]);
   };
-
 
   useEffect(() => {
     setTimeout(() => {
