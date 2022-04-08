@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-
+import styled from "styled-components";
+import { device } from "../../../GlobalStyles";
 export const ContactInfoWrapper = styled.div`
   width: 100%;
   padding: 25px 40px;
@@ -10,7 +10,7 @@ export const ContactInfoFlex = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     flex-direction: column-reverse;
   }
 `;
@@ -38,7 +38,7 @@ export const Avatar = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     margin-bottom: 20px;
   }
   img {

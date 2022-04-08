@@ -5,6 +5,7 @@ import {
   FlexContainer,
   SectionWrapper,
 } from "../../reusable-styles/reusableStyle";
+import { device } from "../../GlobalStyles";
 
 export const LookBookSection = styled(SectionWrapper)`
   margin: 0;
@@ -15,7 +16,7 @@ export const LookBookContainer = styled(Container)`
 `;
 
 export const LookBookFlex = styled(FlexContainer)`
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     flex-direction: column;
   }
 `;
@@ -33,16 +34,15 @@ const translate_top = keyframes`
 export const LookBookMainImageWrapper = styled.div`
   width: 50%;
   position: relative;
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     margin-bottom: 10px;
   }
   &:hover {
     & > div {
       display: block;
-      @media (max-width:768px){
+      @media (${device.tablet}) {
         display: none;
-        
-    }
+      }
     }
   }
   img {
@@ -62,9 +62,6 @@ export const LookBookMainImageWrapper = styled.div`
     border-top-right-radius: 5px;
     line-height: 18px;
     color: #333333;
-    @media (max-width:768px){
-        dn
-    }
   }
 `;
 
@@ -73,7 +70,7 @@ export const LookBookContentCenter = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     align-self: flex-end;
     margin-bottom: 10px;
   }
@@ -86,14 +83,14 @@ export const Titles = styled.div`
   h3 {
     color: #333333;
     font-size: 24px;
-    @media (max-width: 768px) {
+    @media (${device.tablet}) {
       font-size: 18px;
     }
   }
   h5 {
     color: #999999;
     font-size: 14px;
-    @media (max-width: 768px) {
+    @media (${device.tablet}) {
       font-size: 12px;
     }
   }
@@ -102,10 +99,10 @@ export const Titles = styled.div`
 export const SmallProductImageWrapper = styled.div`
   max-width: 300px;
   margin-bottom: 10px;
-  @media (max-width: 1024px) {
+  @media (${device.laptop}) {
     width: 250px;
   }
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     width: 200px;
   }
   img {
@@ -143,7 +140,7 @@ export const SeeMore = styled.div`
     color: #333333;
     font-weight: 600;
     font-size: 18px;
-    @media (max-width: 768px) {
+    @media (${device.tablet}) {
       font-size: 14px;
     }
   }

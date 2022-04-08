@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../GlobalStyles";
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -42,7 +43,7 @@ export const Navigation = styled.nav`
       color: #333333;
     }
 
-    @media (max-width: 768px) {
+    @media (${device.tablet}) {
       display: block;
       width: 100%;
 
@@ -78,7 +79,7 @@ export const Navigation = styled.nav`
       }
     }
 
-    @media (max-width: 768px) {
+    @media (${device.tablet}) {
       display: block;
       width: 100%;
 
@@ -97,7 +98,7 @@ export const Navigation = styled.nav`
     }
   }
 
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     padding: 15% 7.5%;
     display: block;
     position: absolute;
@@ -134,7 +135,7 @@ export const BurgerBlock = styled.div`
   font-size: 18px;
   color: #333333;
 
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     display: block;
   }
 `;

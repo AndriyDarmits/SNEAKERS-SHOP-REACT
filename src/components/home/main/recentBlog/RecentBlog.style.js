@@ -3,6 +3,7 @@ import {
   FlexContainer,
   SectionWrapper,
 } from "../../../../reusable-styles/reusableStyle";
+import { device } from "../../../../GlobalStyles";
 
 export const RecentBlogPageSection = styled(SectionWrapper)`
   background-color: #f8f8f8;
@@ -29,7 +30,7 @@ export const RecentBlogPageWrapper = styled.div`
 export const RecentBlogFlex = styled(FlexContainer)`
   justify-content: space-between;
 
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     display: block;
   }
 `;

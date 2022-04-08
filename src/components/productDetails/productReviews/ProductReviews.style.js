@@ -5,6 +5,7 @@ import {
   Input,
   TextArea,
 } from "../../../reusable-styles/reusableStyle";
+import { device } from "../../../GlobalStyles";
 
 export const Reviews = styled.div`
   border: 1px solid #ebebeb;
@@ -33,14 +34,14 @@ export const NoReviewMessage = styled.div`
 export const FlexContainerReviews = styled(FlexContainer)`
   justify-content: space-between;
   flex-wrap: wrap;
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     display: block;
   }
 `;
 
 export const ReviewInputField = styled(TextArea)`
   width: 60%;
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     width: 100%;
   }
   textarea {
@@ -49,7 +50,7 @@ export const ReviewInputField = styled(TextArea)`
 `;
 export const UserNameInputField = styled.div`
   width: 36%;
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     width: 60%;
     margin-bottom: 10px;
   }
@@ -66,7 +67,7 @@ export const ReviewSubmitButton = styled(Button)`
 `;
 export const UserNameInput = styled(Input)`
   margin-bottom: 20px;
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     margin-bottom: 10px;
   }
   input {

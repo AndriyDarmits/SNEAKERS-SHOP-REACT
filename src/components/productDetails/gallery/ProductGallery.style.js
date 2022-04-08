@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { device } from "../../../GlobalStyles";
 
 export const InlineBlockContainer = styled.div`
   display: inline-block;
   width: 49%;
   min-height: 50vh;
 
-  @media (max-width: 1024px) {
+  @media (${device.tablet}) {
     width: 100%;
   }
 `;

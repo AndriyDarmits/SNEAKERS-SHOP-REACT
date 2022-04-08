@@ -17,12 +17,21 @@ import {
   ProductItemWrapper,
 } from "./ProductDetails.style";
 import { useSelector } from "react-redux";
-import { getDataFromLocalStorage, setToLacalStorage } from "../../helper";
+import {
+  getDataFromLocalStorage,
+  scrollUp,
+  setToLacalStorage,
+} from "../../helper";
 
 export default function ProductDetails() {
+  //get data from redux store
+  const reduxStore = useSelector((state) => state);
+  const { products } = reduxStore;
+
   const location = useLocation();
   let { id } = useParams();
-
+  //data state
+  const [data, setData] = useState({});
   const [activeLink, setActiveLink] = useState(true);
   // toggle reviews and description
   useEffect(() => {
@@ -33,9 +42,6 @@ export default function ProductDetails() {
     }
   }, [location.pathname]);
 
-  //!redux
-  const reduxStore = useSelector((state) => state);
-  const { products } = reduxStore;
   // set data to setToLacalStorage from redux store
   useEffect(() => {
     const product = products.filter((product) => product.id === id);
@@ -44,7 +50,6 @@ export default function ProductDetails() {
     }
   }, [products, id]);
 
-  const [data, setData] = useState({});
   useEffect(() => {
     if (products.length) {
       setData(...products.filter((product) => product.id === id));
@@ -56,11 +61,8 @@ export default function ProductDetails() {
   // scroll up after page loading
   useEffect(() => {
     setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }, 300);
+      scrollUp(0);
+    });
   }, []);
 
   return (

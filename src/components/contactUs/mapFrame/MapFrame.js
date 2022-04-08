@@ -1,10 +1,11 @@
 import styled from "@emotion/styled";
 import React from "react";
 import GoogleMapApi from "./GoogleMapApi";
+import { device } from "../../../GlobalStyles";
 export const MapFrameWrapper = styled.div`
   width: 49%;
 
-  @media (max-width: 1024px) {
+  @media (${device.laptop}) {
     width: 100%;
   }
 `;

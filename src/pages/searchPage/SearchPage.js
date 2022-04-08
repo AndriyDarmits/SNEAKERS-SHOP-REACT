@@ -25,7 +25,7 @@ export default function SearchPage() {
     setSearchParams(params);
   };
   useEffect(() => {
-    if (searchValue === "") {
+    if (searchValue === null) {
       setSearchParams({});
     }
   }, [searchValue]);
@@ -46,27 +46,27 @@ export default function SearchPage() {
             <button onClick={() => searchHendler()}>Search</button>
           </SearchBtn>
         </SearchField>
-        <SearchResult>
-          {products.length
-            ? products
-                .filter(
-                  (product) =>
-                    product.title
-                      .toLowerCase()
-                      .includes(productsQuery.toLowerCase()) &&
-                    productsQuery !== ""
-                )
-                .map((product, index) => {
-                  return (
-                    <ResultItem key={index}>
-                      <Link to={`/products/${product.id}`}>
-                        {product.title}
-                      </Link>
-                    </ResultItem>
-                  );
-                })
-            : "Type product title to search specific products..."}
-        </SearchResult>
+        {searchValue.length ? (
+          <SearchResult>
+            {products
+              .filter(
+                (product) =>
+                  product.title
+                    .toLowerCase()
+                    .includes(productsQuery.toLowerCase()) &&
+                  productsQuery !== ""
+              )
+              .map((product, index) => {
+                return (
+                  <ResultItem key={index}>
+                    <Link to={`/products/${product.id}`}>{product.title}</Link>
+                  </ResultItem>
+                );
+              })}
+          </SearchResult>
+        ) : (
+          "Type product title to search specific products..."
+        )}
       </Container>
     </SearchPageWrapper>
   );

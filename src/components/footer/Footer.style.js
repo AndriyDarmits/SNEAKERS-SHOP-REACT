@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { Logo } from "../header/Header.style";
+import { device } from "../../GlobalStyles";
 export const FooterSection = styled.section`
   background-color: #333333;
   padding-top: 60px;
   padding-bottom: 60px;
 
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     padding-top: 30px;
     padding-bottom: 55px;
   }
@@ -14,7 +15,7 @@ export const FooterFlexBox = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     display: block;
   }
 `;
@@ -22,7 +23,7 @@ export const FooterFlexBox = styled.div`
 export const Col1 = styled.div`
   width: 32%;
 
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     width: 100%;
   }
   p {
@@ -49,7 +50,7 @@ export const SocialIcons = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     justify-content: space-evenly;
     margin-bottom: 20px;
   }
@@ -125,7 +126,7 @@ export const Col2 = styled.div`
 
 export const Col3 = styled.div`
   width: 32%;
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     width: 100%;
   }
   h3 {
@@ -164,10 +165,10 @@ export const EmailForm = styled.div`
       display: flex;
       align-items: center;
 
-      @media (max-width: 768px) {
+      @media (${device.tablet}) {
         width: 350px;
       }
-      @media (max-width: 375px) {
+      @media (${device.mobile}) {
         width: 100%;
       }
 

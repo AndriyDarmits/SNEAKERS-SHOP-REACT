@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Button, SectionWrapper } from "../../reusable-styles/reusableStyle";
+import { device } from "../../GlobalStyles";
 
 export const NotFoundWrapper = styled(SectionWrapper)`
   background: linear-gradient(90deg, rgb(238, 190, 228), rgb(210, 245, 249))
@@ -45,27 +46,25 @@ export const OppsNotification = styled.div`
   margin-left: 15vw;
   margin-top: 30vh;
   color: #333333;
-  }
   h1 {
     font-size: 90.62px;
     margin-bottom: 20px;
     font-weight: bold;
-    @media (max-width: 765px) {
+    @media (${device.tablet}) {
       font-size: 75px;
     }
-    @media (max-width: 375px) {
+    @media (${device.mobile}) {
       font-size: 60px;
     }
   }
   p {
     font-weight: 600;
-    color:#666666;
+    color: #666666;
     margin-bottom: 50px;
     font-size: 30px;
     /* font-family: 'Montserrat' , sans-serif; */
-    @media (max-width: 375px) {
+    @media (${device.mobile}) {
       font-size: 20px;
     }
   }
-  
 `;

@@ -1,4 +1,5 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
+import { device } from "../../../GlobalStyles";
 
 export const DescriptionContainer = styled.div`
   color: #666666;
@@ -7,12 +8,12 @@ export const DescriptionContainer = styled.div`
   font-weight: 600;
   border: 1px solid #ebebeb;
   border-top: 0;
-  @media (max-width: 375px) {
+  @media (${device.mobile}) {
     line-height: 16px;
     font-size: 13px;
     padding: 20px;
   }
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     line-height: 18px;
     font-size: 14px;
     padding: 30px;

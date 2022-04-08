@@ -1,9 +1,10 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
+import { device } from "../../../../GlobalStyles";
 
 export const BlogItem = styled.div`
   width: 49%;
   position: relative;
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     width: 100%;
     margin-bottom: 40px;
     &:last-of-type {

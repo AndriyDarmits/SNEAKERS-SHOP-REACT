@@ -5,6 +5,7 @@ import {
   Input,
   ProductQuantity,
 } from "../../reusable-styles/reusableStyle";
+import { device } from "../../GlobalStyles";
 
 //CartListComp
 export const CartListWrapper = styled.div``;
@@ -18,7 +19,7 @@ export const CartHeader = styled.div`
     font-size: 14px;
     line-height: 30px;
     text-align: center;
-    @media (max-width: 768px) {
+    @media (${device.tablet}) {
       font-size: 12px;
     }
   }
@@ -79,10 +80,10 @@ export const CartProductItem = styled.li`
       font-weight: 600;
       text-transform: uppercase;
       font-size: 14px;
-      @media (max-width: 768px) {
+      @media (${device.tablet}) {
         font-size: 13px;
       }
-      @media (max-width: 375px) {
+      @media (${device.mobile}) {
         font-size: 12px;
       }
     }
@@ -123,7 +124,7 @@ export const CartTotal = styled.div`
     display: flex;
     border: 1px solid #ebebeb;
     background-color: #fff;
-    @media (max-width: 768px) {
+    @media (${device.tablet}) {
       padding: 20px;
     }
     .totalPrice {
@@ -150,7 +151,7 @@ export const CuponInput = styled(Input)`
     padding: 20px;
     font-size: 14px;
     width: 100%;
-    @media (max-width: 768px) {
+    @media (${device.tablet}) {
       padding: 15px;
     }
     &:placeholder {
@@ -163,7 +164,7 @@ export const CuponButton = styled(Button)`
   button {
     color: #fff;
     font-size: 14px;
-    @media (max-width: 768px) {
+    @media (${device.tablet}) {
       padding: 12.5px 15px;
     }
   }

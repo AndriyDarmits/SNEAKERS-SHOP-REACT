@@ -4,6 +4,7 @@ import {
   Path,
   SectionWrapper,
 } from "../../reusable-styles/reusableStyle";
+import { device } from "../../GlobalStyles";
 
 export const ProductItemWrapper = styled(SectionWrapper)`
   margin-bottom: 50px;
@@ -13,7 +14,7 @@ export const FlexContainerInfo = styled(FlexContainer)`
   justify-content: space-between;
   margin-bottom: 50px;
 
-  @media (max-width: 1024px) {
+  @media (${device.laptop}) {
     display: block;
   }
 `;
@@ -28,7 +29,7 @@ export const FlexContainerReviews = styled(FlexContainer)`
     font-size: 18px;
     display: block;
     padding: 15px 50px;
-    @media (max-width: 768px) {
+    @media (${device.tablet}) {
       font-size: 16px;
       padding: 10px 20px;
     }

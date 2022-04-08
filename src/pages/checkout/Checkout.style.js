@@ -1,9 +1,5 @@
 import styled from "styled-components";
-import {
-  Button,
-  Input,
-  SectionWrapper,
-} from "../../reusable-styles/reusableStyle";
+import { Button, SectionWrapper } from "../../reusable-styles/reusableStyle";
 
 export const CheckoutSecrionWrapper = styled(SectionWrapper)`
   margin-bottom: 40px;

@@ -4,6 +4,7 @@ import {
   Input,
   SectionWrapper,
 } from "../../reusable-styles/reusableStyle";
+import { device } from "../../GlobalStyles";
 
 export const SearchPageWrapper = styled(SectionWrapper)`
   margin-top: 102px;
@@ -23,7 +24,7 @@ export const InputSearcher = styled(Input)`
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
   }
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     width: 70%;
   }
 `;
@@ -36,11 +37,11 @@ export const SearchBtn = styled(Button)`
     color: #fff;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    @media (max-width: 768px) {
+    @media (${device.tablet}) {
       padding: 20px 20px;
     }
   }
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     width: 30%;
   }
 `;

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Button } from "../../../../reusable-styles/reusableStyle";
+import { device } from "../../../../GlobalStyles";
 
 export const CountDownTimerSection = styled.section`
   background-color: #f9f9f9;
@@ -10,7 +11,7 @@ export const CountDownTimerFlex = styled.div`
   justify-content: space-between;
   padding: 50px 0;
 
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     flex-direction: column;
     justify-content: none;
   }
@@ -24,7 +25,7 @@ export const CountDownTimerImage = styled.div`
   align-items: center;
   background: linear-gradient(to bottom, #faddb5, #98d3d7);
   border-radius: 50%;
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     width: 75%;
     margin-bottom: 20px;
   }
@@ -38,7 +39,7 @@ export const CountDownTimerImage = styled.div`
 
 export const CountDownTimerContent = styled.div`
   width: 48%;
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     width: 75%;
     margin-bottom: 20px;
     display: flex;
@@ -52,10 +53,10 @@ export const CountDownTimerContent = styled.div`
     color: #333333;
     margin-bottom: 15px;
 
-    @media (max-width: 1024px) {
+    @media (${device.laptop}) {
       font-size: 26px;
     }
-    @media (max-width: 768px) {
+    @media (${device.tablet}) {
       font-size: 18px;
     }
   }
@@ -96,7 +97,7 @@ export const TimerBody = styled.div`
     margin-right: 20px;
     box-shadow: 2px 0px 10px 3px rgba(0, 0, 0, 0.15);
 
-    @media (max-width: 768px) {
+    @media (${device.tablet}) {
       margin-right: 10px;
       width: 75px;
       height: 75px;

@@ -1,14 +1,13 @@
 import styled from "styled-components";
-import { Input, SectionWrapper } from "../../../reusable-styles/reusableStyle";
-
-
+import { Input } from "../../../reusable-styles/reusableStyle";
+import { device } from "../../../GlobalStyles";
 
 // form block
 export const BillingDetailsForm = styled.form`
   display: flex;
   flex-direction: column;
   width: 75%;
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
     width: 100%;
   }
   h4 {
@@ -25,7 +24,7 @@ export const InputTextBillingForm = styled(Input)`
   &:first-of-type {
     margin-right: 20px;
 
-    @media (max-width: 375px) {
+    @media (${device.mobile}) {
       margin-right: 0;
     }
   }
@@ -46,7 +45,7 @@ export const InputTextBillingForm = styled(Input)`
 export const CustomerName = styled.div`
   display: flex;
   margin-bottom: 15px;
-  @media (max-width: 375px) {
+  @media (${device.mobile}) {
     display: block;
   }
 `;
@@ -55,7 +54,7 @@ export const CustomerName = styled.div`
 export const EmailAndFhone = styled.div`
   display: flex;
   margin-bottom: 15px;
-  @media (max-width: 375px) {
+  @media (${device.mobile}) {
     display: block;
   }
 `;
@@ -82,7 +81,7 @@ export const Country = styled.div`
 export const CityAndStreetAdress = styled.div`
   display: flex;
   margin-bottom: 15px;
-  @media (max-width: 375px) {
+  @media (${device.mobile}) {
     display: block;
   }
 `;
@@ -104,7 +103,7 @@ export const IsCreateAccount = styled.div`
 export const Passwords = styled.div`
   display: flex;
   margin-bottom: 15px;
-  @media (max-width: 375px) {
+  @media (${device.mobile}) {
     display: block;
   }
 `;
