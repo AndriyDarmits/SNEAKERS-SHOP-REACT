@@ -2,16 +2,17 @@ import { Typography } from "@mui/material";
 import React, { useState } from "react";
 import {
   FilterBtn,
-  MuiAccordion,
-  MuiAccordionDetails,
-  MuiAccordionSummary,
-  MuiSlider,
   SideBar,
   SideBarWrapper,
   SliderWrapper,
 } from "./SidebarProductFilter.style";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
+import {
+  MuiAccordion,
+  MuiAccordionDetails,
+  MuiAccordionSummary,
+  MuiSlider,
+} from "./MUIComponentsCustimization.style";
 export const SidebarProductFilter = ({ setProductsData, products }) => {
   //slider
   const [value, setValue] = useState([10, 440]);
