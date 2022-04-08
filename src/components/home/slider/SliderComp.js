@@ -29,7 +29,7 @@ export const SliderComp = () => {
     speed: 2000,
     autoplaySpeed: 5000,
     cssEase: "ease-out",
-    autoplay: true,
+    autoplay: false,
   };
   const navigate = useNavigate();
   const navigateToProducts = () => navigate("products");

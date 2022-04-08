@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "../../../reusable-styles/reusableStyle";
+import { Container } from "../../../../reusable-styles/reusableStyle";
 import {
   FeaturedProductsList,
   FeaturedProductsSection,
@@ -10,7 +10,7 @@ import {
 import { useMediaQuery } from "react-responsive";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { ProductItem } from "../../shopPage/productItem/ProductItem";
+import { ProductItem } from "../../../shopPage/productItem/ProductItem";
 export const FeaturedProducts = () => {
   //get data from redux
   const reduxStore = useSelector((state) => state);

@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import {
   FlexContainer,
   SectionWrapper,
-} from "../../../reusable-styles/reusableStyle";
+} from "../../../../reusable-styles/reusableStyle";
 
 export const FeaturedProductsSection = styled(SectionWrapper)`
   margin: 0;

@@ -11,6 +11,8 @@ export const SliderContainer = styled(Container)`
 export const SliderItem = styled.div`
   height: 75vh;
   border-radius: 5px;
+  @media (max-width: 768px) {
+    height: 65vh;
 `;
 
 export const SliderItemFirst = styled(SliderItem)`
@@ -27,6 +29,10 @@ export const SliderFlexDiv = styled(FlexContainer)`
   display: flex !important;
   align-items: center;
   height: 100%;
+  @media (max-width: 1024px) {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
 `;
 
 export const SliderContentContainer = styled(Container)`
@@ -55,12 +61,27 @@ export const FashionInstaP = styled.h1`
   color: #f67575;
   padding-left: 15px;
   font-weight: 400;
+  @media (max-width: 768px) {
+    font-size: 60px;
+  }
+  @media (max-width: 375px) {
+    font-size: 50px;
+  }
 `;
 
 export const SlideNumber = styled.div`
   font-size: 395px;
   color: #fff;
   font-weight: 600;
+  @media (max-width: 1024px) {
+    font-size: 350px;
+  }
+  @media (max-width: 768px) {
+    font-size: 300px;
+  }
+  @media (max-width: 375px) {
+    font-size: 250px;
+  }
 `;
 
 export const ShowNowBtn = styled(Button)`
