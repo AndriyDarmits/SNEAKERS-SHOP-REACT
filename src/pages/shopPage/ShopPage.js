@@ -14,7 +14,7 @@ import {
 } from "./ShopPage.style";
 import { SidebarProductFilter } from "../../components/shopPage/sidebarProductsFilter.js/SidebarProductFilter";
 
-export default function ShopPage() {
+const ShopPage = () => {
   //TODO: brake down into components
   const reduxStore = useSelector((state) => state);
   const { products } = reduxStore;
@@ -83,4 +83,5 @@ export default function ShopPage() {
       </Container>
     </ShopPageSectionWrapper>
   );
-}
+};
+export default ShopPage;

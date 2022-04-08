@@ -1,5 +1,5 @@
 import "./App.scss";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, Suspense, lazy } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { Layout } from "./pages/Layout";
 import Homepage from "./pages/home/Homepage";
@@ -19,13 +19,12 @@ import { fetchData } from "./helper";
 import { useDispatch } from "react-redux";
 import actions from "./redux/actions/index";
 import { WishlistPage } from "./pages/wishlistPage/WishlistPage";
-import ShopPage from "./pages/shopPage/ShopPage";
-import { CheckoutPage } from "./pages/checkout/CheckoutPage";
+/* import ShopPage from "./pages/shopPage/ShopPage";
+ */ import { CheckoutPage } from "./pages/checkout/CheckoutPage";
 import { Auth } from "./Auth";
-
+const ShopPage = lazy(() => import("./pages/shopPage/ShopPage"));
 function App() {
   const dispatch = useDispatch();
-
   useEffect(() => {
     fetchData("https://mocki.io/v1/c2978c01-7d3b-4fe2-a179-9ae07db63789").then(
       (data) => {
@@ -56,7 +55,14 @@ function App() {
           <Route path="cart" element={<CartPage />} />
         </Route>
         <Route element={<Layout2 />}>
-          <Route path="products" element={<ShopPage />} />
+          <Route
+            path="products"
+            element={
+              <Suspense fallback={<div>Завантаження...</div>}>
+                <ShopPage />
+              </Suspense>
+            }
+          />
           <Route path="blog" element={<BlogPage />} />
           <Route path="lookbook" element={<LookBookPage />} />
           <Route path="account" element={<AccountPage />} />
