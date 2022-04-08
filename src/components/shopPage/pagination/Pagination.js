@@ -1,8 +1,12 @@
-import styled from "@emotion/styled";
 import React, { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { FaAngleDoubleRight, FaAngleDoubleLeft } from "react-icons/fa";
-import {NextBtn, PaginationNav, PagitationBtn, PrevBtn} from "./Pagination.style"
+import {
+  NextBtn,
+  PaginationNav,
+  PagitationBtn,
+  PrevBtn,
+} from "./Pagination.style";
 export const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
   /* page quantity */
   const pageNumbers = [];

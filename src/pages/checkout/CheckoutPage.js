@@ -11,8 +11,6 @@ import { YourOrder } from "../../components/checkout/yourOrder/YourOrder";
 import { Payment } from "../../components/checkout/payment/Payment";
 
 export const CheckoutPage = () => {
-  
-  //TODO: break down into components
   return (
     <CheckoutSecrionWrapper>
       <Container>

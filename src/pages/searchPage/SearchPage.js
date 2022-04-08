@@ -1,4 +1,3 @@
-import styled from "@emotion/styled";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useSearchParams } from "react-router-dom";
@@ -15,6 +14,7 @@ import {
 export default function SearchPage() {
   const reduxStore = useSelector((state) => state);
   const { products } = reduxStore;
+
   const [searchValue, setSearchValue] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
   const productsQuery = searchParams.get("title") || "";

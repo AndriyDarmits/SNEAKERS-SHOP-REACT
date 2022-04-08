@@ -12,11 +12,11 @@ const ProductListSingleBlock = styled.div`
 `;
 
 export const Products = ({ products }) => {
-  // TODO:додати стейт, за допомогою якого будемо вибодирати між грід розташуваням блоків та одиночнийх
+  // TODO:додати стейт, за допомогою якого будемо вибирати між грід розташуваням блоків та одиночнийх
   return (
     <ProductListFlex>
       {products.map((element, index) => (
-        <ProductItem product={element} key={index} path = "/" />
+        <ProductItem product={element} key={index} path="/" />
         /*  <ProductSingleItem product={element} key={index} /> */
       ))}
     </ProductListFlex>
