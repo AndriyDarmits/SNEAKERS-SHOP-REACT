@@ -15,7 +15,6 @@ import {
 import { SidebarProductFilter } from "../../components/shopPage/sidebarProductsFilter.js/SidebarProductFilter";
 
 const ShopPage = () => {
-  //TODO: brake down into components
   const reduxStore = useSelector((state) => state);
   const { products } = reduxStore;
   const [productsData, setProductsData] = useState(products);

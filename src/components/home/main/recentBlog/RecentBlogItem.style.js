@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { device } from "../../../../GlobalStyles";
 
-export const BlogItem = styled.div`
+export const RecentBlogItemDiv = styled.div`
   width: 49%;
   position: relative;
   @media (${device.tablet}) {

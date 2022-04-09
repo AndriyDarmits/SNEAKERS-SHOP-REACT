@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { BlogContent, BlogImg, BlogItem } from "./RecentBlogItem.style";
+import {
+  BlogContent,
+  BlogImg,
+  RecentBlogItemDiv,
+} from "./RecentBlogItem.style";
 
 export const RecentBlogItem = ({ blogData }) => {
   const [enterPointer, setEnterPointer] = useState(false);
@@ -13,7 +17,7 @@ export const RecentBlogItem = ({ blogData }) => {
   const slicedDescription = blogData.body.slice(0, 120);
 
   return (
-    <BlogItem
+    <RecentBlogItemDiv
       onPointerEnter={() => enterItem()}
       onPointerLeave={() => leaveItem()}
       enterPointer={enterPointer}
@@ -35,6 +39,6 @@ export const RecentBlogItem = ({ blogData }) => {
         </h4>
         <p>{slicedDescription}...</p>
       </BlogContent>
-    </BlogItem>
+    </RecentBlogItemDiv>
   );
 };

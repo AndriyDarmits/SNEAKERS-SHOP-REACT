@@ -18,8 +18,10 @@ export const RecentBlog = () => {
             <Link to="blog">Recent Blog</Link>{" "}
           </h2>
           <RecentBlogFlex>
-            {dataBlog.map((blog) => {
-              return <RecentBlogItem blogData={blog} key={blog.id} />;
+            {dataBlog.map((blog, index) => {
+              if (index < 2) {
+                return <RecentBlogItem blogData={blog} key={blog.id} />;
+              }
             })}
           </RecentBlogFlex>
         </RecentBlogPageWrapper>
