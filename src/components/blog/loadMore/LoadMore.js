@@ -14,19 +14,23 @@ export const LoadMore = ({
   loadMoreless,
   isLoadingBlogs,
   blogToShow,
-  dataBlog,
+  dataBlogs,
 }) => {
   return (
-    <LoadMoreBtn>
-      {blogToShow >= dataBlog.length ? (
-        <button onClick={() => loadMoreless()}>
-          {isLoadingBlogs ? "Loading..." : "Load less"}
-        </button>
-      ) : (
-        <button onClick={() => loadMoreBlogs()}>
-          {isLoadingBlogs ? "Loading..." : "Load more"}
-        </button>
+    <>
+      {dataBlogs.length >= 3 && (
+        <LoadMoreBtn>
+          {blogToShow >= dataBlogs.length ? (
+            <button onClick={() => loadMoreless()}>
+              {isLoadingBlogs ? "Loading..." : "Load less"}
+            </button>
+          ) : (
+            <button onClick={() => loadMoreBlogs()}>
+              {isLoadingBlogs ? "Loading..." : "Load more"}
+            </button>
+          )}
+        </LoadMoreBtn>
       )}
-    </LoadMoreBtn>
+    </>
   );
 };

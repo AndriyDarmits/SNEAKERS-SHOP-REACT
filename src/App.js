@@ -19,9 +19,9 @@ import { fetchData } from "./helper";
 import { useDispatch } from "react-redux";
 import actions from "./redux/actions/index";
 import { WishlistPage } from "./pages/wishlistPage/WishlistPage";
-/* import ShopPage from "./pages/shopPage/ShopPage";
- */ import { CheckoutPage } from "./pages/checkout/CheckoutPage";
+import { CheckoutPage } from "./pages/checkout/CheckoutPage";
 import { Auth } from "./Auth";
+import { BlogPageDetails } from "./pages/blogPageDetails/BlogPageDetails";
 const ShopPage = lazy(() => import("./pages/shopPage/ShopPage"));
 function App() {
   const dispatch = useDispatch();
@@ -53,12 +53,13 @@ function App() {
           </Route>
           <Route path="search" element={<SearchPage />} />
           <Route path="cart" element={<CartPage />} />
+          <Route path="blog/:id" element={<BlogPageDetails />} />
         </Route>
         <Route element={<Layout2 />}>
           <Route
             path="products"
             element={
-              <Suspense fallback={<div>Завантаження...</div>}>
+              <Suspense fallback={<div>Loading...</div>}>
                 <ShopPage />
               </Suspense>
             }

@@ -14,7 +14,6 @@ export const CatagoryName = styled.div`
     background-color: transparent;
     border: 0;
     font-size: 18px;
-    color: #666666;
     font-weight: 500;
   }
 `;

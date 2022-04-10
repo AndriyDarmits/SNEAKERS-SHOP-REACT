@@ -11,6 +11,8 @@ export default function BlogPage() {
   const [blogToShow, setBlogToShow] = useState(3);
   const lastIndex = blogToShow;
   const [isLoadingBlogs, setIsLoadingBlogs] = useState(false);
+  const [dataBlogs, setDataBlogs] = useState(dataBlog);
+  // load blogs on click load more
   const loadMoreBlogs = () => {
     setIsLoadingBlogs(true);
     setTimeout(() => {
@@ -18,6 +20,7 @@ export default function BlogPage() {
       setIsLoadingBlogs(false);
     }, 2000);
   };
+  // hide loaded blogs after loading all blogs
   const loadMoreless = () => {
     setIsLoadingBlogs(true);
     setTimeout(() => {
@@ -33,9 +36,9 @@ export default function BlogPage() {
     <BlogPageSection>
       <Container>
         <BlogBlocksWraper>
-          <BlogCategories />
+          <BlogCategories setDataBlogs={setDataBlogs} />
           <BlogItems>
-            {dataBlog.slice(0, lastIndex).map((blog) => {
+            {dataBlogs.slice(0, lastIndex).map((blog) => {
               return <BlogItem blog={blog} key={blog.id} />;
             })}
           </BlogItems>
@@ -44,7 +47,7 @@ export default function BlogPage() {
             loadMoreless={loadMoreless}
             isLoadingBlogs={isLoadingBlogs}
             blogToShow={blogToShow}
-            dataBlog={dataBlog}
+            dataBlogs={dataBlogs}
           />
         </BlogBlocksWraper>
       </Container>
