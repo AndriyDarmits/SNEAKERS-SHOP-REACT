@@ -22,29 +22,17 @@ import { WishlistPage } from "./pages/wishlistPage/WishlistPage";
 import { CheckoutPage } from "./pages/checkout/CheckoutPage";
 import { Auth } from "./Auth";
 import { BlogPageDetails } from "./pages/blogPageDetails/BlogPageDetails";
+import { setDataFromApiThunk } from "./redux/thunk";
 const ShopPage = lazy(() => import("./pages/shopPage/ShopPage"));
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    fetchData("https://mocki.io/v1/c2978c01-7d3b-4fe2-a179-9ae07db63789").then(
-      (data) => {
-        const additionalPropertyAdded = data.map((el) => {
-          //initial rate, avaliable in wishlist, product reviews
-          el.rate = 0;
-          el.isInWishList = false;
-          el.isInShoppingCart = false;
-          el.reviews = [];
-          return el;
-        });
-        // dispatch data to redux store
-        dispatch(actions.setProductFromApi(additionalPropertyAdded));
-      }
-    );
-  }, []);
+    dispatch(setDataFromApiThunk());
+  }, [dispatch]);
   return (
     <BrowserRouter>
       <Routes>
-        {/*  <Route path="/" element={<Auth />}> */}
+        s{/*  <Route path="/" element={<Auth />}> */}
         <Route path="/" element={<Layout />}>
           <Route index element={<Homepage />} />
           <Route path="products/:id" element={<ProductDetails />}>
