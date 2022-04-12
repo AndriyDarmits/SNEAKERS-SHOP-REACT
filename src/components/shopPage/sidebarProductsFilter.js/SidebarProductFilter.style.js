@@ -3,8 +3,6 @@ import { Button } from "../../../reusable-styles/reusableStyle";
 
 // sidebar
 export const SideBarWrapper = styled.div`
-  margin-top: 5px;
-  margin-right: -5px;
   transition: all 0.5s linear;
   width: 25%;
   padding: 10px;
@@ -24,6 +22,7 @@ export const SideBar = styled.aside`
 export const FilterBtn = styled(Button)`
   button {
     color: #fff;
+    cursor: pointer;
   }
 `;
 export const SliderWrapper = styled.div`

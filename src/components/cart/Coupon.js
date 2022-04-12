@@ -12,7 +12,7 @@ export default function Coupon({ setDiscount, setDiscountAmount }) {
   // TODO: connect to redux store
   const applyCoupon = () => {
     if (promoCodes.includes(couponeValue.toLowerCase())) {
-      setDiscountAmount(1.2);
+      setDiscountAmount(0.8);
       setDiscount(true);
       setCouponValue("");
     } else {

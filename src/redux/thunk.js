@@ -1,6 +1,6 @@
 import actions from "./actions";
 import { fetchData } from "../helper";
-
+//thunk function
 export const setDataFromApiThunk = () => {
   return (dispatch) => {
     fetchData("https://mocki.io/v1/c2978c01-7d3b-4fe2-a179-9ae07db63789").then(
@@ -15,7 +15,7 @@ export const setDataFromApiThunk = () => {
         });
         setTimeout(() => {
           dispatch(actions.setProductFromApi(additionalPropertyAdded));
-        }, 1000);
+        }, 1500);
       }
     );
   };

@@ -42,6 +42,7 @@ export const SidebarProductFilter = ({ setProductsData, products }) => {
       borderBottom: selectedItem
         ? "1px solid #ebebeb"
         : "1px solid transparent",
+      cursor: "pointer",
     };
   };
 

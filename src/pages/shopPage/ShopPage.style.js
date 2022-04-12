@@ -5,7 +5,7 @@ export const ShopPageSectionWrapper = styled(SectionWrapper)`
   margin-top: 42px;
   margin-bottom: 45px;
 `;
-export const ShopPageWrapper = styled.div`
+export const ShopPageBody = styled.div`
   display: flex;
   justify-content: space-between;
 `;

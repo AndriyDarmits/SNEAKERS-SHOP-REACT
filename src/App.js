@@ -15,9 +15,7 @@ import { ProductReviews } from "./components/productDetails/productReviews/Produ
 import Notfoundpage from "./pages/notfound/Notfoundpage";
 import BlogPage from "./pages/blog/BlogPage";
 import { Layout2 } from "./pages/Layout2";
-import { fetchData } from "./helper";
 import { useDispatch } from "react-redux";
-import actions from "./redux/actions/index";
 import { WishlistPage } from "./pages/wishlistPage/WishlistPage";
 import { CheckoutPage } from "./pages/checkout/CheckoutPage";
 import { Auth } from "./Auth";
@@ -32,7 +30,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        s{/*  <Route path="/" element={<Auth />}> */}
+        {/*  <Route path="/" element={<Auth />}> */}
         <Route path="/" element={<Layout />}>
           <Route index element={<Homepage />} />
           <Route path="products/:id" element={<ProductDetails />}>

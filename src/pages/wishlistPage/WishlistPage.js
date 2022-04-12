@@ -17,7 +17,7 @@ export const WishlistPage = () => {
         <WishListDiv>
           {wishlist.length ? (
             wishlist.map((wishProduct) => (
-              <WishlistItem wishProduct={wishProduct} />
+              <WishlistItem wishProduct={wishProduct} key={wishlist.id} />
             ))
           ) : (
             <h2

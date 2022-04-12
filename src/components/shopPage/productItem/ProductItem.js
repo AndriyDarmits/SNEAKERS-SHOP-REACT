@@ -30,12 +30,32 @@ export const ProductItem = ({ product }) => {
       dispatch(actions.addProductToWishlist(data));
       // update changes in product data
       dispatch(actions.updateProducts(data));
+      // TODO: update local dataState, to show isInWishList checker immediately
+      //fixing
+      /* setProductsData(state =>{
+        return state.map(product =>{
+          if(product.id ===data.id){
+            return data;
+          }
+          return product;
+        })
+      }) */
     } else {
       // remove itemdelete products from wishlist
       dispatch(actions.deleteProductFromWishlist(data));
       // update changes in product data
       data.isInWishList = false;
       dispatch(actions.updateProducts(data));
+      // TODO: update local dataState, to show isInWishList checker immediately
+      /* fixing */
+      /* setProductsData(state =>{
+        return state.map(product =>{
+          if(product.id ===data.id){
+            return data;
+          }
+          return product;
+        })
+      }) */
     }
   };
 
@@ -68,7 +88,7 @@ export const ProductItem = ({ product }) => {
             </span>
           </AddToCartAndViewIcons>
           <WishListIcon onClick={() => onAddToWishlist()}>
-            {product?.isInWishList ? (
+            {product.isInWishList ? (
               <FavoriteIcon
                 style={{
                   color: "red",

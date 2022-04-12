@@ -6,7 +6,7 @@ export const InlineBlockContainer = styled.div`
   width: 49%;
   min-height: 50vh;
 
-  @media (${device.tablet}) {
+  @media (${device.laptop}) {
     width: 100%;
   }
 `;

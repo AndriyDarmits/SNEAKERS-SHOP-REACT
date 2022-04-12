@@ -11,6 +11,7 @@ export const PaginationNav = styled.nav`
     background-color: transparent;
     border: 0;
     color: #cccccc;
+    cursor: pointer;
   }
 `;
 export const PagitationBtn = styled.ul`
@@ -18,6 +19,7 @@ export const PagitationBtn = styled.ul`
   justify-content: center;
   & > li {
     margin-right: 15px;
+    cursor: pointer;
   }
   & > li:last-of-type {
     margin-right: 0;
