@@ -9,6 +9,7 @@ import {
   deleteProductFromWishlist,
 } from "./productsWishListAction";
 
+import { changeLayout } from "./productsViewAction";
 export default {
   setProductFromApi,
   addProductToCart,
@@ -17,4 +18,5 @@ export default {
   updateProductsCart,
   deleteProductsFromCart,
   deleteProductFromWishlist,
+  changeLayout,
 };

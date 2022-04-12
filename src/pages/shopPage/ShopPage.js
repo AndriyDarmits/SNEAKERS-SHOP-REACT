@@ -9,10 +9,11 @@ import { scrollUp } from "../../helper";
 import {
   ProductsWrapper,
   ShopPageSectionWrapper,
-  ShopPageWrapper,
+  ShopPageBody,
   LoadingMessage,
 } from "./ShopPage.style";
 import { SidebarProductFilter } from "../../components/shopPage/sidebarProductsFilter.js/SidebarProductFilter";
+import { ShopMenu } from "../../components/shopPage/shopMenu/ShopMenu";
 
 const ShopPage = () => {
   const reduxStore = useSelector((state) => state);
@@ -28,7 +29,7 @@ const ShopPage = () => {
   const getCurrentPoducts = (currentPage, productsPerPage) => {
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    const currentProducts = (productsData || products).slice(
+    const currentProducts = productsData.slice(
       indexOfFirstProduct,
       indexOfLastProduct
     );
@@ -51,11 +52,10 @@ const ShopPage = () => {
   useEffect(() => {
     setSearchParams({ page: 1 });
   }, []);
-
   return (
     <ShopPageSectionWrapper>
       <Container>
-        <ShopPageWrapper>
+        <ShopPageBody>
           {/* sidebar */}
           <SidebarProductFilter
             setProductsData={setProductsData}
@@ -63,6 +63,7 @@ const ShopPage = () => {
           />
           {/* ============products============= */}
           <ProductsWrapper>
+            <ShopMenu />
             {productsData.length ? (
               <Products
                 products={getCurrentPoducts(currentPage, productsPerPage)}
@@ -74,11 +75,11 @@ const ShopPage = () => {
             {/* =======pagination=========== */}
             <Pagination
               productsPerPage={productsPerPage}
-              totalProducts={(productsData || products).length}
+              totalProducts={productsData.length}
               paginate={paginate}
             />
           </ProductsWrapper>
-        </ShopPageWrapper>
+        </ShopPageBody>
       </Container>
     </ShopPageSectionWrapper>
   );
