@@ -18,9 +18,10 @@ import { Layout2 } from "./pages/Layout2";
 import { useDispatch } from "react-redux";
 import { WishlistPage } from "./pages/wishlistPage/WishlistPage";
 import { CheckoutPage } from "./pages/checkout/CheckoutPage";
-import { Auth } from "./Auth";
+import { LoginPage } from "./pages/login/LoginPage";
 import { BlogPageDetails } from "./pages/blogPageDetails/BlogPageDetails";
 import { setDataFromApiThunk } from "./redux/thunk";
+import { ReqireAuth } from "./hoc/ReqireAuth";
 const ShopPage = lazy(() => import("./pages/shopPage/ShopPage"));
 function App() {
   const dispatch = useDispatch();
@@ -52,10 +53,19 @@ function App() {
           />
           <Route path="blog" element={<BlogPage />} />
           <Route path="lookbook" element={<LookBookPage />} />
-          <Route path="account" element={<AccountPage />} />
+          {/* private route */}
+          <Route
+            path="account"
+            element={
+              <ReqireAuth>
+                <AccountPage />
+              </ReqireAuth>
+            }
+          />
           <Route path="contactUs" element={<ContactUsPage />} />
           <Route path="wishlist" element={<WishlistPage />} />
           <Route path="checkout" element={<CheckoutPage />} />
+          <Route path="login" element={<LoginPage />} />
         </Route>
         {/*   </Route> */}
         <Route path="*" element={<Notfoundpage />} />
