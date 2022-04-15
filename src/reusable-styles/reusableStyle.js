@@ -32,6 +32,7 @@ export const Button = styled.div`
     background-color: #333333;
     border-radius: 30px;
     transition: all 0.1s linear;
+    cursor: pointer;
     &:hover {
       background-color: #474646;
     }
@@ -88,6 +89,7 @@ export const ProductQuantity = styled.div`
   }
   & > div:last-child {
     display: block;
+    cursor: pointer;
     & > div {
       display: flex;
       justify-content: center;

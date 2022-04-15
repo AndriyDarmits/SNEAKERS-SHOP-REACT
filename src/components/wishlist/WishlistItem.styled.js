@@ -31,7 +31,7 @@ export const WishItem = styled.div`
   & > div:nth-of-type(3) {
     border-bottom: 1px solid transparent;
     transition: all 0.1s linear;
-    width: 25%;
+    flex-grow: 1;
     text-align: center;
     &:hover {
       border-bottom: 1px solid #333333;

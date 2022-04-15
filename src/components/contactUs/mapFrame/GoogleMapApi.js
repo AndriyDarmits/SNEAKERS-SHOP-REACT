@@ -17,8 +17,9 @@ const options = {
 };
 
 const GoogleMapApi = () => {
+  const API_KEY = "AIzaSyCaqgKD8JpCG-8tUi9w3U7ug55NYKZhWXw";
   return (
-    <LoadScript googleMapsApiKey="AIzaSyCaqgKD8JpCG-8tUi9w3U7ug55NYKZhWXw">
+    <LoadScript googleMapsApiKey={API_KEY}>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}

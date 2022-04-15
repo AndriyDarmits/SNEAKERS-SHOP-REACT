@@ -46,14 +46,15 @@ export const AddToCartAndViewIcons = styled.div`
     border-radius: 50%;
     background-color: #fff;
     transition: all 0.3s ease-in;
+    cursor: pointer;
     svg {
       color: #444444;
-      &:hover {
-        color: #fff;
-      }
     }
     &:hover {
       background-color: #8c3717;
+      svg {
+        color: #fff;
+      }
     }
     &:first-of-type {
       margin-right: 10px;
@@ -89,4 +90,5 @@ export const WishListIcon = styled.div`
   position: absolute;
   top: 5px;
   right: 5px;
+  cursor: pointer;
 `;

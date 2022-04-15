@@ -46,6 +46,7 @@ export const ViewAndWishlistIcons = styled.div`
     align-items: center;
     justify-content: center;
     margin-right: 10px;
+    cursor: pointer;
     &:last-of-type {
       margin-right: 0;
     }
