@@ -14,7 +14,7 @@ import people from "../../assets/img/people.png";
 
 export default function PageNavigation() {
   const location = useLocation();
-  const [path, setPath] = useState([{ path: "", pathTitle: "" }]);
+  const [path, setPath] = useState([]);
 
   const pathAvailable = [
     { path: "/products", pathTitle: "Products" },
@@ -24,16 +24,16 @@ export default function PageNavigation() {
     { path: "/contactUs", pathTitle: "Contact Us" },
     { path: "/wishlist", pathTitle: "Wishlist" },
     { path: "/checkout", pathTitle: "Checkout" },
+    { path: "/login", pathTitle: "Login" },
   ];
 
   useEffect(() => {
-    setPath((p) => {
-      return pathAvailable.filter((el) => {
-        if (location.pathname === el.path) {
-          return el;
-        }
-      });
+    const p = pathAvailable.filter((el) => {
+      if (location.pathname === el.path) {
+        return el;
+      }
     });
+    setPath(p);
   }, [location.pathname]);
 
   //TODO: динамічна зміна фото та заднього фону
@@ -41,10 +41,10 @@ export default function PageNavigation() {
     <SectionWrapperBlog>
       <Container>
         <Navigation>
-          <div>{path[0].pathTitle}</div>
+          <div>{path[0]?.pathTitle}</div>
           <Path>
             <Link to="/">Home</Link> /{" "}
-            <Link to={`${path[0].path}`}>{path[0].pathTitle}</Link>
+            <Link to={`${path[0]?.path}`}>{path[0]?.pathTitle}</Link>
           </Path>
         </Navigation>
         <FrameImg>

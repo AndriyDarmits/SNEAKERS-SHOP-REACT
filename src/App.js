@@ -5,7 +5,7 @@ import { Layout } from "./pages/Layout";
 import Homepage from "./pages/home/Homepage";
 import LookBookPage from "./pages/lookbook/LookBookPage";
 import SearchPage from "./pages/searchPage/SearchPage";
-import AccountPage from "./pages/AccountPage";
+import AccountPage from "./pages/accountPage/AccountPage";
 import ProductDetails from "./pages/productPage/ProductDetails";
 import { ContactUsPage } from "./pages/contactUs/ContactUsPage";
 import CartPage from "./pages/cart/CartPage";

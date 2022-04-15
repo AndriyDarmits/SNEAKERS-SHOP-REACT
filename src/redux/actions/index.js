@@ -8,8 +8,9 @@ import {
   addProductToWishlist,
   deleteProductFromWishlist,
 } from "./productsWishListAction";
-
 import { changeLayout } from "./productsViewAction";
+import { setUser, clearUser } from "./userDataAction";
+
 export default {
   setProductFromApi,
   addProductToCart,
@@ -19,4 +20,6 @@ export default {
   deleteProductsFromCart,
   deleteProductFromWishlist,
   changeLayout,
+  setUser,
+  clearUser,
 };
