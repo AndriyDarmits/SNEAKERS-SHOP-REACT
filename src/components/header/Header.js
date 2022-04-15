@@ -93,7 +93,7 @@ export default function Header() {
             <div className="navButton">
               <Link to="/wishlist">
                 {wishlist.length ? (
-                  <FaHeart style={{ color: "red" }} />
+                  <FaHeart style={{ color: "#bf1414" }} />
                 ) : (
                   <FaRegHeart />
                 )}

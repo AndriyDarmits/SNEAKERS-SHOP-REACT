@@ -153,11 +153,12 @@ export const SidebarProductFilter = ({ setProductsData, products }) => {
           </MuiAccordionSummary>
           <MuiAccordionDetails>
             <Typography>
-              {Object.keys(brands).map((brand) => {
+              {Object.keys(brands).map((brand, index) => {
                 return (
                   <p
                     onClick={() => selectBrands(brand)}
                     style={undelineSelectedItem(brands[brand])}
+                    key={index}
                   >
                     {brand.slice(0, 1).toUpperCase() + brand.slice(1)}
                   </p>

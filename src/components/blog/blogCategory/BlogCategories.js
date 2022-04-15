@@ -68,15 +68,17 @@ export const BlogCategories = ({ setDataBlogs }) => {
 
   return (
     <CategoriesList>
-      {Object.keys(categories).map((category) => (
-        <CatagoryName key={category.id}>
-          <button
-            onClick={() => selectCategories(category)}
-            style={undelineSelectedItem(categories[category])}
-          >
-            {category.slice(0, 1).toUpperCase() + category.slice(1)}
-          </button>
-        </CatagoryName>
+      {Object.keys(categories).map((category, index) => (
+        <>
+          <CatagoryName key={index}>
+            <button
+              onClick={() => selectCategories(category)}
+              style={undelineSelectedItem(categories[category])}
+            >
+              {category.slice(0, 1).toUpperCase() + category.slice(1)}
+            </button>
+          </CatagoryName>
+        </>
       ))}
     </CategoriesList>
   );

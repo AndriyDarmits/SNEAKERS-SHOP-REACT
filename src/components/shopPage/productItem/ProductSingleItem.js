@@ -57,7 +57,7 @@ export const ProductSingleItem = ({ product }) => {
             {product?.isInWishList ? (
               <FavoriteIcon
                 style={{
-                  color: "red",
+                  color: "#bf1414",
                 }}
               />
             ) : (

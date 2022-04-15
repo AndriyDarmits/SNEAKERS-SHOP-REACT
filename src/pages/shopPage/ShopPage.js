@@ -23,7 +23,8 @@ const ShopPage = () => {
   // !PAGINATION
   const [, setSearchParams] = useSearchParams();
   const [productsPerPage] = useState(12);
-  const [currentPage, setCurrentPage] = useState(1);
+  const initialPage = 1;
+  const [currentPage, setCurrentPage] = useState(initialPage);
 
   //get current post
   const getCurrentPoducts = (currentPage, productsPerPage) => {
@@ -50,7 +51,7 @@ const ShopPage = () => {
   }, [currentPage, productsData]);
 
   useEffect(() => {
-    setSearchParams({ page: 1 });
+    setSearchParams({ page: initialPage });
   }, []);
   return (
     <ShopPageSectionWrapper>

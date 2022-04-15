@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { CartListComp } from "../../components/cart/CartListComp";
 import CartTotalComp from "../../components/cart/CartTotalComp";
 import Coupon from "../../components/cart/Coupon";
+import { scrollUp } from "../../helper";
 
 import { Container } from "../../reusable-styles/reusableStyle";
 import { ApplyCoupon, CartWrapper, CheckOut } from "./CartPage.style";
@@ -12,7 +13,7 @@ export default function CartPage() {
   const { productsCart } = redux;
   const [discount, setDiscount] = useState(false);
   const [discountAmount, setDiscountAmount] = useState(1);
-
+  useEffect(() => scrollUp(0));
   return (
     <CartWrapper>
       <Container>

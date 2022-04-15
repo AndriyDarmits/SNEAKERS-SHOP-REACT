@@ -91,7 +91,7 @@ export const ProductItem = ({ product }) => {
             {product.isInWishList ? (
               <FavoriteIcon
                 style={{
-                  color: "red",
+                  color: "#bf1414",
                 }}
               />
             ) : (
