@@ -113,6 +113,13 @@ export const Navigation = styled.nav`
     z-index: 1000;
   }
 `;
+export const UserAvatar = styled.img.attrs((props) => ({
+  src: props.src,
+}))`
+  display: block;
+  border-radius: 50%;
+  max-width: 22px;
+`;
 
 export const ScrollBar = styled.div`
   height: 2px;

@@ -232,7 +232,7 @@ export default function ProductInfo() {
           {productData?.isInWishList ? (
             <FavoriteIcon
               style={{
-                color: "red",
+                color: "#bf1414",
               }}
             />
           ) : (

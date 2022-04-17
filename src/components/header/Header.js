@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import searchIcon from "../../assets/icons/header/Search.png";
-import accountIcon from "../../assets/icons/header/Acc.png";
 import cartIcon from "../../assets/icons/header/Cart.png";
 import { Container } from "../../reusable-styles/reusableStyle";
 import {
@@ -18,6 +16,7 @@ import {
   Logo,
   Navigation,
   ScrollBar,
+  UserAvatar,
   Wrapper,
 } from "./Header.style.js";
 import { useSelector } from "react-redux";
@@ -32,7 +31,7 @@ export const toggleActive = (active) => {
 
 export default function Header() {
   const reduxStore = useSelector((state) => state);
-  const { productsCart, wishlist } = reduxStore;
+  const { productsCart, wishlist, userData } = reduxStore;
 
   // scroll bar
   const [scrollTop, setScrollTop] = useState(0);
@@ -102,7 +101,11 @@ export default function Header() {
                 <FaSearch />
               </NavLink>
               <NavLink to="/account">
-                <FaUserAlt />
+                {userData ? (
+                  <UserAvatar src={userData.picture} alt="" />
+                ) : (
+                  <FaUserAlt />
+                )}
               </NavLink>
               <NavLink to="/cart">
                 <div

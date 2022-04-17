@@ -36,7 +36,7 @@ export default function AccountPage() {
                 />
               </UserAvatar>
               <UserInfo>
-                <h4>{userData.name}</h4>
+                <h2>{userData.name}</h2>
                 <a href={`mailto:${userData.email}`}>{userData.email}</a>
               </UserInfo>
             </AccountContent>

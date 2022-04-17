@@ -19,6 +19,10 @@ export const LoginBody = styled.div`
   padding: 20px;
   border-radius: 30px;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.55);
+  transition: transform 0.2s;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 export const LoginTitle = styled.h2`
   color: #666666;
