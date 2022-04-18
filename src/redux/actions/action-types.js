@@ -10,6 +10,8 @@ const CHANGE_LAYOUT = "CHANGE_LAYOUT";
 // user authentication
 const SET_USER_DATA = "SET_USER_DATA";
 const CLEAR_USER_DATA = "CLEAR_USER_DATA";
+//show sidebar menu
+const SHOW_SIDEBAR_MENU = "SHOW_SIDEBAR_MENU";
 
 export default {
   SET_PRODUCTS_FROM_API,
@@ -23,4 +25,5 @@ export default {
   CHANGE_LAYOUT,
   SET_USER_DATA,
   CLEAR_USER_DATA,
+  SHOW_SIDEBAR_MENU,
 };

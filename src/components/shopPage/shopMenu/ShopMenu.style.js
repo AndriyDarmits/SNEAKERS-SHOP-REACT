@@ -7,6 +7,13 @@ export const ShopMenuWrapper = styled.div`
   padding: 10px 20px;
   background-color: #f8f8f8;
 `;
+export const SideBarIcon = styled.div`
+  cursor: pointer;
+  svg {
+    font-size: 16px;
+    color: #333333;
+  }
+`;
 export const ShowRangeProducts = styled.div`
   color: #666666;
 `;

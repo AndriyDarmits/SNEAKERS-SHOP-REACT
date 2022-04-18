@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { SectionWrapper } from "../../reusable-styles/reusableStyle";
-
+import { device } from "../../GlobalStyles";
 export const ShopPageSectionWrapper = styled(SectionWrapper)`
   margin-top: 42px;
   margin-bottom: 45px;
@@ -16,6 +16,10 @@ export const ProductsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (${device.tablet}) {
+    width: 100%;
+  }
 `;
 
 export const LoadingMessage = styled.div`

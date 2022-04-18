@@ -10,7 +10,7 @@ import {
 } from "./productsWishListAction";
 import { changeLayout } from "./productsViewAction";
 import { setUser, clearUser } from "./userDataAction";
-
+import { setShowSidebar } from "./showSidebarAction";
 export default {
   setProductFromApi,
   addProductToCart,
@@ -22,4 +22,5 @@ export default {
   changeLayout,
   setUser,
   clearUser,
+  setShowSidebar,
 };

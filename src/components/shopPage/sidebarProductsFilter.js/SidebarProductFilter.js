@@ -13,7 +13,14 @@ import {
   MuiAccordionSummary,
   MuiSlider,
 } from "./MUIComponentsCustimization.style";
+import { useDispatch, useSelector } from "react-redux";
+import { useMediaQuery } from "react-responsive";
+import actions from "../../../redux/actions/index";
+
 export const SidebarProductFilter = ({ setProductsData, products }) => {
+  const { showSidebar } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const tablet = useMediaQuery({ maxWidth: 768 });
   //slider
   const [value, setValue] = useState([10, 440]);
   //!filtering
@@ -107,6 +114,10 @@ export const SidebarProductFilter = ({ setProductsData, products }) => {
       .filter((product) => {
         return +product.price >= value[0] && +product.price <= value[1];
       });
+    //check if windiw is tablet(for closing sidebar)
+    if (tablet) {
+      dispatch(actions.setShowSidebar());
+    }
 
     // TODO: set delay correctly
     setProductsData([]);
@@ -115,7 +126,7 @@ export const SidebarProductFilter = ({ setProductsData, products }) => {
     }, 500);
   };
   return (
-    <SideBarWrapper>
+    <SideBarWrapper showSidebar={showSidebar}>
       <SideBar>
         <h2>Categories</h2>
         <MuiAccordion>

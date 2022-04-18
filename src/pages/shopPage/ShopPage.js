@@ -19,7 +19,6 @@ const ShopPage = () => {
   const reduxStore = useSelector((state) => state);
   const { products } = reduxStore;
   const [productsData, setProductsData] = useState(products);
-
   // !PAGINATION
   const [, setSearchParams] = useSearchParams();
   const [productsPerPage] = useState(12);
