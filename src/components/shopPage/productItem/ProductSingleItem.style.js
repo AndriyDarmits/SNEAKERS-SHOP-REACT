@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Button } from "../../../reusable-styles/reusableStyle";
-
+import { device } from "../../../GlobalStyles";
 export const ProductItemWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -9,28 +9,45 @@ export const ProductItemWrapper = styled.div`
   transition: all 0.2s ease-in;
   margin-bottom: 20px;
   padding: 30px;
+  background-color: #fff;
   &:hover {
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.67);
     transform: scale(1.01);
   }
+  @media (${device.tablet}) {
+    display: block;
+    padding: 15px;
+  }
 `;
 export const ProductImageWrapper = styled.div`
   width: 300px;
-  @media (max-width: 768px) {
+  @media (${device.tablet}) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
   }
   img {
     width: 100%;
+    @media (${device.tablet}) {
+      width: 300px;
+    }
   }
 `;
 export const ProductContent = styled.div`
   width: 70%;
   padding-left: 20px;
+
   h2 {
     color: #333333;
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
     margin-bottom: 10px;
+  }
+  @media (${device.tablet}) {
+    width: 100%;
   }
 `;
 export const ViewAndWishlistIcons = styled.div`

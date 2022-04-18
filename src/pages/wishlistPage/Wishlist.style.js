@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import { Container, SectionWrapper } from "../../reusable-styles/reusableStyle";
 
 export const WishListWrapper = styled(SectionWrapper)`

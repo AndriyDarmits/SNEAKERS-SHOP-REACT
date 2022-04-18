@@ -26,16 +26,14 @@ const ShopPage = () => {
   const [currentPage, setCurrentPage] = useState(initialPage);
 
   //get current post
-  const getCurrentPoducts = (currentPage, productsPerPage) => {
-    const indexOfLastProduct = currentPage * productsPerPage;
-    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    const currentProducts = productsData.slice(
-      indexOfFirstProduct,
-      indexOfLastProduct
-    );
 
-    return currentProducts;
-  };
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = productsData.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
   // fire on switching page
   const paginate = (pageNumber) => {
     const params = {};
@@ -60,14 +58,19 @@ const ShopPage = () => {
           <SidebarProductFilter
             setProductsData={setProductsData}
             products={products}
+            setSearchParams={setSearchParams}
+            setCurrentPage={setCurrentPage}
+            initialPage={initialPage}
           />
           {/* ============products============= */}
           <ProductsWrapper>
-            <ShopMenu />
+            <ShopMenu
+              indexOfFirstProduct={indexOfFirstProduct}
+              indexOfLastProduct={indexOfLastProduct}
+              totalProducts={productsData.length}
+            />
             {productsData.length ? (
-              <Products
-                products={getCurrentPoducts(currentPage, productsPerPage)}
-              />
+              <Products products={currentProducts} />
             ) : (
               <LoadingMessage>Loading...</LoadingMessage>
             )}

@@ -19,6 +19,7 @@ export const ProductsWrapper = styled.div`
 
   @media (${device.tablet}) {
     width: 100%;
+    margin-left: 0px;
   }
 `;
 

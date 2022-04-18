@@ -10,11 +10,17 @@ import { FaTh, FaThList } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import { FaFilter } from "react-icons/fa";
-export const ShopMenu = () => {
+
+export const ShopMenu = ({
+  indexOfFirstProduct,
+  indexOfLastProduct,
+  totalProducts,
+}) => {
   const reduxStore = useSelector((state) => state);
   const { productsView } = reduxStore;
   const dispatch = useDispatch();
   const tablet = useMediaQuery({ maxWidth: 768 });
+
   return (
     <ShopMenuWrapper>
       {tablet && (
@@ -23,7 +29,9 @@ export const ShopMenu = () => {
         </SideBarIcon>
       )}
       <ShowRangeProducts>
-        Showing <span></span> <span></span> of <span></span> results
+        Showing <span>{indexOfFirstProduct + 1}</span>-
+        <span>{indexOfLastProduct - 1}</span> of <span>{totalProducts}</span>{" "}
+        results
       </ShowRangeProducts>
       <View>
         <div onClick={() => dispatch(actions.changeLayout())}>
