@@ -73,16 +73,15 @@
   opacity: 1 !important;
 }
 
-@media (max-width: 767px) {
-  .slick-prev:before,
-  .slick-next:before {
+@media (max-width: 768px) {
+  .slick-prev,
+  .slick-next {
     display: none !important;
   }
 }
 
 .slick-prev:before {
   content: "<" !important;
-  transform: translateX(15px) !important;
 }
 
 .slick-next:before {

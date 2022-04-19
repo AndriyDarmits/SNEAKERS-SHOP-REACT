@@ -61,8 +61,8 @@ export const ProductItem = ({ product, setProductsData }) => {
 
   return (
     <ProductItemDiv
-      onMouseLeave={() => setIsVisiableIcon((state) => !state)}
-      onMouseEnter={() => setIsVisiableIcon((state) => !state)}
+      onPointerLeave={() => setIsVisiableIcon((state) => !state)}
+      onPointerEnter={() => setIsVisiableIcon((state) => !state)}
     >
       <ProductImageWrapper>
         <img src={product.images[0]} alt="" loading="lazy" />
