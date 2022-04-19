@@ -14,7 +14,7 @@ import { useDispatch } from "react-redux";
 import actions from "../../../redux/actions/index";
 import { FaEye, FaCartPlus, FaCheck } from "react-icons/fa";
 
-export const ProductItem = ({ product }) => {
+export const ProductItem = ({ product, setProductsData }) => {
   const [isVisiableIcon, setIsVisiableIcon] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -30,32 +30,32 @@ export const ProductItem = ({ product }) => {
       dispatch(actions.addProductToWishlist(data));
       // update changes in product data
       dispatch(actions.updateProducts(data));
-      // TODO: update local dataState, to show isInWishList checker immediately
-      //fixing
-      /* setProductsData(state =>{
-        return state.map(product =>{
-          if(product.id ===data.id){
+
+      // update local dataState, to show isInWishList checker immediately
+      setProductsData((state) => {
+        return state.map((product) => {
+          if (product.id === data.id) {
             return data;
           }
           return product;
-        })
-      }) */
+        });
+      });
     } else {
       // remove itemdelete products from wishlist
       dispatch(actions.deleteProductFromWishlist(data));
       // update changes in product data
       data.isInWishList = false;
       dispatch(actions.updateProducts(data));
-      // TODO: update local dataState, to show isInWishList checker immediately
-      /* fixing */
-      /* setProductsData(state =>{
-        return state.map(product =>{
-          if(product.id ===data.id){
+
+      //update local dataState, to show isInWishList checker
+      setProductsData((state) => {
+        return state.map((product) => {
+          if (product.id === data.id) {
             return data;
           }
           return product;
-        })
-      }) */
+        });
+      });
     }
   };
 

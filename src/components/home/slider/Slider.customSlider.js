@@ -12,9 +12,6 @@ export const SliderContainer = styled(Container)`
 export const SliderItem = styled.div`
   height: 75vh;
   border-radius: 5px;
-  @media (${device.tablet}) {
-    height: 65vh;
-  }
 `;
 
 export const SliderItemFirst = styled(SliderItem)`

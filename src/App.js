@@ -31,7 +31,6 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/*  <Route path="/" element={<Auth />}> */}
         <Route path="/" element={<Layout />}>
           <Route index element={<Homepage />} />
           <Route path="products/:id" element={<ProductDetails />}>
@@ -67,10 +66,8 @@ function App() {
           <Route path="checkout" element={<CheckoutPage />} />
           <Route path="login" element={<LoginPage />} />
         </Route>
-        {/*   </Route> */}
         <Route path="*" element={<Notfoundpage />} />
       </Routes>
-      <GlobalStyles />
     </BrowserRouter>
   );
 }

@@ -70,7 +70,10 @@ const ShopPage = () => {
               totalProducts={productsData.length}
             />
             {productsData.length ? (
-              <Products products={currentProducts} />
+              <Products
+                products={currentProducts}
+                setProductsData={setProductsData}
+              />
             ) : (
               <LoadingMessage>Loading...</LoadingMessage>
             )}

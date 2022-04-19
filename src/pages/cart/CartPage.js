@@ -30,7 +30,6 @@ export default function CartPage() {
               discount={discount}
               discountAmount={discountAmount}
             />
-            {/* TODO: перевірити, може зробити приватний роут */}
             {productsCart.length ? (
               <Link to="/checkout">
                 <CheckOut>

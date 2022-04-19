@@ -49,8 +49,13 @@
   color: transparent;
   border: none;
   outline: none;
-  background: transparent;
+  background: #fff !important;
   z-index: 10 !important;
+  transition: all 0.1s;
+}
+.slick-prev:hover,
+.slick-next:hover {
+  background: rgba(255, 255, 255, 0.504) !important;
 }
 
 .slick-prev {
@@ -62,8 +67,10 @@
 
 .slick-prev:before,
 .slick-next:before {
-  font-size: 50px !important;
+  font-size: 40px !important;
   color: rgb(92, 108, 110) !important;
+  font-family: "Poppins-Regular", sans-serif !important;
+  opacity: 1 !important;
 }
 
 @media (max-width: 767px) {
@@ -74,9 +81,10 @@
 }
 
 .slick-prev:before {
-  content: "←";
+  content: "<" !important;
+  transform: translateX(15px) !important;
 }
 
 .slick-next:before {
-  content: "→";
+  content: ">" !important;
 }
