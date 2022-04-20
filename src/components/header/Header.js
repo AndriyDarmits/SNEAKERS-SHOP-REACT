@@ -102,7 +102,11 @@ export default function Header() {
               </NavLink>
               <NavLink to="/account">
                 {userData ? (
-                  <UserAvatar src={userData.picture} alt="" />
+                  <UserAvatar
+                    src={userData.picture}
+                    alt=""
+                    referrerPolicy="no-referrer"
+                  />
                 ) : (
                   <FaUserAlt />
                 )}

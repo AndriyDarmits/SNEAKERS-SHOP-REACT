@@ -16,7 +16,7 @@ import {
   AddToCartBtn,
 } from "./ProductSingleItem.style";
 
-export const ProductSingleItem = ({ product }) => {
+export const ProductSingleItem = ({ product, setProductsData }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -31,12 +31,30 @@ export const ProductSingleItem = ({ product }) => {
       dispatch(actions.addProductToWishlist(data));
       // update changes in product data
       dispatch(actions.updateProducts(data));
+
+      setProductsData((state) => {
+        return state.map((product) => {
+          if (product.id === data.id) {
+            return data;
+          }
+          return product;
+        });
+      });
     } else {
       // remove itemdelete products from wishlist
       dispatch(actions.deleteProductFromWishlist(data));
       // update changes in product data
       data.isInWishList = false;
       dispatch(actions.updateProducts(data));
+
+      setProductsData((state) => {
+        return state.map((product) => {
+          if (product.id === data.id) {
+            return data;
+          }
+          return product;
+        });
+      });
     }
   };
 

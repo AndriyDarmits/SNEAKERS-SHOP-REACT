@@ -45,7 +45,7 @@ const ShopPage = () => {
   // scroll up, after switching page
   useEffect(() => {
     scrollUp(250);
-  }, [currentPage, productsData]);
+  }, [currentPage]);
 
   useEffect(() => {
     setSearchParams({ page: initialPage });
