@@ -9,7 +9,6 @@ import AccountPage from "./pages/accountPage/AccountPage";
 import ProductDetails from "./pages/productPage/ProductDetails";
 import { ContactUsPage } from "./pages/contactUs/ContactUsPage";
 import CartPage from "./pages/cart/CartPage";
-import { GlobalStyles } from "./GlobalStyles";
 import { ProductDescription } from "./components/productDetails/productDescription/ProductDescription";
 import { ProductReviews } from "./components/productDetails/productReviews/ProductReviews";
 import Notfoundpage from "./pages/notfound/Notfoundpage";
@@ -25,6 +24,7 @@ import { ReqireAuth } from "./hoc/ReqireAuth";
 const ShopPage = lazy(() => import("./pages/shopPage/ShopPage"));
 function App() {
   const dispatch = useDispatch();
+  // dispatch data from API
   useEffect(() => {
     dispatch(setDataFromApiThunk());
   }, [dispatch]);

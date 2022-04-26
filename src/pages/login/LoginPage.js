@@ -26,7 +26,6 @@ export const LoginPage = () => {
         location.state?.from?.pathname || "/"
       )
     );
-    /* navigate(location.state?.from?.pathname || "/"); */
   };
 
   return (

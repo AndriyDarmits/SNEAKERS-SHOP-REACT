@@ -8,7 +8,8 @@ import { LoadMore } from "../../components/blog/loadMore/LoadMore";
 import { scrollUp } from "../../helper";
 
 export default function BlogPage() {
-  const [blogToShow, setBlogToShow] = useState(3);
+  const initialBlogToSow = 3;
+  const [blogToShow, setBlogToShow] = useState(initialBlogToSow);
   const lastIndex = blogToShow;
   const [isLoadingBlogs, setIsLoadingBlogs] = useState(false);
   const [dataBlogs, setDataBlogs] = useState(dataBlog);
@@ -24,7 +25,7 @@ export default function BlogPage() {
   const loadMoreless = () => {
     setIsLoadingBlogs(true);
     setTimeout(() => {
-      setBlogToShow((state) => 3);
+      setBlogToShow((state) => initialBlogToSow);
       setIsLoadingBlogs(false);
       scrollUp(0);
     }, 2000);
