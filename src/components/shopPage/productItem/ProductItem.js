@@ -32,14 +32,17 @@ export const ProductItem = ({ product, setProductsData }) => {
       dispatch(actions.updateProducts(data));
 
       // update local dataState, to show isInWishList checker immediately
-      setProductsData((state) => {
-        return state.map((product) => {
-          if (product.id === data.id) {
-            return data;
-          }
-          return product;
+      if (typeof setProductsData !== "undefined") {
+        //!! explanation
+        setProductsData((state) => {
+          return state.map((product) => {
+            if (product.id === data.id) {
+              return data;
+            }
+            return product;
+          });
         });
-      });
+      }
     } else {
       // remove itemdelete products from wishlist
       dispatch(actions.deleteProductFromWishlist(data));
@@ -48,14 +51,17 @@ export const ProductItem = ({ product, setProductsData }) => {
       dispatch(actions.updateProducts(data));
 
       //update local dataState, to show isInWishList checker
-      setProductsData((state) => {
-        return state.map((product) => {
-          if (product.id === data.id) {
-            return data;
-          }
-          return product;
+      //!! explanation
+      if (typeof setProductsData !== "undefined") {
+        setProductsData((state) => {
+          return state.map((product) => {
+            if (product.id === data.id) {
+              return data;
+            }
+            return product;
+          });
         });
-      });
+      }
     }
   };
 
