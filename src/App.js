@@ -21,6 +21,7 @@ import { LoginPage } from "./pages/login/LoginPage";
 import { BlogPageDetails } from "./pages/blogPageDetails/BlogPageDetails";
 import { setDataFromApiThunk } from "./redux/thunk";
 import { ReqireAuth } from "./hoc/ReqireAuth";
+import { RequireFilledCart } from "./hoc/RequireFilledCart";
 const ShopPage = lazy(() => import("./pages/shopPage/ShopPage"));
 function App() {
   const dispatch = useDispatch();
@@ -63,7 +64,14 @@ function App() {
           />
           <Route path="contactUs" element={<ContactUsPage />} />
           <Route path="wishlist" element={<WishlistPage />} />
-          <Route path="checkout" element={<CheckoutPage />} />
+          <Route
+            path="checkout"
+            element={
+              <RequireFilledCart>
+                <CheckoutPage />
+              </RequireFilledCart>
+            }
+          />
           <Route path="login" element={<LoginPage />} />
         </Route>
         <Route path="*" element={<Notfoundpage />} />
