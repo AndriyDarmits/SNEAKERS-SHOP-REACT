@@ -12,3 +12,8 @@ export const updateProducts = (product) => {
     payload: product,
   };
 };
+export const resetIsInShoppingCartProdutsProperty = () => {
+  return {
+    type: actions.RESET_ISINSHOPPINGCART_PRODUCTS_PROPERTY,
+  };
+};

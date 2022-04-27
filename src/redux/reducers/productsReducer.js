@@ -12,6 +12,14 @@ export const ProductReducer = (state = [], action) => {
         return product;
       });
       return [...updatedPoducts];
+    case actionTypes.RESET_ISINSHOPPINGCART_PRODUCTS_PROPERTY:
+      const resetedIsInShoppingCartProductsProperty = [...state].map(
+        (product) => {
+          product.isInShoppingCart = false;
+          return product;
+        }
+      );
+      return [...resetedIsInShoppingCartProductsProperty];
     default:
       return state;
   }
