@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import actions from "../../redux/actions/index";
 import {
   CuponButton,
   CuponInput,
@@ -8,12 +10,13 @@ import {
 export default function Coupon({ setDiscount, setDiscountAmount }) {
   const [couponeValue, setCouponValue] = useState("");
   const [notValidateMessage, setNotValidateMessage] = useState(false);
+  const dispatch = useDispatch();
   const promoCodes = ["summer2022", "winter2022", "spring2022", "autumn2022"];
   // TODO: connect to redux store
   const applyCoupon = () => {
+    // if typed coupone matches promoCodes - set discount
     if (promoCodes.includes(couponeValue.toLowerCase())) {
-      setDiscountAmount(0.8);
-      setDiscount(true);
+      dispatch(actions.activateDiscount());
       setCouponValue("");
     } else {
       setNotValidateMessage(true);
@@ -29,7 +32,7 @@ export default function Coupon({ setDiscount, setDiscountAmount }) {
         <input
           value={couponeValue}
           type="text"
-          placeholder="Coupon Code"
+          placeholder="Coupon Code..."
           onChange={(e) => setCouponValue(e.target.value)}
         />
       </CuponInput>

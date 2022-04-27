@@ -11,8 +11,8 @@ import { ApplyCoupon, CartWrapper, CheckOut } from "./CartPage.style";
 export default function CartPage() {
   const redux = useSelector((state) => state);
   const { productsCart } = redux;
-  const [discount, setDiscount] = useState(false);
-  const [discountAmount, setDiscountAmount] = useState(1);
+
+  // scroll
   useEffect(() => scrollUp(0));
   return (
     <CartWrapper>
@@ -21,15 +21,9 @@ export default function CartPage() {
         {productsCart.length > 0 && (
           <>
             <ApplyCoupon>
-              <Coupon
-                setDiscount={setDiscount}
-                setDiscountAmount={setDiscountAmount}
-              />
+              <Coupon />
             </ApplyCoupon>
-            <CartTotalComp
-              discount={discount}
-              discountAmount={discountAmount}
-            />
+            <CartTotalComp />
             {productsCart.length ? (
               <Link to="/checkout">
                 <CheckOut>

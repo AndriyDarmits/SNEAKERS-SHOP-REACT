@@ -60,7 +60,6 @@ export const SidebarProductFilter = ({
   };
 
   //!filtering
-  //TODO: add pop up to display that filtering has been done
   const selectBrands = (selectedBrand) => {
     //get length of selected categories to prevent selecting 2 categories in a row
     const getLength = Object.values(brands).filter((value) => value).length;

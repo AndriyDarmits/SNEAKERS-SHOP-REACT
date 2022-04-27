@@ -5,6 +5,7 @@ import { WishlistReducer } from "./wishlistReducer";
 import { ProductViewReducer } from "./productsViewRducer";
 import { UserDataReducer } from "./userDataReducer";
 import { ShowSidebarReducer } from "./showSidebarReducer";
+import { DiscountReducer } from "./discountReducer";
 
 export const reducer = combineReducers({
   products: ProductReducer,
@@ -13,4 +14,5 @@ export const reducer = combineReducers({
   productsView: ProductViewReducer,
   userData: UserDataReducer,
   showSidebar: ShowSidebarReducer,
+  discount: DiscountReducer,
 });

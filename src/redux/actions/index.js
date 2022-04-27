@@ -1,8 +1,13 @@
-import { setProductFromApi, updateProducts } from "./productsAction";
+import {
+  setProductFromApi,
+  updateProducts,
+  resetIsInShoppingCartProdutsProperty,
+} from "./productsAction";
 import {
   addProductToCart,
   updateProductsCart,
   deleteProductsFromCart,
+  clearAllProductsFromCart,
 } from "./productsCartAction";
 import {
   addProductToWishlist,
@@ -11,6 +16,7 @@ import {
 import { changeLayout } from "./productsViewAction";
 import { setUser, clearUser } from "./userDataAction";
 import { setShowSidebar } from "./showSidebarAction";
+import { activateDiscount, deactivateDiscount } from "./discountAction";
 export default {
   setProductFromApi,
   addProductToCart,
@@ -22,5 +28,9 @@ export default {
   changeLayout,
   setUser,
   clearUser,
+  clearAllProductsFromCart,
   setShowSidebar,
+  activateDiscount,
+  deactivateDiscount,
+  resetIsInShoppingCartProdutsProperty,
 };
