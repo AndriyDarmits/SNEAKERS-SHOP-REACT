@@ -23,16 +23,16 @@ export const SuccessfullyCheckoutPopUp = styled.div`
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   display: ${(props) => (props.showPopUp ? "flex" : "none")};
   justify-content: center;
   align-items: center;
 `;
 const popUpAnim = keyframes`
 0%{
-  transform: scale(0);
+  transform: scale(0) ;
 }100%{
-  transform: scale(1);
+  transform: scale(1) ;
 }`;
 
 export const PopUpBody = styled.div`
@@ -42,16 +42,27 @@ export const PopUpBody = styled.div`
   padding: 20px;
   text-align: center;
   animation: ${popUpAnim} 1s ease-in-out;
+  color: #333333;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 2px #3333338c;
   h2 {
     margin-bottom: 20px;
+    font-size: 22px;
+    letter-spacing: 1px;
   }
 `;
-
+const chackIconAnim = keyframes`
+0%{
+  transform: scale(0) rotate(3600deg);
+}100%{
+  transform: scale(1) rotate(0deg);
+}`;
 export const SuccessIcons = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   svg {
     font-size: 25px;
+    animation: ${chackIconAnim} 2s cubic-bezier(0.3, 0.93, 0.06, 0.96);
   }
 `;

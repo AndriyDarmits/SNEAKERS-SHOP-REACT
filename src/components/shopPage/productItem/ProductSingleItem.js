@@ -84,7 +84,13 @@ export const ProductSingleItem = ({ product, setProductsData }) => {
           </span>
         </ViewAndWishlistIcons>
         <AddToCartBtn>
-          <button onClick={() => navigate(`${product.id}`)}>Add to cart</button>
+          {product.isInShoppingCart ? (
+            <button>In cart</button>
+          ) : (
+            <button onClick={() => navigate(`${product.id}`)}>
+              Add to cart
+            </button>
+          )}
         </AddToCartBtn>
       </ProductContent>
     </ProductItemWrapper>

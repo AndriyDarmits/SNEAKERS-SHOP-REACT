@@ -81,7 +81,7 @@ export const YourOrder = () => {
             productsCart.reduce((prev, current) => {
               return prev + current.price * current.count;
             }, 0) *
-              (discount ? 0.8 : 1) -
+              (discount ? 0.8 : 1) +
             (isFreeShipping ? 0 : flatRate)
           ).toFixed(2)}
         </div>

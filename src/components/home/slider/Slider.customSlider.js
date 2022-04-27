@@ -28,7 +28,7 @@ export const SliderFlexDiv = styled(FlexContainer)`
   display: flex !important;
   align-items: center;
   height: 100%;
-  @media (${device.laptop}) {
+  @media (${device.laptop}) and (orientation: portrait) {
     flex-direction: column-reverse;
     justify-content: center;
   }
@@ -64,6 +64,9 @@ export const FashionInstaP = styled.h1`
     font-size: 60px;
   }
   @media (${device.mobile}) {
+    font-size: 50px;
+  }
+  @media (${device.laptop}) and (orientation: landscape) {
     font-size: 50px;
   }
 `;

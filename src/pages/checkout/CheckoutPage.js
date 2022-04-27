@@ -45,9 +45,10 @@ export const CheckoutPage = () => {
               </button>
             </PlaceOrder>
           </PaymentAndSendBtn>
+          {/* popUp */}
           <SuccessfullyCheckoutPopUp showPopUp={showPopUp}>
             <PopUpBody showPopUp={showPopUp}>
-              <h2>Your order has been successfully placed</h2>
+              <h2>Your order has been successfully placed={")"}</h2>
               <SuccessIcons>
                 <FaCheck />
               </SuccessIcons>

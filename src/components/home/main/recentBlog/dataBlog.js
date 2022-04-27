@@ -30,7 +30,7 @@ export const dataBlog = [
     year: "2022",
     body: "Max Air changed the game in '87. Now, we honor its emerald anniversary (35 years!) with the Nike Air Max 97 SE. Emerald graphics and colors highlight this big landmark, while rocking the classic curvy design lines and cushioning of the original.",
     imageURL:
-      "https://sneakernews.com/wp-content/uploads/2022/02/Nike-Air-Max-97-DN1893-001-1.jpg",
+      "https://i.pinimg.com/originals/c9/d3/16/c9d316549c72a5654d5ef1c71f304b3c.jpg",
   },
   {
     id: "1c2j3d4f",
@@ -52,7 +52,7 @@ export const dataBlog = [
     year: "2022",
     body: "Max Air changed the game in '87. Now, we honor its emerald anniversary (35 years!) with the Nike Air Max 97 SE. Emerald graphics and colors highlight this big landmark, while rocking the classic curvy design lines and cushioning of the original.",
     imageURL:
-      "https://sneakernews.com/wp-content/uploads/2022/02/Nike-Air-Max-97-DN1893-001-1.jpg",
+      "https://i.pinimg.com/originals/c9/d3/16/c9d316549c72a5654d5ef1c71f304b3c.jpg",
   },
   {
     id: "1q2w374r",
@@ -107,6 +107,6 @@ export const dataBlog = [
     year: "2022",
     body: "Max Air changed the game in '87. Now, we honor its emerald anniversary (35 years!) with the Nike Air Max 97 SE. Emerald graphics and colors highlight this big landmark, while rocking the classic curvy design lines and cushioning of the original.",
     imageURL:
-      "https://sneakernews.com/wp-content/uploads/2022/02/Nike-Air-Max-97-DN1893-001-1.jpg",
+      "https://i.pinimg.com/originals/c9/d3/16/c9d316549c72a5654d5ef1c71f304b3c.jpg",
   },
 ];
