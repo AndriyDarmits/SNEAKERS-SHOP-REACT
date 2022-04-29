@@ -12,10 +12,11 @@ export default function Coupon({ setDiscount, setDiscountAmount }) {
   const [notValidateMessage, setNotValidateMessage] = useState(false);
   const dispatch = useDispatch();
   const promoCodes = ["summer2022", "winter2022", "spring2022", "autumn2022"];
-  // TODO: connect to redux store
+
   const applyCoupon = () => {
     // if typed coupone matches promoCodes - set discount
     if (promoCodes.includes(couponeValue.toLowerCase())) {
+      // change discount checked
       dispatch(actions.activateDiscount());
       setCouponValue("");
     } else {

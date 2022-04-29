@@ -42,9 +42,9 @@ export const PopUpBody = styled.div`
   padding: 20px;
   text-align: center;
   animation: ${popUpAnim} 1s ease-in-out;
-  color: #333333;
+  color: #666666;
   border-radius: 5px;
-  box-shadow: 2px 2px 5px 2px #3333338c;
+  box-shadow: 2px 2px 5px 2px #6666668c;
   h2 {
     margin-bottom: 20px;
     font-size: 22px;
@@ -62,6 +62,7 @@ export const SuccessIcons = styled.div`
   justify-content: center;
   align-items: center;
   svg {
+    color: #666666;
     font-size: 25px;
     animation: ${chackIconAnim} 2s cubic-bezier(0.3, 0.93, 0.06, 0.96);
   }

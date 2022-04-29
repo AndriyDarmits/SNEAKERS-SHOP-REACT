@@ -1,5 +1,5 @@
 import "./App.scss";
-import React, { useEffect, Suspense, lazy } from "react";
+import React, { useEffect, Suspense, lazy, useState } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { Layout } from "./pages/Layout";
 import Homepage from "./pages/home/Homepage";
@@ -22,61 +22,99 @@ import { BlogPageDetails } from "./pages/blogPageDetails/BlogPageDetails";
 import { setDataFromApiThunk } from "./redux/thunk";
 import { ReqireAuth } from "./hoc/ReqireAuth";
 import { RequireFilledCart } from "./hoc/RequireFilledCart";
+import styled from "styled-components";
+import { FaChevronUp } from "react-icons/fa";
+import { scrollUp } from "./helper";
 const ShopPage = lazy(() => import("./pages/shopPage/ShopPage"));
+
+const ScrollUpBtn = styled.div`
+  position: fixed;
+  bottom: 30px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  display: ${(props) => (props.visible ? "flex" : "none")};
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  svg {
+    color: #fff;
+  }
+`;
 function App() {
   const dispatch = useDispatch();
+  const [visible, setVisible] = useState(false);
+
+  const toggleVisible = () => {
+    const scrolled = document.documentElement.scrollTop;
+    if (scrolled > 300) {
+      setVisible(true);
+    } else if (scrolled <= 300) {
+      setVisible(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", toggleVisible);
+    return () => window.addEventListener("scroll", toggleVisible);
+  }, []);
   // dispatch data from API
   useEffect(() => {
     dispatch(setDataFromApiThunk());
   }, [dispatch]);
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Homepage />} />
-          <Route path="products/:id" element={<ProductDetails />}>
-            <Route index element={<ProductDescription />} />
-            <Route path="reviews" element={<ProductReviews />} />
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Homepage />} />
+            <Route path="products/:id" element={<ProductDetails />}>
+              <Route index element={<ProductDescription />} />
+              <Route path="reviews" element={<ProductReviews />} />
+            </Route>
+            <Route path="search" element={<SearchPage />} />
+            <Route path="cart" element={<CartPage />} />
+            <Route path="blog/:id" element={<BlogPageDetails />} />
           </Route>
-          <Route path="search" element={<SearchPage />} />
-          <Route path="cart" element={<CartPage />} />
-          <Route path="blog/:id" element={<BlogPageDetails />} />
-        </Route>
-        <Route element={<Layout2 />}>
-          <Route
-            path="products"
-            element={
-              <Suspense fallback={<div>Loading...</div>}>
-                <ShopPage />
-              </Suspense>
-            }
-          />
-          <Route path="blog" element={<BlogPage />} />
-          <Route path="lookbook" element={<LookBookPage />} />
-          {/* private route */}
-          <Route
-            path="account"
-            element={
-              <ReqireAuth>
-                <AccountPage />
-              </ReqireAuth>
-            }
-          />
-          <Route path="contactUs" element={<ContactUsPage />} />
-          <Route path="wishlist" element={<WishlistPage />} />
-          <Route
-            path="checkout"
-            element={
-              <RequireFilledCart>
-                <CheckoutPage />
-              </RequireFilledCart>
-            }
-          />
-          <Route path="login" element={<LoginPage />} />
-        </Route>
-        <Route path="*" element={<Notfoundpage />} />
-      </Routes>
-    </BrowserRouter>
+          <Route element={<Layout2 />}>
+            <Route
+              path="products"
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <ShopPage />
+                </Suspense>
+              }
+            />
+            <Route path="blog" element={<BlogPage />} />
+            <Route path="lookbook" element={<LookBookPage />} />
+            {/* private route */}
+            <Route
+              path="account"
+              element={
+                <ReqireAuth>
+                  <AccountPage />
+                </ReqireAuth>
+              }
+            />
+            <Route path="contactUs" element={<ContactUsPage />} />
+            <Route path="wishlist" element={<WishlistPage />} />
+            <Route
+              path="checkout"
+              element={
+                <RequireFilledCart>
+                  <CheckoutPage />
+                </RequireFilledCart>
+              }
+            />
+            <Route path="login" element={<LoginPage />} />
+          </Route>
+          <Route path="*" element={<Notfoundpage />} />
+        </Routes>
+      </BrowserRouter>
+      <ScrollUpBtn onClick={() => scrollUp(0)} visible={visible}>
+        <FaChevronUp />
+      </ScrollUpBtn>
+    </>
   );
 }
 

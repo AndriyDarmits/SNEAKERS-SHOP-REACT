@@ -31,7 +31,7 @@ export const ProductSingleItem = ({ product, setProductsData }) => {
       dispatch(actions.addProductToWishlist(data));
       // update changes in product data
       dispatch(actions.updateProducts(data));
-
+      //!explanation
       setProductsData((state) => {
         return state.map((product) => {
           if (product.id === data.id) {
@@ -46,7 +46,7 @@ export const ProductSingleItem = ({ product, setProductsData }) => {
       // update changes in product data
       data.isInWishList = false;
       dispatch(actions.updateProducts(data));
-
+      //!explanation
       setProductsData((state) => {
         return state.map((product) => {
           if (product.id === data.id) {
