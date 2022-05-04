@@ -32,33 +32,53 @@ export const toggleActive = (active) => {
 export default function Header() {
   const reduxStore = useSelector((state) => state);
   const { productsCart, wishlist, userData } = reduxStore;
-
+  const [showOrCloseMenu, setShowOrCloseMenu] = useState(false);
+  const location = useLocation();
   // scroll bar
   const [scrollTop, setScrollTop] = useState(0);
-  const onScrollProgress = () => {
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
-    let height =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    setScrollTop(scrolled);
-  };
-  // fire event when scrolling
-  const [showOrCloseMenu, setShowOrCloseMenu] = useState(false);
+  // hiding header on scroll
+  const [visible, setVisible] = useState(true);
+  const [position, setPosition] = useState(window.pageYOffset);
+
   useEffect(() => {
+    //TOdO: revise
+    // scroll progress bar handler
+    const onScrollProgress = () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      let height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      setScrollTop(scrolled);
+    };
+
+    // fire event when scrolling
     document.addEventListener("scroll", onScrollProgress);
     return () => document.removeEventListener("scroll", onScrollProgress);
   }, []);
 
   // close menu after going to other page
-  const location = useLocation();
   useEffect(() => {
     setShowOrCloseMenu(false);
   }, [location.pathname]);
-  //
+
+  // hide-show header depend on scrolling direction changes
+  useEffect(() => {
+    //TOdO: revise
+    const handleScroll = () => {
+      let moving = window.pageYOffset;
+      console.log(moving);
+      setVisible(position > moving);
+      setPosition(moving);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [position]);
   return (
-    <Wrapper>
+    <Wrapper visible={visible}>
       <Container>
         <HeaderDiv>
           <Logo>

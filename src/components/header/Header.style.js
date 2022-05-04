@@ -3,7 +3,7 @@ import { device } from "../../GlobalStyles";
 
 export const Wrapper = styled.div`
   position: fixed;
-  top: 0;
+  top: ${(props) => (props.visible ? 0 : "-80px")};
   left: 0;
   right: 0;
   bottom: 0;
@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 82px;
   background-color: #fff;
+  transition: top 0.4s ease-in-out;
 `;
 export const HeaderDiv = styled.header`
   display: flex;
