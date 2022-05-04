@@ -1,7 +1,6 @@
 import actions from "./actions";
 import { fetchData } from "../helper";
-import { useNavigate } from "react-router-dom";
-//thunk function
+//thunk function to get data from api
 export const setDataFromApiThunk = () => {
   return (dispatch) => {
     fetchData("https://mocki.io/v1/c2978c01-7d3b-4fe2-a179-9ae07db63789").then(
@@ -20,9 +19,9 @@ export const setDataFromApiThunk = () => {
   };
 };
 
+//thunk function to do logging in (geting data about user from google login api)
 export const logInWithGoogle = (googleData, navigate, to) => {
   return (dispatch) => {
-    console.log("1");
     const request = fetch("api/google-login", {
       method: "POST",
       body: JSON.stringify({
@@ -32,7 +31,6 @@ export const logInWithGoogle = (googleData, navigate, to) => {
         "Content-Type": "application/json",
       },
     }).then((response) => {
-      console.log("2");
       return response.json();
     });
     request.then((data) => {

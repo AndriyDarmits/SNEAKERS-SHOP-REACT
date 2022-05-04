@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container } from "../../reusable-styles/reusableStyle";
 import actions from "../../redux/actions";
@@ -12,6 +12,7 @@ import {
   LogOutBtn,
 } from "./AccountPage.style";
 import { useNavigate } from "react-router-dom";
+import { scrollUp } from "../../helper";
 
 export default function AccountPage() {
   const { userData } = useSelector((state) => state);
@@ -22,6 +23,9 @@ export default function AccountPage() {
     dispatch(actions.clearUser());
     navigate("/", { replace: true });
   };
+  useEffect(() => {
+    scrollUp(0);
+  }, []);
   return (
     <AccountPageSection>
       <Container>

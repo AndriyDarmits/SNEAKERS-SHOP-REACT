@@ -34,7 +34,7 @@ export const MuiAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
     p: {
       fontSize: "14px",
       fontFamily: "'Poppins',sans-serif",
-      corsor: "pointer",
+      cursor: "pointer",
     },
     ".MuiAccordionSummary-expandIconWrapper": {
       color: "#999999",

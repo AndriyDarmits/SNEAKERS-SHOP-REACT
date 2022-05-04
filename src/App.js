@@ -1,4 +1,4 @@
-import "./App.scss";
+import { ScrollUpBtn } from "./App.style.js";
 import React, { useEffect, Suspense, lazy, useState } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { Layout } from "./pages/Layout";
@@ -22,30 +22,14 @@ import { BlogPageDetails } from "./pages/blogPageDetails/BlogPageDetails";
 import { setDataFromApiThunk } from "./redux/thunk";
 import { ReqireAuth } from "./hoc/ReqireAuth";
 import { RequireFilledCart } from "./hoc/RequireFilledCart";
-import styled from "styled-components";
 import { FaChevronUp } from "react-icons/fa";
 import { scrollUp } from "./helper";
 const ShopPage = lazy(() => import("./pages/shopPage/ShopPage"));
 
-const ScrollUpBtn = styled.div`
-  position: fixed;
-  bottom: 30px;
-  right: 40px;
-  width: 50px;
-  height: 50px;
-  display: ${(props) => (props.visible ? "flex" : "none")};
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  svg {
-    color: #fff;
-  }
-`;
 function App() {
   const dispatch = useDispatch();
   const [visible, setVisible] = useState(false);
-
+  // when scrolling is greater than 300 - show display button
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
     if (scrolled > 300) {
@@ -58,6 +42,7 @@ function App() {
     window.addEventListener("scroll", toggleVisible);
     return () => window.addEventListener("scroll", toggleVisible);
   }, []);
+
   // dispatch data from API
   useEffect(() => {
     dispatch(setDataFromApiThunk());

@@ -41,13 +41,13 @@ export const ProductReviews = () => {
   const onAddReview = (e) => {
     e.preventDefault();
     // add reviews
+    const data = { ...reviewsData };
     if (
       reviewerName.length &&
       reviewerEmail.length &&
       reviewText.length &&
       formRateValue
     ) {
-      const data = { ...reviewsData };
       data.reviews = [
         ...data.reviews,
         {

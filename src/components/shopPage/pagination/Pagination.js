@@ -8,13 +8,12 @@ import {
   PrevBtn,
 } from "./Pagination.style";
 export const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
-  /* page quantity */
+  const [searchParams, setSearchParams] = useSearchParams();
+  /* fill array with page numbers */
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
     pageNumbers.push(i);
   }
-
-  const [searchParams, setSearchParams] = useSearchParams();
 
   return (
     <PaginationNav>

@@ -27,19 +27,19 @@ export const FontStyles = createGlobalStyle`
 
 @font-face {
   font-family: 'Poppins-Regular';
-  src: url(${PoppinsRegular}) format('ttf'),
+  src: url(${PoppinsRegular}) format('ttf');
        
 }
 @font-face {
   font-family: 'Poppins-SemiBold';
-  src: url(${PoppinsSemiBold}) format('ttf'),
-  font-weight: 600,
+  src: url(${PoppinsSemiBold}) format('ttf');
+  font-weight: 600;
        
 }
 @font-face {
   font-family: 'Poppins-Medium';
-  src: url(${PoppinsMedium}) format('ttf'),
-  font-weight: 500,
+  src: url(${PoppinsMedium}) format('ttf');
+  font-weight: 500;
        
 }
 `;
