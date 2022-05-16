@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Button } from "../../../../reusable-styles/reusableStyle";
-import { device } from "../../../../GlobalStyles";
+import { device, color } from "../../../../GlobalStyles";
 
 export const CountDownTimerSection = styled.section`
   background-color: #f9f9f9;
@@ -50,7 +50,7 @@ export const CountDownTimerContent = styled.div`
     font-size: 36px;
     font-weight: 600;
     text-transform: uppercase;
-    color: #333333;
+    color: ${color.greyDark};
     margin-bottom: 15px;
 
     @media (${device.laptop}) {
@@ -70,7 +70,7 @@ export const ProductPrice = styled.div`
     font-size: 24px;
   }
   & > span:first-of-type {
-    color: #666666;
+    color: ${color.greyMedium};
     text-decoration: line-through;
     margin-right: 20px;
   }
@@ -79,7 +79,7 @@ export const ProductPrice = styled.div`
   }
 `;
 export const Description = styled.div`
-  color: #666666;
+  color: ${color.greyMedium};
   line-height: 24px;
   margin-bottom: 30px;
 `;
@@ -108,7 +108,7 @@ export const TimerBody = styled.div`
     }
     & > div:last-of-type {
       font-size: 12px;
-      color: #666666;
+      color: ${color.greyMedium};
       text-transform: uppercase;
     }
   }
@@ -141,6 +141,6 @@ export const TimerBody = styled.div`
 export const AddToCartBtn = styled(Button)`
   button {
     background-color: #8c3717;
-    color: #fff;
+    color: ${color.white};
   }
 `;

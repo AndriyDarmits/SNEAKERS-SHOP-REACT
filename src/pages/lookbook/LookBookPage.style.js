@@ -1,11 +1,11 @@
-import { keyframes } from "@emotion/react";
-import styled from "@emotion/styled";
+import { keyframes } from "styled-components";
+import styled from "styled-components";
 import {
   Container,
   FlexContainer,
   SectionWrapper,
 } from "../../reusable-styles/reusableStyle";
-import { device } from "../../GlobalStyles";
+import { device, color } from "../../GlobalStyles";
 
 export const LookBookSection = styled(SectionWrapper)`
   margin: 0;
@@ -61,7 +61,7 @@ export const LookBookMainImageWrapper = styled.div`
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     line-height: 18px;
-    color: #333333;
+    color: ${color.greyDark};
   }
 `;
 
@@ -81,14 +81,14 @@ export const Titles = styled.div`
   font-weight: 700;
   margin-bottom: 10px;
   h3 {
-    color: #333333;
+    color: ${color.greyDark};
     font-size: 24px;
     @media (${device.tablet}) {
       font-size: 18px;
     }
   }
   h5 {
-    color: #999999;
+    color: ${color.greyLight};
     font-size: 14px;
     @media (${device.tablet}) {
       font-size: 12px;
@@ -125,7 +125,7 @@ export const SeeMore = styled.div`
     bottom: 0;
     width: 100%;
     height: 2px;
-    background: #666666;
+    background: ${color.greyMedium};
     transition: all 0.1s linear;
   }
   &:hover {
@@ -137,7 +137,7 @@ export const SeeMore = styled.div`
     text-decoration: none;
   }
   a {
-    color: #333333;
+    color: ${color.greyDark};
     font-weight: 600;
     font-size: 18px;
     @media (${device.tablet}) {

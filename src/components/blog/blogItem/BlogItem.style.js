@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { color } from "../../../GlobalStyles";
 export const BlogItemDiv = styled.div``;
 export const BlogImg = styled.div`
   width: 100%;
@@ -18,7 +19,7 @@ export const BlogContent = styled.div`
   a {
     h3 {
       padding: 10px 0;
-      color: #333333;
+      color: ${color.greyDark};
       font-size: 20px;
       font-weight: 600;
       font-style: normal;
@@ -26,7 +27,7 @@ export const BlogContent = styled.div`
   }
   div {
     font-size: 12px;
-    color: #999999;
+    color: ${color.greyLight};
 
     span {
       margin-right: 3px;
@@ -34,7 +35,7 @@ export const BlogContent = styled.div`
   }
   p {
     padding: 15px 0;
-    color: #666666;
+    color: ${color.greyMedium};
     line-height: 24px;
   }
 `;

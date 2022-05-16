@@ -4,11 +4,12 @@ import {
   Input,
   TextArea,
 } from "../../../reusable-styles/reusableStyle";
+import { color } from "../../../GlobalStyles";
 
 export const SendMessageFormWrapper = styled.div`
   h2 {
     font-size: 24px;
-    color: #333333;
+    color: ${color.greyDark};
     text-transform: uppercase;
     font-style: normal;
     margin-bottom: 20px;
@@ -42,7 +43,7 @@ export const TextAreaMessage = styled(TextArea)`
 export const SendMessageBtn = styled(Button)`
   text-align: right;
   button {
-    color: #fff;
+    color: ${color.white};
     padding: 20px 80px;
   }
 `;

@@ -35,10 +35,14 @@ export const ShopMenu = ({
       </ShowRangeProducts>
       <View>
         <div onClick={() => dispatch(actions.changeLayout())}>
-          <FaTh style={{ color: productsView ? "#999999" : "#333333" }} />
+          <FaTh
+            style={{ color: productsView ? "#999999" : "${color.greyDark}" }}
+          />
         </div>
         <div onClick={() => dispatch(actions.changeLayout())}>
-          <FaThList style={{ color: productsView ? "#333333" : "#999999" }} />
+          <FaThList
+            style={{ color: productsView ? "${color.greyDark}" : "#999999" }}
+          />
         </div>
       </View>
     </ShopMenuWrapper>

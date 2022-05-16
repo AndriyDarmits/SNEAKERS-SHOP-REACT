@@ -23,7 +23,7 @@ export const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
         </PrevBtn>
       ) : (
         <PrevBtn onClick={() => paginate(1)}>
-          <FaAngleDoubleLeft style={{ color: "#333333" }} />
+          <FaAngleDoubleLeft style={{ color: "${color.greyDark}" }} />
         </PrevBtn>
       )}
 
@@ -33,7 +33,8 @@ export const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
             <li key={number} onClick={() => paginate(number)}>
               <button
                 style={{
-                  color: number === +searchParams.get("page") && "#333333",
+                  color:
+                    number === +searchParams.get("page") && "${color.greyDark}",
                 }}
               >
                 {number}
@@ -48,7 +49,7 @@ export const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
         </PrevBtn>
       ) : (
         <NextBtn onClick={() => paginate(pageNumbers.length)}>
-          <FaAngleDoubleRight style={{ color: "#333333" }} />
+          <FaAngleDoubleRight style={{ color: "${color.greyDark}" }} />
         </NextBtn>
       )}
     </PaginationNav>

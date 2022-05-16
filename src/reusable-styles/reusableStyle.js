@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { color } from "../GlobalStyles";
 export const Container = styled.div`
   max-width: 1170px;
   padding: 0 15px;
@@ -15,13 +15,13 @@ export const LayoutWrapper = styled.div`
 
 export const Input = styled.div`
   input {
-    border: 1px solid #ebebeb;
-    background-color: #fff;
+    border: 1px solid ${color.borderColorGrey};
+    background-color: ${color.white};
     outline: none;
-    color: #999999;
+    color: ${color.greyLight};
     font-size: 14px;
     &::placeholder {
-      color: #999999;
+      color: ${color.greyLight};
     }
   }
 `;
@@ -29,7 +29,7 @@ export const Button = styled.div`
   button {
     border: 0;
     padding: 15px 35px;
-    background-color: #333333;
+    background-color: ${color.greyDark};
     border-radius: 30px;
     transition: all 0.1s linear;
     cursor: pointer;
@@ -43,7 +43,7 @@ export const TextArea = styled.div`
     width: 100%;
     resize: none;
     outline: none;
-    border: 1px solid #ebebeb;
+    border: 1px solid ${color.borderColorGrey};
     padding: 15px 25px;
     color: #a7a7a7;
     font-size: 14px;
@@ -62,10 +62,10 @@ export const Path = styled.div`
   font-size: 14px;
   span {
     font-weight: 600;
-    color: #333333;
+    color: ${color.greyDark};
   }
   a {
-    color: #333333;
+    color: ${color.greyDark};
   }
 `;
 
@@ -85,7 +85,7 @@ export const ProductQuantity = styled.div`
     justify-content: center;
     align-items: center;
     font-size: 15px;
-    color: #333333;
+    color: ${color.greyDark};
   }
   & > div:last-child {
     display: block;

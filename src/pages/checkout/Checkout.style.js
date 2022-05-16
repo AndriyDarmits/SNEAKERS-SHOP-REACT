@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { keyframes } from "styled-components";
 import { Button, SectionWrapper } from "../../reusable-styles/reusableStyle";
+import { color } from "../../GlobalStyles";
 
 export const CheckoutSecrionWrapper = styled(SectionWrapper)`
   margin-bottom: 40px;
@@ -9,11 +10,11 @@ export const CheckoutSecrionWrapper = styled(SectionWrapper)`
 export const PaymentAndSendBtn = styled.div`
   padding: 20px 30px;
   background-color: #f8f8f8;
-  color: #666666;
+  color: ${color.greyMedium};
 `;
 export const PlaceOrder = styled(Button)`
   button {
-    color: #fff;
+    color: ${color.white};
   }
 `;
 export const SuccessfullyCheckoutPopUp = styled.div`
@@ -36,13 +37,13 @@ const popUpAnim = keyframes`
 }`;
 
 export const PopUpBody = styled.div`
-  background-color: #fff;
+  background-color: ${color.white};
   max-width: 350px;
   width: 100%;
   padding: 20px;
   text-align: center;
   animation: ${popUpAnim} 1s ease-in-out;
-  color: #666666;
+  color: ${color.greyMedium};
   border-radius: 5px;
   box-shadow: 2px 2px 5px 2px #6666668c;
   h2 {
@@ -62,7 +63,7 @@ export const SuccessIcons = styled.div`
   justify-content: center;
   align-items: center;
   svg {
-    color: #666666;
+    color: ${color.greyMedium};
     font-size: 25px;
     animation: ${chackIconAnim} 2s cubic-bezier(0.3, 0.93, 0.06, 0.96);
   }

@@ -1,15 +1,15 @@
 import styled from "@emotion/styled";
 import { Button } from "../../../reusable-styles/reusableStyle";
-import { device } from "../../../GlobalStyles";
+import { device, color } from "../../../GlobalStyles";
 export const ProductItemWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #ebebeb;
+  border: 1px solid ${color.borderColorGrey};
   transition: all 0.2s ease-in;
   margin-bottom: 20px;
   padding: 30px;
-  background-color: #fff;
+  background-color: ${color.white};
   &:hover {
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.67);
     transform: scale(1.01);
@@ -40,7 +40,7 @@ export const ProductContent = styled.div`
   padding-left: 20px;
 
   h2 {
-    color: #333333;
+    color: ${color.greyDark};
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -58,7 +58,7 @@ export const ViewAndWishlistIcons = styled.div`
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    border: 1px solid #ebebeb;
+    border: 1px solid ${color.borderColorGrey};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,29 +68,29 @@ export const ViewAndWishlistIcons = styled.div`
       margin-right: 0;
     }
     svg {
-      color: #666666;
+      color: ${color.greyMedium};
     }
     &:hover {
       background-color: #8c3717;
       & > svg {
-        color: #fff;
+        color: ${color.white};
       }
     }
   }
 `;
 export const ProductPrice = styled.p`
   margin-bottom: 10px;
-  color: #666666;
+  color: ${color.greyMedium};
   font-size: 20px;
 `;
 export const Description = styled.p`
   margin-bottom: 15px;
-  color: #666666;
+  color: ${color.greyMedium};
   line-height: 20px;
 `;
 
 export const AddToCartBtn = styled(Button)`
   button {
-    color: #fff;
+    color: ${color.white};
   }
 `;

@@ -1,19 +1,20 @@
 import styled from "styled-components";
+import { color } from "../../../GlobalStyles";
 
 export const Order = styled.div`
   margin-bottom: 50px;
   h4 {
     font-size: 20px;
     text-transform: uppercase;
-    color: #333333;
+    color: ${color.greyDark};
     margin-bottom: 20px;
   }
 
   & > div {
     display: flex;
-    border-bottom: 1px solid #ebebeb;
-    border-left: 1px solid #ebebeb;
-    border-right: 1px solid #ebebeb;
+    border-bottom: 1px solid ${color.borderColorGrey};
+    border-left: 1px solid ${color.borderColorGrey};
+    border-right: 1px solid ${color.borderColorGrey};
     text-transform: uppercase;
     padding: 30px 0;
 
@@ -28,11 +29,11 @@ export const Order = styled.div`
   }
 `;
 export const OrderHeader = styled.div`
-  background-color: #333333;
+  background-color: ${color.greyDark};
   padding: 15px 0 !important;
   border: 0 !important;
   & > div {
-    color: #fff;
+    color: ${color.white};
     font-size: 14px;
     text-transform: uppercase;
   }
@@ -42,25 +43,25 @@ export const OrderList = styled.div`
   font-size: 18px;
 
   & > div:first-of-type {
-    color: #333333;
+    color: ${color.greyDark};
     font-weight: 600;
   }
   & > div:last-of-type {
-    color: #666666;
+    color: ${color.greyMedium};
     font-weight: 600;
   }
 `;
 export const Subtotal = styled.div`
   font-size: 16px;
   & > div {
-    color: #666666;
+    color: ${color.greyMedium};
     font-weight: 600;
   }
 `;
 export const Shipping = styled.div`
   font-size: 16px;
   & > div {
-    color: #666666;
+    color: ${color.greyMedium};
     font-weight: 600;
   }
   & > div:last-of-type {
@@ -77,7 +78,7 @@ export const Shipping = styled.div`
 
 export const Total = styled.div`
   & > div {
-    color: #666666;
+    color: ${color.greyMedium};
     font-weight: 600;
     font-size: 16px;
   }

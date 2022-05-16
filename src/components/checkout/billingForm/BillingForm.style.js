@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Input } from "../../../reusable-styles/reusableStyle";
-import { device } from "../../../GlobalStyles";
+import { device, color } from "../../../GlobalStyles";
 
 // form block
 export const BillingDetailsForm = styled.form`
@@ -13,7 +13,7 @@ export const BillingDetailsForm = styled.form`
   h4 {
     font-size: 18px;
     text-transform: uppercase;
-    color: #333333;
+    color: ${color.greyDark};
     margin-bottom: 20px;
   }
 `;
@@ -35,7 +35,7 @@ export const InputTextBillingForm = styled(Input)`
   label {
     display: block;
     margin-bottom: 5px;
-    color: #666666;
+    color: ${color.greyMedium};
     span {
       color: red;
     }
@@ -65,13 +65,13 @@ export const Country = styled.div`
   label {
     display: block;
     margin-bottom: 5px;
-    color: #666666;
+    color: ${color.greyMedium};
   }
   // змінити шрифт
   select {
-    border: 1px solid #ebebeb;
+    border: 1px solid ${color.borderColorGrey};
     outline: none;
-    color: #999999;
+    color: ${color.greyLight};
     width: 100%;
     padding: 10px 20px;
     font-size: 14px;
@@ -96,7 +96,7 @@ export const IsCreateAccount = styled.div`
   }
   label {
     font-size: 14px;
-    color: #666666;
+    color: ${color.greyMedium};
   }
 `;
 
@@ -120,7 +120,7 @@ export const InputTextBillingFormPassword = styled(InputTextBillingForm)`
     right: 12px;
     svg {
       font-size: 18px;
-      color: #999999;
+      color: ${color.greyLight};
     }
   }
 `;

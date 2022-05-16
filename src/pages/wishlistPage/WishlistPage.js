@@ -6,6 +6,7 @@ import {
   WishListDiv,
   WishListWrapper,
 } from "./Wishlist.style";
+import { color } from "../../GlobalStyles";
 
 export const WishlistPage = () => {
   const redux = useSelector((state) => state);

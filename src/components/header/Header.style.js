@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device } from "../../GlobalStyles";
+import { device, color } from "../../GlobalStyles";
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   z-index: 1000;
   width: 100%;
   height: 82px;
-  background-color: #fff;
+  background-color: ${color.white};
   transition: top 0.4s ease-in-out;
 `;
 export const HeaderDiv = styled.header`
@@ -25,7 +25,7 @@ export const Logo = styled.div`
   line-height: 18px;
   font-weight: 500;
   a {
-    color: #000;
+    color: ${color.black};
   }
 `;
 export const Navigation = styled.nav`
@@ -41,7 +41,7 @@ export const Navigation = styled.nav`
     font-size: 14px;
     a {
       display: block;
-      color: #333333;
+      color: ${color.greyDark};
     }
 
     @media (${device.tablet}) {
@@ -57,7 +57,7 @@ export const Navigation = styled.nav`
         transition: all 0.2s linear;
         font-size: 18px;
         &:hover {
-          border-bottom: 3px solid #333333;
+          border-bottom: 3px solid ${color.greyDark};
         }
       }
     }
@@ -93,7 +93,7 @@ export const Navigation = styled.nav`
         transition: all 0.2s linear;
         font-size: 18px;
         &:hover {
-          border-bottom: 3px solid #333333;
+          border-bottom: 3px solid ${color.greyDark};
         }
       }
     }
@@ -105,7 +105,7 @@ export const Navigation = styled.nav`
     position: absolute;
     top: 80px;
     left: ${(props) => (props.showOrCloseMenu ? "0" : "-100%")};
-    background-color: #ebebeb;
+    background-color: ${color.borderColorGrey};
     width: 100%;
     height: 100vh;
     overflow: hidden;
@@ -141,7 +141,7 @@ export const ScrollBar = styled.div`
 export const BurgerBlock = styled.div`
   display: none;
   font-size: 18px;
-  color: #333333;
+  color: ${color.greyDark};
 
   @media (${device.tablet}) {
     display: block;

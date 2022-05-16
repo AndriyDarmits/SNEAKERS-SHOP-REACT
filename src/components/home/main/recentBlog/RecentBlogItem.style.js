@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device } from "../../../../GlobalStyles";
+import { device, color } from "../../../../GlobalStyles";
 
 export const RecentBlogItemDiv = styled.div`
   width: 49%;
@@ -18,9 +18,9 @@ export const RecentBlogItemDiv = styled.div`
     top: -10px;
     right: ${(props) => (props.enterPointer ? "15px" : "10px")};
     background-color: ${(props) =>
-      props.enterPointer ? "#444444" : "#333333"};
+      props.enterPointer ? "#444444" : "${color.greyDark}"};
     padding: 10px 15px;
-    color: #fff;
+    color: ${color.white};
     text-align: center;
     h3 {
       font-size: 33px;
@@ -43,7 +43,8 @@ export const RecentBlogItemDiv = styled.div`
     border-style: solid;
     border-width: 0 0 10px 10px;
     border-color: transparent transparent
-      ${(props) => (props.enterPointer ? "#444444" : "#333333")} transparent;
+      ${(props) => (props.enterPointer ? "#444444" : "${color.greyDark}")}
+      transparent;
   }
 `;
 export const BlogImg = styled.div`
@@ -61,24 +62,24 @@ export const BlogImg = styled.div`
 `;
 export const BlogContent = styled.div`
   padding: 25px;
-  background-color: #fff;
+  background-color: ${color.white};
   min-height: 200px;
 
   h4 {
     display: inline-block;
     font-size: 24px;
-    color: #333333;
+    color: ${color.greyDark};
     margin-bottom: 10px;
     font-style: normal;
     font-weight: 600;
     border-bottom: 2px solid transparent;
     transition: border 0.2s ease-in-out;
     &:hover {
-      border-bottom: 2px solid #333333;
+      border-bottom: 2px solid ${color.greyDark};
     }
   }
   p {
-    color: #666666;
+    color: ${color.greyMedium};
     line-height: 24px;
   }
 `;

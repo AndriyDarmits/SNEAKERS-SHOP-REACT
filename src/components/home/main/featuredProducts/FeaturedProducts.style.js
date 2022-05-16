@@ -3,6 +3,7 @@ import {
   FlexContainer,
   SectionWrapper,
 } from "../../../../reusable-styles/reusableStyle";
+import { color } from "../../../../GlobalStyles";
 
 export const FeaturedProductsSection = styled(SectionWrapper)`
   margin: 0;
@@ -17,7 +18,7 @@ export const Title = styled.div`
   h2 {
     font-size: 36px;
     font-weight: 600;
-    color: #333333;
+    color: ${color.greyDark};
     font-style: normal;
     text-transform: uppercase;
   }
@@ -31,20 +32,20 @@ export const NavButton = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #666666;
+    border: 1px solid ${color.greyMedium};
     transition: all 0.2s;
     cursor: pointer;
     &:hover {
-      background-color: #666666;
+      background-color: ${color.greyMedium};
       svg {
-        color: #ffffff;
+        color: ${color.white};
       }
     }
     &:last-of-type {
       margin-left: 10px;
     }
     svg {
-      color: #666666;
+      color: ${color.greyMedium};
       transition: all 0.2s;
     }
   }

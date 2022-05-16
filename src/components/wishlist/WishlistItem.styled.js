@@ -1,4 +1,5 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
+import { color } from "../../GlobalStyles";
 import { Button } from "../../reusable-styles/reusableStyle";
 
 export const WishItem = styled.div`
@@ -34,11 +35,11 @@ export const WishItem = styled.div`
     flex-grow: 1;
     text-align: center;
     &:hover {
-      border-bottom: 1px solid #333333;
+      border-bottom: 1px solid ${color.greyDark};
     }
     a {
       text-transform: uppercase;
-      color: #333333;
+      color: ${color.greyDark};
       font-weight: 600;
       font-size: 16px;
       @media (max-width: 768px) {
@@ -52,7 +53,7 @@ export const AddToCartBtn = styled(Button)`
   flex-grow: 1;
   text-align: center;
   button {
-    color: #fff;
+    color: ${color.white};
     @media (max-width: 768px) {
       padding: 10px 20px;
     }

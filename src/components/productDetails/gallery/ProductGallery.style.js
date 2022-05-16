@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device } from "../../../GlobalStyles";
+import { device, color } from "../../../GlobalStyles";
 
 export const InlineBlockContainer = styled.div`
   display: inline-block;
@@ -13,7 +13,7 @@ export const InlineBlockContainer = styled.div`
 export const BigProductImage = styled.div`
   width: 100%;
   border-radius: 5px;
-  border: 1px solid #ebebeb;
+  border: 1px solid ${color.borderColorGrey};
   margin-bottom: 10px;
   img {
     width: 100%;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { color } from "../../../GlobalStyles";
 
 export const CheckingNotificationsDiv = styled.div`
   display: flex;
@@ -18,11 +19,11 @@ export const CheckingNotificationsDiv = styled.div`
       display: block;
     }
     span:first-of-type {
-      color: #666666;
+      color: ${color.greyMedium};
     }
     span:last-of-type {
       transition: all 0.1s ease-in;
-      color: #333333;
+      color: ${color.greyDark};
       &:hover {
         text-decoration: underline;
       }

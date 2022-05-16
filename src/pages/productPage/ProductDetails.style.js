@@ -4,7 +4,7 @@ import {
   Path,
   SectionWrapper,
 } from "../../reusable-styles/reusableStyle";
-import { device } from "../../GlobalStyles";
+import { device, color } from "../../GlobalStyles";
 
 export const ProductItemWrapper = styled(SectionWrapper)`
   margin-bottom: 50px;
@@ -24,7 +24,7 @@ export const FlexContainerReviews = styled(FlexContainer)`
   font-size: 15px;
 
   & > a {
-    color: #666666;
+    color: ${color.greyMedium};
     font-weight: 600;
     font-size: 18px;
     display: block;
@@ -36,7 +36,7 @@ export const FlexContainerReviews = styled(FlexContainer)`
   }
   div {
     flex: auto;
-    border-bottom: 1px solid #ebebeb;
+    border-bottom: 1px solid ${color.borderColorGrey};
   }
 `;
 export const PathProductDetails = styled(Path)`

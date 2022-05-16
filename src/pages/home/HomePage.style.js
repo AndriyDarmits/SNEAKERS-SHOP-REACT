@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { color } from "../../GlobalStyles";
 
 export const Modal = styled.div`
   width: 100vw;
@@ -15,6 +16,6 @@ export const Modal = styled.div`
   & > div {
     width: 300px;
     height: 300px;
-    background-color: #fff;
+    background-color: ${color.white};
   }
 `;

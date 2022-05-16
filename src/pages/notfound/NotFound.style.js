@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Button, SectionWrapper } from "../../reusable-styles/reusableStyle";
-import { device } from "../../GlobalStyles";
+import { device, color } from "../../GlobalStyles";
 
 export const NotFoundWrapper = styled(SectionWrapper)`
   background: linear-gradient(90deg, rgb(238, 190, 228), rgb(210, 245, 249))
@@ -37,7 +37,7 @@ export const ErrorStatus = styled.div`
 `;
 export const NotFoundPageBtn = styled(Button)`
   button {
-    color: #fff;
+    color: ${color.white};
     font-size: 14px;
   }
 `;
@@ -45,7 +45,7 @@ export const NotFoundPageBtn = styled(Button)`
 export const OppsNotification = styled.div`
   margin-left: 15vw;
   margin-top: 30vh;
-  color: #333333;
+  color: ${color.greyDark};
   h1 {
     font-size: 90.62px;
     margin-bottom: 20px;
@@ -59,7 +59,7 @@ export const OppsNotification = styled.div`
   }
   p {
     font-weight: 600;
-    color: #666666;
+    color: ${color.greyMedium};
     margin-bottom: 50px;
     font-size: 30px;
     /* font-family: 'Montserrat' , sans-serif; */

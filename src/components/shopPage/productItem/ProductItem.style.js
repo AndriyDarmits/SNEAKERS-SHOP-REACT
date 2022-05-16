@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { color } from "../../../GlobalStyles";
 
 export const ProductItemDiv = styled.div`
   margin: 5px;
@@ -12,7 +13,7 @@ export const ProductItemDiv = styled.div`
 export const ProductImageWrapper = styled.div`
   width: 100%;
 
-  background-color: #333333;
+  background-color: ${color.greyDark};
   position: relative;
   img {
     display: block;
@@ -44,7 +45,7 @@ export const AddToCartAndViewIcons = styled.div`
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: ${color.white};
     transition: all 0.3s ease-in;
     cursor: pointer;
     svg {
@@ -53,7 +54,7 @@ export const AddToCartAndViewIcons = styled.div`
     &:hover {
       background-color: #8c3717;
       svg {
-        color: #fff;
+        color: ${color.white};
       }
     }
     &:first-of-type {
@@ -73,16 +74,16 @@ export const ProductContent = styled.div`
     border-bottom: 1px solid transparent;
     transition: border 0.1s ease-in;
     &:hover {
-      border-bottom: 1px solid #666666;
+      border-bottom: 1px solid ${color.greyMedium};
     }
     a {
-      color: #333333;
+      color: ${color.greyDark};
     }
   }
 
   p {
     font-size: 14px;
-    color: #666666;
+    color: ${color.greyMedium};
   }
 `;
 

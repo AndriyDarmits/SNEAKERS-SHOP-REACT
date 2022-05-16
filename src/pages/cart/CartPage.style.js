@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import { Button, SectionWrapper } from "../../reusable-styles/reusableStyle";
-
+import { color } from "../../GlobalStyles";
 export const CartWrapper = styled(SectionWrapper)`
   background-color: #f8f8f8;
 `;
@@ -12,6 +12,6 @@ export const ApplyCoupon = styled.div`
 `;
 export const CheckOut = styled(Button)`
   button {
-    color: #fff;
+    color: ${color.white};
   }
 `;

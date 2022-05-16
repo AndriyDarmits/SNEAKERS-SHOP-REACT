@@ -5,17 +5,17 @@ import {
   Input,
   ProductQuantity,
 } from "../../reusable-styles/reusableStyle";
-import { device } from "../../GlobalStyles";
+import { device, color } from "../../GlobalStyles";
 
 //CartListComp
 export const CartListWrapper = styled.div``;
 export const CartHeader = styled.div`
   display: flex;
-  background-color: #333333;
+  background-color: ${color.greyDark};
   & > div {
     text-transform: uppercase;
     font-weight: 600;
-    color: #fff;
+    color: ${color.white};
     font-size: 14px;
     line-height: 30px;
     text-align: center;
@@ -51,8 +51,8 @@ export const CartList = styled.ul`
 export const CartProductItem = styled.li`
   display: flex;
   align-items: center;
-  border: 1px solid #ebebeb;
-  background: #fff;
+  border: 1px solid ${color.borderColorGrey};
+  background: ${color.white};
   width: 100%;
   padding: 15px 0;
   & > div {
@@ -76,7 +76,7 @@ export const CartProductItem = styled.li`
     width: 35%;
     padding-left: 10px;
     a {
-      color: #333333;
+      color: ${color.greyDark};
       font-weight: 600;
       text-transform: uppercase;
       font-size: 14px;
@@ -101,12 +101,12 @@ export const CartProductItem = styled.li`
 `;
 
 export const ProductQuantityCart = styled(ProductQuantity)`
-  border: 1px solid #ebebeb;
+  border: 1px solid ${color.borderColorGrey};
   width: 100%;
   & > div:last-child {
-    border-left: 1px solid #ebebeb;
+    border-left: 1px solid ${color.borderColorGrey};
     & > div:last-child {
-      border-top: 1px solid #ebebeb;
+      border-top: 1px solid ${color.borderColorGrey};
     }
   }
 `;
@@ -115,26 +115,26 @@ export const ProductQuantityCart = styled(ProductQuantity)`
 export const CartTotal = styled.div`
   margin-bottom: 30px;
   h3 {
-    color: #333;
+    color: ${color.greyDark};
     font-size: 20px;
     margin-bottom: 15px;
   }
   & > div {
     padding: 40px;
     display: flex;
-    border: 1px solid #ebebeb;
-    background-color: #fff;
+    border: 1px solid ${color.borderColorGrey};
+    background-color: ${color.white};
     @media (${device.tablet}) {
       padding: 20px;
     }
     .totalPrice {
       font-size: 24px;
-      color: #333333;
+      color: ${color.greyDark};
     }
 
     & > div {
       width: 50%;
-      color: #666666;
+      color: ${color.greyMedium};
       text-transform: uppercase;
       font-weight: 600;
     }
@@ -147,7 +147,7 @@ export const CuponInput = styled(Input)`
   margin-right: 20px;
   width: 50%;
   input {
-    color: #999999;
+    color: ${color.greyLight};
     padding: 20px;
     font-size: 14px;
     width: 100%;
@@ -155,14 +155,14 @@ export const CuponInput = styled(Input)`
       padding: 15px;
     }
     &:placeholder {
-      color: #999999;
+      color: ${color.greyLight};
       font-size: 14px;
     }
   }
 `;
 export const CuponButton = styled(Button)`
   button {
-    color: #fff;
+    color: ${color.white};
     font-size: 14px;
     @media (${device.tablet}) {
       padding: 12.5px 15px;
@@ -183,7 +183,7 @@ const fade_in = keyframes`
 export const ValidationMessage = styled.div`
   position: absolute;
   right: 5px;
-  color: #fff;
+  color: ${color.white};
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 10px 20px;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device } from "../../../GlobalStyles";
+import { device, color } from "../../../GlobalStyles";
 export const ContactInfoWrapper = styled.div`
   width: 100%;
   padding: 25px 40px;
@@ -18,17 +18,17 @@ export const ContactInfoAddress = styled.address`
   padding-right: 10px;
   h2 {
     font-size: 24px;
-    color: #333333;
+    color: ${color.greyDark};
     text-transform: uppercase;
     font-style: normal;
     margin-bottom: 20px;
   }
   p {
-    color: #666666;
+    color: ${color.greyMedium};
     line-height: 2.5;
   }
   a {
-    color: #666666;
+    color: ${color.greyMedium};
   }
   span {
     margin-right: 10px;

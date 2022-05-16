@@ -1,4 +1,5 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
+import { color } from "../../../GlobalStyles";
 
 export const PaginationNav = styled.nav`
   display: flex;

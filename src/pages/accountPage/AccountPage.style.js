@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Button, SectionWrapper } from "../../reusable-styles/reusableStyle";
-
+import { color } from "../../GlobalStyles";
 export const AccountPageSection = styled(SectionWrapper)``;
 export const AccountWrapper = styled.div`
   display: flex;
@@ -37,17 +37,17 @@ export const UserAvatar = styled.div`
 export const UserInfo = styled.div`
   margin-bottom: 20px;
   h2 {
-    color: #666666;
+    color: ${color.greyMedium};
     line-height: 28px;
   }
   a {
-    color: #666666;
+    color: ${color.greyMedium};
   }
 `;
 
 export const LogOutBtn = styled(Button)`
   button {
-    color: #fff;
+    color: ${color.white};
     padding: 20px 60px;
   }
 `;

@@ -5,10 +5,10 @@ import {
   Input,
   TextArea,
 } from "../../../reusable-styles/reusableStyle";
-import { device } from "../../../GlobalStyles";
+import { device, color } from "../../../GlobalStyles";
 
 export const Reviews = styled.div`
-  border: 1px solid #ebebeb;
+  border: 1px solid ${color.borderColorGrey};
   border-top: 0;
   padding: 25px 65px;
   @media (max-width: 768px) {
@@ -19,7 +19,7 @@ export const NoReviewMessage = styled.div`
   font-weight: 600;
   margin-bottom: 25px;
   & > p {
-    color: #333333;
+    color: ${color.greyDark};
     margin-bottom: 5px;
     span {
       font-size: 16px;
@@ -61,8 +61,8 @@ export const UserNameInputField = styled.div`
 `;
 export const ReviewSubmitButton = styled(Button)`
   button {
-    color: #fff;
-    background-color: #333333;
+    color: ${color.white};
+    background-color: ${color.greyDark};
   }
 `;
 export const UserNameInput = styled(Input)`
@@ -73,10 +73,10 @@ export const UserNameInput = styled(Input)`
   input {
     padding: 10px 15px;
     width: 100%;
-    color: #999999;
+    color: ${color.greyLight};
     &::placeholder {
       font-size: 13px;
-      color: #999999;
+      color: ${color.greyLight};
     }
   }
 `;

@@ -4,7 +4,7 @@ import {
   Input,
   SectionWrapper,
 } from "../../reusable-styles/reusableStyle";
-import { device } from "../../GlobalStyles";
+import { device, color } from "../../GlobalStyles";
 
 export const SearchPageWrapper = styled(SectionWrapper)`
   margin-top: 102px;
@@ -34,7 +34,7 @@ export const SearchBtn = styled(Button)`
     width: 100%;
     font-size: 18px;
     padding: 20px 40px;
-    color: #fff;
+    color: ${color.white};
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     @media (${device.tablet}) {
@@ -54,7 +54,7 @@ export const ResultItem = styled.div`
   border-bottom: 2px solid transparent;
 
   &:hover {
-    border-bottom: 2px solid #ebebeb;
+    border-bottom: 2px solid ${color.borderColorGrey};
     a {
       transform: translateY(-3px);
     }

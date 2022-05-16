@@ -68,7 +68,6 @@ export default function Header() {
     //TOdO: revise
     const handleScroll = () => {
       let moving = window.pageYOffset;
-      console.log(moving);
       setVisible(position > moving);
       setPosition(moving);
     };

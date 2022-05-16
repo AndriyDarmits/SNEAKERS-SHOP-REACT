@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { SectionWrapper } from "../../reusable-styles/reusableStyle";
-import { device } from "../../GlobalStyles";
+import { device, color } from "../../GlobalStyles";
 export const ShopPageSectionWrapper = styled(SectionWrapper)`
   margin-top: 42px;
   margin-bottom: 45px;

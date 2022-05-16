@@ -4,7 +4,7 @@ import {
   Container,
   FlexContainer,
 } from "../../../reusable-styles/reusableStyle";
-import { device } from "../../../GlobalStyles";
+import { device, color } from "../../../GlobalStyles";
 
 export const SliderContainer = styled(Container)`
   max-width: 1750px;
@@ -73,7 +73,7 @@ export const FashionInstaP = styled.h1`
 
 export const SlideNumber = styled.div`
   font-size: 395px;
-  color: #fff;
+  color: ${color.white};
   font-weight: 600;
   @media (${device.laptop}) {
     font-size: 350px;
@@ -89,7 +89,7 @@ export const SlideNumber = styled.div`
 export const ShowNowBtn = styled(Button)`
   padding-left: 15px;
   button {
-    color: #fff;
+    color: ${color.white};
     padding: 15px 45px;
   }
 `;

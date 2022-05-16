@@ -16,11 +16,11 @@ export const device = {
 
 export const color = {
   black: "#000000",
-  white: "#000000",
+  white: "#ffffff",
   greyDark: "#333333",
   greyMedium: "#666666",
   greyLight: "#999999",
-  bordercolorGrey: "ebebebe",
+  borderColorGrey: "#ebebeb",
 };
 
 export const FontStyles = createGlobalStyle`

@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { device } from "../../../GlobalStyles";
+import { device, color } from "../../../GlobalStyles";
 
 export const DescriptionContainer = styled.div`
-  color: #666666;
+  color: ${color.greyMedium};
   line-height: 22px;
   padding: 60px;
   font-weight: 600;
-  border: 1px solid #ebebeb;
+  border: 1px solid ${color.borderColorGrey};
   border-top: 0;
   @media (${device.mobile}) {
     line-height: 16px;
@@ -27,6 +27,6 @@ export const DescriptionContainer = styled.div`
 
   span {
     font-weight: 600;
-    color: #333333;
+    color: ${color.greyDark};
   }
 `;

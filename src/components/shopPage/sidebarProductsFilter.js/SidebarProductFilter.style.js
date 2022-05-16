@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Button } from "../../../reusable-styles/reusableStyle";
-import { device } from "../../../GlobalStyles";
+import { device, color } from "../../../GlobalStyles";
 // sidebar
 export const SideBarWrapper = styled.div`
   transition: all 0.2s linear;
@@ -13,7 +13,7 @@ export const SideBarWrapper = styled.div`
     left: ${(props) => (props.showSidebar ? "0%" : "-110%")};
     top: 0;
     z-index: 100;
-    background-color: #fff;
+    background-color: ${color.white};
   }
 `;
 
@@ -23,14 +23,14 @@ export const SideBar = styled.aside`
   top: 82px;
   h2 {
     font-size: 18px;
-    color: #333333;
+    color: ${color.greyDark};
     margin-bottom: 30px;
     text-transform: uppercase;
   }
 `;
 export const FilterBtn = styled(Button)`
   button {
-    color: #fff;
+    color: ${color.white};
     cursor: pointer;
   }
 `;

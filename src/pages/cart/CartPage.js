@@ -13,7 +13,7 @@ export default function CartPage() {
   const { productsCart } = redux;
 
   // scroll
-  useEffect(() => scrollUp(0));
+  useEffect(() => scrollUp(0), []);
   return (
     <CartWrapper>
       <Container>

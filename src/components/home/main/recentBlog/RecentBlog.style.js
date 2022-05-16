@@ -3,7 +3,7 @@ import {
   FlexContainer,
   SectionWrapper,
 } from "../../../../reusable-styles/reusableStyle";
-import { device } from "../../../../GlobalStyles";
+import { device, color } from "../../../../GlobalStyles";
 
 export const RecentBlogPageSection = styled(SectionWrapper)`
   background-color: #f8f8f8;
@@ -20,10 +20,10 @@ export const RecentBlogPageWrapper = styled.div`
     border-bottom: 2px solid transparent;
     transition: all 0.2s ease-in-out;
     &:hover {
-      border-bottom: 2px solid #333333;
+      border-bottom: 2px solid ${color.greyDark};
     }
     a {
-      color: #333333;
+      color: ${color.greyDark};
     }
   }
 `;

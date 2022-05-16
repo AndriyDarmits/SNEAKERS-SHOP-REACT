@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { Container } from "../../reusable-styles/reusableStyle";
 import {
   InputSearcher,
@@ -14,21 +14,20 @@ import {
 export default function SearchPage() {
   const reduxStore = useSelector((state) => state);
   const { products } = reduxStore;
+  const location = useLocation();
 
   const [searchValue, setSearchValue] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
   const productsQuery = searchParams.get("title") || "";
-
+  const params = {};
   const searchHendler = () => {
-    const params = {};
     if (searchValue.length) params.title = searchValue;
     setSearchParams(params);
   };
   useEffect(() => {
-    if (searchValue === null) {
-      setSearchParams({});
-    }
-  }, [searchValue]);
+    setSearchParams({});
+    setSearchValue("");
+  }, [location.pathname]);
   return (
     <SearchPageWrapper>
       <Container>
@@ -46,7 +45,7 @@ export default function SearchPage() {
             <button onClick={() => searchHendler()}>Search</button>
           </SearchBtn>
         </SearchField>
-        {searchValue.length ? (
+        {productsQuery.length ? (
           <SearchResult>
             {products
               .filter(

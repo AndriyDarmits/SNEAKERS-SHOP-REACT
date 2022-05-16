@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { color } from "../../../GlobalStyles";
 
 export const CheckPayment = styled.div`
   margin-bottom: 15px;

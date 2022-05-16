@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { Logo } from "../header/Header.style";
-import { device } from "../../GlobalStyles";
+import { device, color } from "../../GlobalStyles";
 export const FooterSection = styled.section`
-  background-color: #333333;
+  background-color: ${color.greyDark};
   padding-top: 60px;
   padding-bottom: 60px;
 
@@ -37,7 +37,7 @@ export const Col1 = styled.div`
     font-size: 20px;
     line-height: 24px;
     font-weight: 500;
-    color: #fff;
+    color: ${color.white};
     margin-bottom: 20px;
     transition: transform 0.1s linear;
     &:hover {
@@ -93,7 +93,7 @@ export const LogoFooter = styled(Logo)`
     transform: translate(3px, -3px);
   }
   a {
-    color: #fff;
+    color: ${color.white};
   }
 `;
 
@@ -107,7 +107,7 @@ export const Col2 = styled.div`
     font-size: 20px;
     line-height: 24px;
     font-weight: 500;
-    color: #fff;
+    color: ${color.white};
     margin-bottom: 20px;
     transition: transform 0.1s linear;
     &:hover {
@@ -133,7 +133,7 @@ export const Col3 = styled.div`
     font-size: 20px;
     line-height: 24px;
     font-weight: 500;
-    color: #fff;
+    color: ${color.white};
     margin-bottom: 20px;
     transition: transform 0.1s linear;
     &:hover {
@@ -158,7 +158,7 @@ export const Col3 = styled.div`
 export const EmailForm = styled.div`
   form {
     div {
-      background-color: #fff;
+      background-color: ${color.white};
       width: 100%;
       border-radius: 38px;
       padding: 10px 0 10px 40px;
@@ -179,12 +179,12 @@ export const EmailForm = styled.div`
         outline: none;
         font-size: 14px;
         line-height: 18px;
-        color: #999999;
+        color: ${color.greyLight};
 
         &:placeholder {
           font-size: 14px;
           line-height: 18px;
-          color: #999999;
+          color: ${color.greyLight};
         }
       }
 

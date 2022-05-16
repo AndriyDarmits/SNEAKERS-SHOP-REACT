@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { SectionWrapper } from "../../reusable-styles/reusableStyle";
+import { color } from "../../GlobalStyles";
 
 export const LoginPageSection = styled(SectionWrapper)`
   margin: 0;
@@ -25,7 +26,7 @@ export const LoginBody = styled.div`
   }
 `;
 export const LoginTitle = styled.h2`
-  color: #666666;
+  color: ${color.greyMedium};
   font-size: 30px;
   margin-bottom: 20px;
 `;

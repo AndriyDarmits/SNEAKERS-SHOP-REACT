@@ -1,7 +1,8 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
+import { color } from "../../../GlobalStyles";
 
 export const ReviewsBlock = styled.div`
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 1px solid ${color.borderColorGrey};
   padding: 5px 0;
   & > div {
     display: flex;
@@ -12,13 +13,13 @@ export const ReviewsBlock = styled.div`
       font-size: 18px;
       font-weight: 600;
       margin-bottom: 10px;
-      color: #333333;
+      color: ${color.greyDark};
     }
   }
   p {
     padding-left: 10px;
     line-height: 18px;
     text-indent: 30px;
-    color: #999999;
+    color: ${color.greyLight};
   }
 `;

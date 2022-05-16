@@ -1,9 +1,9 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import { SectionWrapper } from "../../reusable-styles/reusableStyle";
-
+import { color } from "../../GlobalStyles";
 export const SectionWrapperBlog = styled(SectionWrapper)`
   margin-bottom: 0;
-  background-color: #666666;
+  background-color: ${color.greyMedium};
   position: relative;
   z-index: 0;
 `;
@@ -19,7 +19,7 @@ export const Navigation = styled.div`
     text-transform: uppercase;
     margin-bottom: 10px;
     font-weight: 600;
-    color: #fff;
+    color: ${color.white};
   }
   & > div:last-of-type {
     font-size: 14px;

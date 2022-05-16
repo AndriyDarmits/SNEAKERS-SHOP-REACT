@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { color } from "../../../GlobalStyles";
 
 export const ShopMenuWrapper = styled.div`
   display: flex;
@@ -11,11 +12,11 @@ export const SideBarIcon = styled.div`
   cursor: pointer;
   svg {
     font-size: 16px;
-    color: #333333;
+    color: ${color.greyDark};
   }
 `;
 export const ShowRangeProducts = styled.div`
-  color: #666666;
+  color: ${color.greyMedium};
 `;
 export const View = styled.div`
   display: flex;
