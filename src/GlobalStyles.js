@@ -26,21 +26,23 @@ export const color = {
 export const FontStyles = createGlobalStyle`
 
 @font-face {
-  font-family: 'Poppins-Regular';
-  src: url(${PoppinsRegular}) format('ttf');
+  font-family: 'Poppins';
+  src: url(${PoppinsRegular}) format('truetype');
+  font-weight: normal;
+  font-style: normal;
        
 }
 @font-face {
-  font-family: 'Poppins-SemiBold';
-  src: url(${PoppinsSemiBold}) format('ttf');
+  font-family: 'Poppins';
+  src: url(${PoppinsSemiBold}) format('truetype');
   font-weight: 600;
-       
+  font-style: normal;     
 }
 @font-face {
-  font-family: 'Poppins-Medium';
-  src: url(${PoppinsMedium}) format('ttf');
+  font-family: 'Poppins';
+  src: url(${PoppinsMedium}) format('truetype');
   font-weight: 500;
-       
+  font-style: normal;     
 }
 `;
 
@@ -58,7 +60,9 @@ html{
 }
 
 body{
-    font-family: 'Poppins-Regular', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal;
+    color:${color.white};
 }
 a{
     text-decoration: none;
