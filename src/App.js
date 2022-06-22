@@ -24,23 +24,22 @@ import { ReqireAuth } from "./hoc/ReqireAuth";
 import { RequireFilledCart } from "./hoc/RequireFilledCart";
 import { FaChevronUp } from "react-icons/fa";
 import { scrollUp } from "./helper";
+// page lazy loading
 const ShopPage = lazy(() => import("./pages/shopPage/ShopPage"));
 
 function App() {
   const dispatch = useDispatch();
-  const [visible, setVisible] = useState(false);
+  const [scrollUpBtnvisible, setScrollUpBtnvisible] = useState(false);
   // when scrolling is greater than 300 - show display button
-  const toggleVisible = () => {
+  const toggleVisibleScrollTopBtn = () => {
     const scrolled = document.documentElement.scrollTop;
-    if (scrolled > 300) {
-      setVisible(true);
-    } else if (scrolled <= 300) {
-      setVisible(false);
-    }
+    return scrolled >= 300
+      ? setScrollUpBtnvisible(true)
+      : setScrollUpBtnvisible(false);
   };
   useEffect(() => {
-    window.addEventListener("scroll", toggleVisible);
-    return () => window.addEventListener("scroll", toggleVisible);
+    window.addEventListener("scroll", toggleVisibleScrollTopBtn);
+    return () => window.addEventListener("scroll", toggleVisibleScrollTopBtn);
   }, []);
 
   // dispatch data from API
@@ -96,7 +95,7 @@ function App() {
           <Route path="*" element={<Notfoundpage />} />
         </Routes>
       </BrowserRouter>
-      <ScrollUpBtn onClick={() => scrollUp(0)} visible={visible}>
+      <ScrollUpBtn onClick={() => scrollUp(0)} visible={scrollUpBtnvisible}>
         <FaChevronUp />
       </ScrollUpBtn>
     </>

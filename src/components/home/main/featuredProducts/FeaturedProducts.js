@@ -15,6 +15,7 @@ export const FeaturedProducts = () => {
   //get data from redux
   const reduxStore = useSelector((state) => state);
   const { products } = reduxStore;
+  //set media queries
   const isLaptopTo = useMediaQuery({ maxWidth: 1024 });
   const isTabletTo = useMediaQuery({ maxWidth: 768 });
   const isMobileTo = useMediaQuery({ maxWidth: 425 });

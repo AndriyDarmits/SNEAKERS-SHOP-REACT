@@ -18,7 +18,7 @@ export const RecentBlogItemDiv = styled.div`
     top: -10px;
     right: ${(props) => (props.enterPointer ? "15px" : "10px")};
     background-color: ${(props) =>
-      props.enterPointer ? "#444444" : "${color.greyDark}"};
+      props.enterPointer ? "#444444" : `${color.greyDark}`};
     padding: 10px 15px;
     color: ${color.white};
     text-align: center;
@@ -43,7 +43,7 @@ export const RecentBlogItemDiv = styled.div`
     border-style: solid;
     border-width: 0 0 10px 10px;
     border-color: transparent transparent
-      ${(props) => (props.enterPointer ? "#444444" : "${color.greyDark}")}
+      ${(props) => (props.enterPointer ? "#444444" : `${color.greyDark}`)}
       transparent;
   }
 `;

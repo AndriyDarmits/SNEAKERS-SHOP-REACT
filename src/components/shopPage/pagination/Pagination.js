@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { FaAngleDoubleRight, FaAngleDoubleLeft } from "react-icons/fa";
+import { color } from "../../../GlobalStyles";
 import {
   NextBtn,
   PaginationNav,
@@ -23,7 +24,7 @@ export const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
         </PrevBtn>
       ) : (
         <PrevBtn onClick={() => paginate(1)}>
-          <FaAngleDoubleLeft style={{ color: "${color.greyDark}" }} />
+          <FaAngleDoubleLeft style={{ color: `${color.greyDark}` }} />
         </PrevBtn>
       )}
 
@@ -34,7 +35,7 @@ export const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
               <button
                 style={{
                   color:
-                    number === +searchParams.get("page") && "${color.greyDark}",
+                    number === +searchParams.get("page") && `${color.greyDark}`,
                 }}
               >
                 {number}
@@ -49,7 +50,7 @@ export const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
         </PrevBtn>
       ) : (
         <NextBtn onClick={() => paginate(pageNumbers.length)}>
-          <FaAngleDoubleRight style={{ color: "${color.greyDark}" }} />
+          <FaAngleDoubleRight style={{ color: `${color.greyDark}` }} />
         </NextBtn>
       )}
     </PaginationNav>

@@ -120,6 +120,12 @@ export const Col2 = styled.div`
       color: #b2b2b2;
       font-size: 14px;
       line-height: 27px;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s linear;
+      &:hover,
+      &:active {
+        border-bottom: 1px solid ${color.white};
+      }
     }
   }
 `;

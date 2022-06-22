@@ -41,7 +41,6 @@ export default function Header() {
   const [position, setPosition] = useState(window.pageYOffset);
 
   useEffect(() => {
-    //TOdO: revise
     // scroll progress bar handler
     const onScrollProgress = () => {
       const winScroll =
@@ -65,7 +64,6 @@ export default function Header() {
 
   // hide-show header depend on scrolling direction changes
   useEffect(() => {
-    //TOdO: revise
     const handleScroll = () => {
       let moving = window.pageYOffset;
       setVisible(position > moving);

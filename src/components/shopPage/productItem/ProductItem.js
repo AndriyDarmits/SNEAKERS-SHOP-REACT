@@ -31,9 +31,9 @@ export const ProductItem = ({ product, setProductsData }) => {
       // update changes in product data
       dispatch(actions.updateProducts(data));
 
-      // update local dataState, to show isInWishList checker immediately
+      // update local dataState, to set isInWishList icon red
       if (typeof setProductsData !== "undefined") {
-        //!! explanation
+        //! because this component uses in other places without product Data state
         setProductsData((state) => {
           return state.map((product) => {
             if (product.id === data.id) {
@@ -51,7 +51,7 @@ export const ProductItem = ({ product, setProductsData }) => {
       dispatch(actions.updateProducts(data));
 
       //update local dataState, to show isInWishList checker
-      //!! explanation
+      //!!
       if (typeof setProductsData !== "undefined") {
         setProductsData((state) => {
           return state.map((product) => {

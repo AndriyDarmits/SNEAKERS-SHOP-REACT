@@ -18,6 +18,7 @@ export const LoginPage = () => {
   const handleFailure = (result) => {
     alert(result);
   };
+  // authentication handler with goggle auth
   const handleLogin = (googleData) => {
     dispatch(
       logInWithGoogle(
