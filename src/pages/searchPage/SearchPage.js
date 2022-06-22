@@ -18,11 +18,28 @@ export default function SearchPage() {
 
   const [searchValue, setSearchValue] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
+  const [searchData, setSearchData] = useState(location);
   const productsQuery = searchParams.get("title") || "";
   const params = {};
   const searchHendler = () => {
     if (searchValue.length) params.title = searchValue;
     setSearchParams(params);
+  };
+  const getSearchResults = () => {
+    const searchSearch = products
+      .filter(
+        (product) =>
+          product.title.toLowerCase().includes(productsQuery.toLowerCase()) &&
+          productsQuery !== ""
+      )
+      .map((product, index) => {
+        return (
+          <ResultItem key={index}>
+            <Link to={`/products/${product.id}`}>{product.title}</Link>
+          </ResultItem>
+        );
+      });
+    return searchSearch.length > 0 ? searchSearch : "nothing found...";
   };
   useEffect(() => {
     setSearchParams({});
@@ -46,23 +63,7 @@ export default function SearchPage() {
           </SearchBtn>
         </SearchField>
         {productsQuery.length ? (
-          <SearchResult>
-            {products
-              .filter(
-                (product) =>
-                  product.title
-                    .toLowerCase()
-                    .includes(productsQuery.toLowerCase()) &&
-                  productsQuery !== ""
-              )
-              .map((product, index) => {
-                return (
-                  <ResultItem key={index}>
-                    <Link to={`/products/${product.id}`}>{product.title}</Link>
-                  </ResultItem>
-                );
-              })}
-          </SearchResult>
+          <SearchResult>{getSearchResults()}</SearchResult>
         ) : (
           "Type product title to search specific products..."
         )}
