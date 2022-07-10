@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   background-color: ${color.white};
   transition: top 0.4s ease-in-out;
 `;
-export const HeaderDiv = styled.header`
+export const NavBarN = styled.nav`
   display: flex;
   align-items: center;
   height: 80px;

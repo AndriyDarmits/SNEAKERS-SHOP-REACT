@@ -14,22 +14,24 @@ import {
   BurgerBlock,
   HeaderDiv,
   Logo,
+  NavBarN,
   Navigation,
   ScrollBar,
   UserAvatar,
   Wrapper,
-} from "./Header.style.js";
+} from "./NavBar.style.js";
 import { useSelector } from "react-redux";
+import { color } from "../../GlobalStyles";
 
 export const toggleActive = (active) => {
   return {
     transition: "transform 0.2s linear",
     transform: active ? "scale(1.2)" : "",
-    color: active ? "#999999" : "",
+    color: active ? `${color.greyLight}` : "",
   };
 };
 
-export default function Header() {
+export default function NavBar() {
   const reduxStore = useSelector((state) => state);
   const { productsCart, wishlist, userData } = reduxStore;
   const [showOrCloseMenu, setShowOrCloseMenu] = useState(false);
@@ -77,7 +79,7 @@ export default function Header() {
   return (
     <Wrapper visible={visible}>
       <Container>
-        <HeaderDiv>
+        <NavBarN>
           <Logo>
             <NavLink to="/">FLOW</NavLink>
           </Logo>
@@ -144,7 +146,7 @@ export default function Header() {
           <BurgerBlock onClick={() => setShowOrCloseMenu(!showOrCloseMenu)}>
             {showOrCloseMenu ? <FaAlignRight /> : <FaAlignLeft />}
           </BurgerBlock>
-        </HeaderDiv>
+        </NavBarN>
       </Container>
       <ScrollBar>
         <div

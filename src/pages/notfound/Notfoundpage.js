@@ -7,7 +7,7 @@ import {
   NotFoundWrapper,
   OppsNotification,
 } from "./NotFound.style";
-import Header from "../../components/header/Header";
+import Header from "../../components/navBar/NavBar";
 import { useNavigate } from "react-router-dom";
 
 export default function Notfoundpage() {

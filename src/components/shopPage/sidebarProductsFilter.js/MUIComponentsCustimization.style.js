@@ -11,7 +11,7 @@ import {
 // !Material UI accordion customization
 export const MuiAccordion = styled(Accordion)(({ theme }) => ({
   backgroundColor: "transparent",
-  color: "#999999",
+  color: `${color.greyLight}`,
   boxShadow: "none",
   "&::before": {
     display: "none",
@@ -39,7 +39,7 @@ export const MuiAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
       cursor: "pointer",
     },
     ".MuiAccordionSummary-expandIconWrapper": {
-      color: "#999999",
+      color: `${color.greyLight}`,
     },
   },
 }));

@@ -19,7 +19,12 @@ export const RecentBlogItemDiv = styled.div`
     right: ${(props) => (props.enterPointer ? "15px" : "10px")};
     background-color: ${(props) =>
       props.enterPointer ? "#444444" : `${color.greyDark}`};
-    padding: 10px 15px;
+    width: 60px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     color: ${color.white};
     text-align: center;
     h3 {
@@ -37,7 +42,7 @@ export const RecentBlogItemDiv = styled.div`
     transition: all 0.3s ease-in;
     position: absolute;
     top: -10px;
-    right: ${(props) => (props.enterPointer ? "82px" : "76px")};
+    right: ${(props) => (props.enterPointer ? "75px" : "70px")};
     width: 0;
     height: 0;
     border-style: solid;

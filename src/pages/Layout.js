@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../components/header/Header";
+import NavBar from "../components/navBar/NavBar";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/footer/Footer";
 import { LayoutWrapper } from "../reusable-styles/reusableStyle";
@@ -7,7 +7,7 @@ import { LayoutWrapper } from "../reusable-styles/reusableStyle";
 export const Layout = () => {
   return (
     <LayoutWrapper>
-      <Header />
+      <NavBar />
       <Outlet />
       <Footer />
     </LayoutWrapper>

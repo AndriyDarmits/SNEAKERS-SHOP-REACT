@@ -10,6 +10,7 @@ import { FaTh, FaThList } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import { FaFilter } from "react-icons/fa";
+import { color } from "../../../GlobalStyles";
 
 export const ShopMenu = ({
   indexOfFirstProduct,
@@ -36,12 +37,16 @@ export const ShopMenu = ({
       <View>
         <div onClick={() => dispatch(actions.changeLayout())}>
           <FaTh
-            style={{ color: productsView ? "#999999" : "${color.greyDark}" }}
+            style={{
+              color: productsView ? `${color.greyLight}` : `${color.greyDark}`,
+            }}
           />
         </div>
         <div onClick={() => dispatch(actions.changeLayout())}>
           <FaThList
-            style={{ color: productsView ? "${color.greyDark}" : "#999999" }}
+            style={{
+              color: productsView ? `${color.greyDark}` : `${color.greyLight}`,
+            }}
           />
         </div>
       </View>

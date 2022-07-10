@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Logo } from "../header/Header.style";
+import { Logo } from "../navBar/NavBar.style";
 import { device, color } from "../../GlobalStyles";
 export const FooterSection = styled.section`
   background-color: ${color.greyDark};

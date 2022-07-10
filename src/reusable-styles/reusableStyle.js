@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { color } from "../GlobalStyles";
 export const Container = styled.div`
-  max-width: 1170px;
+  max-width: 1200px;
+  width: 100%;
   padding: 0 15px;
   margin: 0 auto;
-  position: relative;
+  position: relative;s
 `;
 export const LayoutWrapper = styled.div`
   display: flex;
