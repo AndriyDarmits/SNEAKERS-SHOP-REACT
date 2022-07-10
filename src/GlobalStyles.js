@@ -2,6 +2,10 @@ import { createGlobalStyle } from "styled-components";
 import PoppinsMedium from "./assets/fonts/Poppins-Medium.ttf";
 import PoppinsSemiBold from "./assets/fonts/Poppins-SemiBold.ttf";
 import PoppinsRegular from "./assets/fonts/Poppins-Regular.ttf";
+import PermanentMarkerRegular from "./assets/fonts/PermanentMarker-Regular.ttf";
+import MontserratMedium from "./assets/fonts/Montserrat-Medium.ttf";
+import MontserratRegular from "./assets/fonts/Montserrat-Regular.ttf";
+import MontserratSemiBold from "./assets/fonts/Montserrat-SemiBold.ttf";
 
 export const breakpoint = {
   mobile: "375px",
@@ -21,6 +25,11 @@ export const color = {
   greyMedium: "#666666",
   greyLight: "#999999",
   borderColorGrey: "#ebebeb",
+};
+export const font = {
+  poppins: '"Poppins", sans-serif',
+  montserrat: '"Montserrat", sans-serif',
+  permanentMarker: '"Permanent Marker", sans-serif',
 };
 
 export const FontStyles = createGlobalStyle`
@@ -44,6 +53,30 @@ export const FontStyles = createGlobalStyle`
   font-weight: 500;
   font-style: normal;     
 }
+@font-face {
+  font-family: 'Permanent Marker';
+  src: url(${PermanentMarkerRegular}) format('truetype');
+  font-weight: normal;
+  font-style: normal;     
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url(${MontserratRegular}) format('truetype');
+  font-weight: normal;
+  font-style: normal;     
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url(${MontserratSemiBold}) format('truetype');
+  font-weight: 600;
+  font-style: normal;     
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url(${MontserratMedium}) format('truetype');
+  font-weight: 500;
+  font-style: normal;     
+}
 `;
 
 export const GlobalStyles = createGlobalStyle`
@@ -60,9 +93,9 @@ html{
 }
 
 body{
-    font-family: 'Poppins', sans-serif;
+    font-family: ${font.poppins};
     font-weight: normal;
-    color:${color.white};
+    color:${color.black};
 }
 a{
     text-decoration: none;
@@ -73,6 +106,9 @@ p{
 }
 li{
     list-style: none;
+}
+button{
+  font-family: ${font.poppins};
 }
 #root{
 display:flex;
