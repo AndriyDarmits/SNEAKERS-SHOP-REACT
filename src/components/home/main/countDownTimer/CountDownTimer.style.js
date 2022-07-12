@@ -4,6 +4,7 @@ import { device, color } from "../../../../GlobalStyles";
 
 export const CountDownTimerSection = styled.section`
   background-color: #f9f9f9;
+  margin-top: 80px;
 `;
 export const CountDownTimerFlex = styled.div`
   display: flex;
@@ -96,15 +97,29 @@ export const TimerBody = styled.div`
     align-items: center;
     margin-right: 20px;
     box-shadow: 2px 0px 10px 3px rgba(0, 0, 0, 0.15);
+    line-height: 1;
 
     @media (${device.tablet}) {
       margin-right: 10px;
       width: 75px;
       height: 75px;
     }
+    @media (${device.tablet}) {
+      margin-right: 5px;
+      width: 65px;
+      height: 65px;
+    }
     & > div:first-of-type {
       font-size: 44px;
       font-weight: 600;
+      margin-bottom: 5px;
+      @media (${device.tablet}) {
+        font-size: 30px;
+        margin-bottom: 5px;
+      }
+      @media (${device.mobile}) {
+        font-size: 20px;
+      }
     }
     & > div:last-of-type {
       font-size: 12px;

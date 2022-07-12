@@ -1,21 +1,22 @@
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Typography } from "@mui/material";
 import React, { useState } from "react";
-import {
-  FilterBtn,
-  SideBar,
-  SideBarWrapper,
-  SliderWrapper,
-} from "./SidebarProductFilter.style";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useDispatch, useSelector } from "react-redux";
+import { useMediaQuery } from "react-responsive";
+import { color, font } from "../../../GlobalStyles";
+import actions from "../../../redux/actions/index";
 import {
   MuiAccordion,
   MuiAccordionDetails,
   MuiAccordionSummary,
   MuiSlider,
 } from "./MUIComponentsCustimization.style";
-import { useDispatch, useSelector } from "react-redux";
-import { useMediaQuery } from "react-responsive";
-import actions from "../../../redux/actions/index";
+import {
+  FilterBtn,
+  SideBar,
+  SideBarWrapper,
+  SliderWrapper,
+} from "./SidebarProductFilter.style";
 
 export const SidebarProductFilter = ({
   setProductsData,
@@ -53,7 +54,7 @@ export const SidebarProductFilter = ({
   const undelineSelectedItem = (selectedItem) => {
     return {
       borderBottom: selectedItem
-        ? "1px solid #ebebeb"
+        ? `1px solid ${color.borderColorGrey}`
         : "1px solid transparent",
       cursor: "pointer",
     };

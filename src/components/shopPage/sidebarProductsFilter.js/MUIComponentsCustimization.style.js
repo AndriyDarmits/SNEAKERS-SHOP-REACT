@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { color } from "../../../GlobalStyles";
+import { color, font } from "../../../GlobalStyles";
 
 import {
   Accordion,
@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 
 // !Material UI accordion customization
-export const MuiAccordion = styled(Accordion)(({ theme }) => ({
+export const MuiAccordion = styled(Accordion)(() => ({
   backgroundColor: "transparent",
   color: `${color.greyLight}`,
   boxShadow: "none",
@@ -20,7 +20,7 @@ export const MuiAccordion = styled(Accordion)(({ theme }) => ({
     margin: 0,
   },
 }));
-export const MuiAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
+export const MuiAccordionSummary = styled(AccordionSummary)(() => ({
   padding: 0,
   minHeight: 0,
   marginBottom: "15px",
@@ -35,7 +35,7 @@ export const MuiAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
     },
     p: {
       fontSize: "14px",
-      fontFamily: "'Poppins',sans-serif",
+      fontFamily: `${font.poppins}`,
       cursor: "pointer",
     },
     ".MuiAccordionSummary-expandIconWrapper": {
@@ -43,20 +43,31 @@ export const MuiAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
     },
   },
 }));
-export const MuiAccordionDetails = styled(AccordionDetails)(({ theme }) => ({
+export const MuiAccordionDetails = styled(AccordionDetails)(() => ({
   padding: "12px",
+  "& .MuiTypography-root": {
+    fontFamily: `${font.poppins}`,
+  },
 }));
 
 // !Material UI slider customization
-export const MuiSlider = styled(Slider)(({ theme }) => ({
+export const MuiSlider = styled(Slider)(() => ({
   color: "#333333",
   padding: 0,
-  "& .css-eg0mwd-MuiSlider-thumb": {
+  "& .MuiSlider-thumb": {
     width: "10px",
     height: "10px",
   },
   "& .MuiSlider-valueLabel": {
-    fontSize: "10px",
-    fontFamily: "'Poppins', sans-serif",
+    fontSize: "11px",
+    fontFamily: `${font.poppins}`,
+    color: `${color.greyMedium}`,
+    backgroundColor: `${color.white}`,
+    borderRadius: "10px",
+    border: `1px solid ${color.borderColorGrey}`,
+    "&:before": {
+      borderBottom: `1px solid ${color.borderColorGrey}`,
+      borderRight: `1px solid ${color.borderColorGrey}`,
+    },
   },
 }));

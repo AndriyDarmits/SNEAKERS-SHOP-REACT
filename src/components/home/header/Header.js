@@ -1,8 +1,9 @@
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import slide1 from "../../../assets/img/slider/slide1.webp";
+import likeBg from "../../../assets/img/slider/likeBg.png";
 import slide2 from "../../../assets/img/slider/slide2.webp";
 import slide3 from "../../../assets/img/slider/slide3.webp";
 import slide4 from "../../../assets/img/slider/slide4.jpg";
@@ -13,6 +14,7 @@ import {
   HeaderContent,
   HeaderInner,
   Like,
+  LikeBg,
   SectionSliderWrapper,
   ShowNowBtn,
 } from "./Header.style";
@@ -29,13 +31,13 @@ export const Header = () => {
     cssEase: "ease-out",
     autoplay: true,
   };
+  const slider = useRef();
   const navigate = useNavigate();
   const navigateToProducts = () => navigate("products");
 
   return (
     <SectionSliderWrapper>
-      <BackgroundSlider {...settings}>
-        <img src={slide1} alt="" />
+      <BackgroundSlider {...settings} ref={slider}>
         <img src={slide2} alt="" />
         <img src={slide3} alt="" />
         <img src={slide4} alt="" />
@@ -45,6 +47,7 @@ export const Header = () => {
           <HeaderContent>
             <Like>
               <span>Dress</span> <span>like</span> <span>a</span>
+              <LikeBg src={likeBg}></LikeBg>
             </Like>
             <FashionInstaP>Fashionista</FashionInstaP>
             <ShowNowBtn>

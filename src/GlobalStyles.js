@@ -8,7 +8,7 @@ import MontserratRegular from "./assets/fonts/Montserrat-Regular.ttf";
 import MontserratSemiBold from "./assets/fonts/Montserrat-SemiBold.ttf";
 
 export const breakpoint = {
-  mobile: "375px",
+  mobile: "376px",
   tablet: "768px",
   laptop: "1024px",
 };
@@ -96,6 +96,7 @@ body{
     font-family: ${font.poppins};
     font-weight: normal;
     color:${color.black};
+    overflow: auto;
 }
 a{
     text-decoration: none;
