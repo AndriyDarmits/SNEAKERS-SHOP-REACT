@@ -14,7 +14,7 @@ import { ProductReviews } from "./components/productDetails/productReviews/Produ
 import Notfoundpage from "./pages/notfound/Notfoundpage";
 import BlogPage from "./pages/blog/BlogPage";
 import { Layout2 } from "./pages/Layout2";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { WishlistPage } from "./pages/wishlistPage/WishlistPage";
 import { CheckoutPage } from "./pages/checkout/CheckoutPage";
 import { LoginPage } from "./pages/login/LoginPage";
@@ -24,11 +24,13 @@ import { ReqireAuth } from "./hoc/ReqireAuth";
 import { RequireFilledCart } from "./hoc/RequireFilledCart";
 import { FaChevronUp } from "react-icons/fa";
 import { scrollUp } from "./helper";
+import { FontStyles, GlobalStyles } from "./GlobalStyles.js";
 // page lazy loading
 const ShopPage = lazy(() => import("./pages/shopPage/ShopPage"));
 
 function App() {
   const dispatch = useDispatch();
+  const { bodyOverfow } = useSelector((state) => state);
   const [scrollUpBtnvisible, setScrollUpBtnvisible] = useState(false);
   // when scrolling is greater than 300 - show display button
   const toggleVisibleScrollTopBtn = () => {
@@ -98,6 +100,8 @@ function App() {
       <ScrollUpBtn onClick={() => scrollUp(0)} visible={scrollUpBtnvisible}>
         <FaChevronUp />
       </ScrollUpBtn>
+      <GlobalStyles bodyOverfow={bodyOverfow} />
+      <FontStyles />
     </>
   );
 }

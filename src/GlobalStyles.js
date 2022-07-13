@@ -6,6 +6,7 @@ import PermanentMarkerRegular from "./assets/fonts/PermanentMarker-Regular.ttf";
 import MontserratMedium from "./assets/fonts/Montserrat-Medium.ttf";
 import MontserratRegular from "./assets/fonts/Montserrat-Regular.ttf";
 import MontserratSemiBold from "./assets/fonts/Montserrat-SemiBold.ttf";
+import { useSelector } from "react-redux";
 
 export const breakpoint = {
   mobile: "376px",
@@ -96,7 +97,7 @@ body{
     font-family: ${font.poppins};
     font-weight: normal;
     color:${color.black};
-    overflow: auto;
+    overflow:${(props) => (props.bodyOverfow ? "hidden" : "auto")} ;
 }
 a{
     text-decoration: none;

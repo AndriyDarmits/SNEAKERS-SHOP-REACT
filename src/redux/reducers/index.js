@@ -6,6 +6,7 @@ import { ProductViewReducer } from "./productsViewRducer";
 import { UserDataReducer } from "./userDataReducer";
 import { ShowSidebarReducer } from "./showSidebarReducer";
 import { DiscountReducer } from "./discountReducer";
+import { BodyOverflowReducer } from "./bodyOverfowReducer";
 
 export const reducer = combineReducers({
   products: ProductReducer,
@@ -15,4 +16,5 @@ export const reducer = combineReducers({
   userData: UserDataReducer,
   showSidebar: ShowSidebarReducer,
   discount: DiscountReducer,
+  bodyOverfow: BodyOverflowReducer,
 });

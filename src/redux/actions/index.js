@@ -16,6 +16,7 @@ import {
 import { changeLayout } from "./productsViewAction";
 import { setUser, clearUser } from "./userDataAction";
 import { setShowSidebar } from "./showSidebarAction";
+import { setResetBodyOverflow } from "./bodyOverflowAction";
 import { activateDiscount, deactivateDiscount } from "./discountAction";
 export default {
   setProductFromApi,
@@ -33,4 +34,5 @@ export default {
   activateDiscount,
   deactivateDiscount,
   resetIsInShoppingCartProdutsProperty,
+  setResetBodyOverflow,
 };

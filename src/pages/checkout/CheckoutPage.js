@@ -23,12 +23,14 @@ export const CheckoutPage = () => {
   const [showPopUp, setShowPopUp] = useState(false);
   const placeOrder = () => {
     setShowPopUp(true);
+    dispatch(actions.setResetBodyOverflow());
     setTimeout(() => {
       dispatch(actions.clearAllProductsFromCart());
       dispatch(actions.resetIsInShoppingCartProdutsProperty());
       setShowPopUp(false);
       navigate("/products", { replace: true });
-    }, 3000);
+      dispatch(actions.setResetBodyOverflow());
+    }, 5000);
   };
   return (
     <CheckoutSecrionWrapper>

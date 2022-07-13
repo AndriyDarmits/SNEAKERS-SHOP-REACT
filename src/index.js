@@ -8,8 +8,6 @@ import { FontStyles, GlobalStyles } from "./GlobalStyles";
 ReactDOM.render(
   <Provider store={store}>
     <App />
-    <GlobalStyles />
-    <FontStyles />
   </Provider>,
   document.getElementById("root")
 );
