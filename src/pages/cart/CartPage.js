@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { CartListComp } from "../../components/cart/CartListComp";
 import CartTotalComp from "../../components/cart/CartTotalComp";
 import Coupon from "../../components/cart/Coupon";
 import { scrollUp } from "../../helper";
-
 import { Container } from "../../reusable-styles/reusableStyle";
-import { ApplyCoupon, CartWrapper, CheckOut } from "./CartPage.style";
+import { CartWrapper, CheckOut } from "./CartPage.style";
 export default function CartPage() {
   const redux = useSelector((state) => state);
   const { productsCart } = redux;
@@ -20,17 +19,13 @@ export default function CartPage() {
         <CartListComp />
         {productsCart.length > 0 && (
           <>
-            <ApplyCoupon>
-              <Coupon />
-            </ApplyCoupon>
+            <Coupon />
             <CartTotalComp />
-            {productsCart.length ? (
-              <Link to="/checkout">
-                <CheckOut>
-                  <button>Process to check out</button>
-                </CheckOut>
-              </Link>
-            ) : null}
+            <Link to="/checkout">
+              <CheckOut>
+                <button>Process to check out</button>
+              </CheckOut>
+            </Link>
           </>
         )}
       </Container>

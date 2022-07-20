@@ -3,7 +3,7 @@ import { Input } from "../../../reusable-styles/reusableStyle";
 import { device, color } from "../../../GlobalStyles";
 
 // form block
-export const BillingDetailsForm = styled.form`
+export const BillingDetails = styled.div`
   display: flex;
   flex-direction: column;
   width: 75%;

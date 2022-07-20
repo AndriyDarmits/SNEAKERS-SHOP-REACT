@@ -26,6 +26,7 @@ export const color = {
   greyMedium: "#666666",
   greyLight: "#999999",
   borderColorGrey: "#ebebeb",
+  error: "red",
 };
 export const font = {
   poppins: '"Poppins", sans-serif',

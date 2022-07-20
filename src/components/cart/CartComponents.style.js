@@ -142,7 +142,14 @@ export const CartTotal = styled.div`
 `;
 
 //Coupon
-
+export const CouponWrapper = styled.div`
+  margin-bottom: 50px;
+`;
+export const CouponForm = styled.form`
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+`;
 export const CuponInput = styled(Input)`
   margin-right: 20px;
   width: 50%;

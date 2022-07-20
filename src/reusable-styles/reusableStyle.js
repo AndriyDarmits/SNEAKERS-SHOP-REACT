@@ -102,3 +102,9 @@ export const ProductQuantity = styled.div`
     width: 50%;
   }
 `;
+export const ErrorMessage = styled.div`
+  color: red;
+`;
+export const ValidMessage = styled.div`
+  color: green;
+`;

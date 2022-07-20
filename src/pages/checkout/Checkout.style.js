@@ -6,7 +6,7 @@ import { color } from "../../GlobalStyles";
 export const CheckoutSecrionWrapper = styled(SectionWrapper)`
   margin-bottom: 40px;
 `;
-
+export const CheckoutForm = styled.form``;
 export const PaymentAndSendBtn = styled.div`
   padding: 20px 30px;
   background-color: #f8f8f8;

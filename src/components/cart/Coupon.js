@@ -1,50 +1,65 @@
-import React, { useState } from "react";
+import { useFormik } from "formik";
+import React from "react";
 import { useDispatch } from "react-redux";
+import * as Yup from "yup";
 import actions from "../../redux/actions/index";
 import {
+  ErrorMessage,
+  ValidMessage,
+} from "../../reusable-styles/reusableStyle";
+import {
+  CouponForm,
+  CouponWrapper,
   CuponButton,
   CuponInput,
-  ValidationMessage,
 } from "./CartComponents.style";
 
-export default function Coupon({ setDiscount, setDiscountAmount }) {
-  const [couponeValue, setCouponValue] = useState("");
-  const [notValidateMessage, setNotValidateMessage] = useState(false);
+export default function Coupon() {
   const dispatch = useDispatch();
-  const promoCodes = ["summer2022", "winter2022", "spring2022", "autumn2022"];
+  // dispatch(actions.activateDiscount())
+  const couponeValidation = Yup.object().shape({
+    promoCode: Yup.string()
+      .required()
+      .matches(
+        /summer2022|winter2022|spring2022|autumn2022/i,
+        "incorrect promocode"
+      ),
+  });
 
-  const applyCoupon = () => {
-    // if typed coupone matches promoCodes - set discount
-    if (promoCodes.includes(couponeValue.toLowerCase())) {
-      // change discount checked
+  const formik = useFormik({
+    initialValues: {
+      promoCode: "",
+    },
+    validationSchema: couponeValidation,
+    onSubmit: (values, { resetForm }) => {
+      alert(JSON.stringify(values, null, 2));
       dispatch(actions.activateDiscount());
-      setCouponValue("");
-    } else {
-      setNotValidateMessage(true);
-      setCouponValue("");
-      setTimeout(() => {
-        setNotValidateMessage(false);
-      }, 2000);
-    }
-  };
+      resetForm();
+    },
+  });
+
   return (
-    <>
-      <CuponInput>
-        <input
-          value={couponeValue}
-          type="text"
-          placeholder="Coupon Code..."
-          onChange={(e) => setCouponValue(e.target.value)}
-        />
-      </CuponInput>
-      <CuponButton>
-        <button onClick={() => applyCoupon()}>Apply coupon</button>
-      </CuponButton>
-      {notValidateMessage ? (
-        <ValidationMessage>incorrert promocode...</ValidationMessage>
-      ) : (
-        ""
-      )}
-    </>
+    <CouponWrapper>
+      <CouponForm onSubmit={formik.handleSubmit}>
+        <CuponInput>
+          <input
+            value={formik.values.promoCode}
+            type="text"
+            id="promoCode"
+            placeholder="Coupon Code..."
+            onChange={formik.handleChange}
+          />
+        </CuponInput>
+        <CuponButton>
+          <button type="submit">Apply coupon</button>
+        </CuponButton>
+      </CouponForm>
+      {formik.errors.promoCode && formik.touched.promoCode ? (
+        <ErrorMessage>{formik.errors.promoCode}</ErrorMessage>
+      ) : null}
+      {!formik.errors.promoCode && formik.touched.promoCode ? (
+        <ValidMessage>valid</ValidMessage>
+      ) : null}
+    </CouponWrapper>
   );
 }

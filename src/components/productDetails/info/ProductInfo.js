@@ -57,6 +57,8 @@ export default function ProductInfo() {
   ]);
   // product quantity state
   const [productQuantity, setProductQuantity] = useState(1);
+  const [isSelectedSize, setIsSelectedSize] = useState(false);
+  const [isAddedProduct, setIsAddedProduct] = useState(false);
 
   const selectSize = (index, e) => {
     if (!productData.isInShoppingCart) {
@@ -70,6 +72,13 @@ export default function ProductInfo() {
           });
           return chengedSelectedEl;
         } else {
+          //display message that the size has been selected
+          if (prev.find((el, i) => i === index).selected === false) {
+            setIsSelectedSize(true);
+            setTimeout(() => {
+              setIsSelectedSize(false);
+            }, 1000);
+          }
           const chengedSelectedEl = prev.map((size, i) => {
             if (i === index) {
               size.selected = false;
@@ -79,6 +88,11 @@ export default function ProductInfo() {
           return chengedSelectedEl;
         }
       });
+    } else {
+      setIsAddedProduct(true);
+      setTimeout(() => {
+        setIsAddedProduct(false);
+      }, 1000);
     }
   };
 
@@ -112,6 +126,12 @@ export default function ProductInfo() {
         }
         return prev - 1;
       });
+    } else {
+      //display message that the product has aleady inthe cart
+      setIsAddedProduct(true);
+      setTimeout(() => {
+        setIsAddedProduct(false);
+      }, 1000);
     }
   };
   const incrementHandler = () => {
@@ -120,6 +140,12 @@ export default function ProductInfo() {
       setProductQuantity((prev) => {
         return prev + 1;
       });
+    } else {
+      //display message that the product has aleady inthe cart
+      setIsAddedProduct(true);
+      setTimeout(() => {
+        setIsAddedProduct(false);
+      }, 1000);
     }
   };
 
@@ -139,6 +165,7 @@ export default function ProductInfo() {
       dataToUpdateProduct.isInShoppingCart = true;
       dispatch(actions.updateProducts(dataToUpdateProduct));
     }
+
     setSizes((prev) => {
       return prev.map((size, i) => {
         size.selected = false;
@@ -193,6 +220,8 @@ export default function ProductInfo() {
             </SizeItem>
           ))}
         </div>
+        {isAddedProduct && "Item has already been in a cart"}
+        {isSelectedSize && "Size has already selected"}
       </Size>
       <AbvailabilityContainer>
         <div>
@@ -205,6 +234,7 @@ export default function ProductInfo() {
           <span>Tag :</span> <span>Sneakers</span>
         </div>
       </AbvailabilityContainer>
+
       <FlexContainerAddToCart>
         <ProductQuantity>
           <div>{productQuantity}</div>

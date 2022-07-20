@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { Review } from "../review/Review";
 import { Rating } from "@mui/material";
-
-import { useParams } from "react-router-dom";
+import { useFormik } from "formik";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import * as Yup from "yup";
 import { getDataFromLocalStorage } from "../../../helper";
 import actions from "../../../redux/actions";
+import { ErrorMessage } from "../../../reusable-styles/reusableStyle";
+import { Review } from "../review/Review";
 import {
   FlexContainerReviews,
   NoReviewMessage,
@@ -15,20 +17,15 @@ import {
   UserNameInput,
   UserNameInputField,
 } from "./ProductReviews.style";
-
 export const ProductReviews = () => {
-  const [formRateValue, setFormRateValue] = useState(0);
-  const [reviewText, setReviewText] = useState("");
-  const [reviewerName, setReviewerName] = useState("");
-  const [reviewerEmail, setReviewerEmail] = useState("");
   //getting data from redux
   let { id } = useParams();
-
+  const dispatch = useDispatch();
   const reduxStore = useSelector((state) => state);
   const { products } = reduxStore;
-
   //set data from redux products
   const [reviewsData, setReviewsData] = useState({});
+
   useEffect(() => {
     if (products.length) {
       setReviewsData(...products.filter((product) => product.id === id));
@@ -36,91 +33,96 @@ export const ProductReviews = () => {
       setReviewsData(getDataFromLocalStorage("product"));
     }
   }, [products, id]);
-
-  const dispatch = useDispatch();
-  const onAddReview = (e) => {
-    e.preventDefault();
-    // add reviews
-    const data = { ...reviewsData };
-    if (
-      reviewerName.length &&
-      reviewerEmail.length &&
-      reviewText.length &&
-      formRateValue
-    ) {
-      data.reviews = [
-        ...data.reviews,
-        {
-          name: reviewerName,
-          email: reviewerEmail,
-          text: reviewText,
-          rate: formRateValue,
-        },
-      ];
+  // validation
+  const reviewsSchema = Yup.object().shape({
+    name: Yup.string()
+      .required("Required")
+      .min(2, "Too Short!")
+      .max(50, "Too Long!"),
+    email: Yup.string().email("Invalid email").required("Required"),
+    text: Yup.string()
+      .required("Required")
+      .min(2, "Too Short!")
+      .max(400, "Too Long!"),
+  });
+  // firmik hook
+  const formik = useFormik({
+    initialValues: {
+      text: "",
+      name: "",
+      email: "",
+      rate: 0,
+    },
+    validationSchema: reviewsSchema,
+    onSubmit: (value, { resetForm }) => {
+      const data = { ...reviewsData };
+      data.reviews = [...data.reviews, value];
       dispatch(actions.updateProducts(data));
-    } else {
-      return;
-    }
-    // reset input fields
-    setFormRateValue(0);
-    setReviewText("");
-    setReviewerName("");
-    setReviewerEmail("");
-  };
-
+      resetForm();
+    },
+  });
   return (
     <Reviews>
-      <form action="/">
+      <form onSubmit={formik.handleSubmit}>
         <FlexContainerReviews>
           <ReviewInputField>
             <textarea
-              value={reviewText}
-              name="textarea"
-              required
-              id=""
+              value={formik.values.text}
+              name="text"
+              id="text"
               placeholder="Your Review ..."
-              onChange={(e) => setReviewText(e.target.value)}
-            ></textarea>
+              onChange={formik.handleChange}
+            />
+            {formik.errors.text && formik.touched.text ? (
+              <ErrorMessage>{formik.errors.text}</ErrorMessage>
+            ) : null}
           </ReviewInputField>
           <UserNameInputField>
             <UserNameInput>
               <input
-                value={reviewerName}
-                required
+                value={formik.values.name}
                 type="text"
                 name="name"
+                id="name"
                 placeholder="Your Name ..."
-                onChange={(e) => setReviewerName(e.target.value)}
+                onChange={formik.handleChange}
               />
+              {formik.errors.name && formik.touched.name ? (
+                <ErrorMessage>{formik.errors.name}</ErrorMessage>
+              ) : null}
             </UserNameInput>
             <UserNameInput>
               <input
-                value={reviewerEmail}
-                type="email"
+                value={formik.values.email}
                 name="email"
+                id="email"
                 placeholder="Your Email"
-                onChange={(e) => setReviewerEmail(e.target.value)}
-                required
+                onChange={formik.handleChange}
               />
+              {formik.errors.email && formik.touched.email ? (
+                <ErrorMessage>{formik.errors.email}</ErrorMessage>
+              ) : null}
             </UserNameInput>
             <Rating
-              name="simple-controlled"
-              value={formRateValue}
-              onChange={(event, newValue) => {
-                setFormRateValue(newValue);
+              name="rate"
+              id="rate"
+              value={formik.values.rate}
+              onChange={(_, newValue) => {
+                formik.setFieldValue("rate", newValue);
               }}
             />
+
             <ReviewSubmitButton>
-              <button type="submit" onClick={(e) => onAddReview(e)}>
-                Submit
-              </button>
+              <button type="submit">Submit</button>
             </ReviewSubmitButton>
           </UserNameInputField>
         </FlexContainerReviews>
       </form>
       <>
         {reviewsData?.reviews?.length ? (
-          reviewsData.reviews.map((review) => <Review review={review} />)
+          reviewsData.reviews.map((review, index) => (
+            <Review key={index} review={review} />
+          ))
         ) : (
           <NoReviewMessage>
             <p>There are no review yet</p>
