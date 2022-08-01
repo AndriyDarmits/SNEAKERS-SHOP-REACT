@@ -33,3 +33,11 @@ export const SmallProductImage = styled.div`
     }
   }
 `;
+export const SmallImageDiv = styled.div`
+  cursor: pointer;
+  border: ${(props) =>
+    props.index === props.activeIndex
+      ? `2px solid #666666`
+      : `2px solid #ebebeb`};
+  transition: all 0.1s linear;
+`;

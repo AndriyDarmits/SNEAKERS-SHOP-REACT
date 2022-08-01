@@ -64,6 +64,7 @@ export const SizeItem = styled.button`
   color: ${color.greyLight};
   background: ${(props) =>
     props.selected ? `1px solid ${color.borderColorGrey}` : `transparent`};
+  cursor: pointer;
   &:hover {
     background: rgba(0, 0, 0, 0.1);
   }
@@ -118,6 +119,7 @@ export const SocialIcons = styled.div`
 export const WishListIcon = styled.div`
   display: flex;
   align-items: center;
+  cursor: pointer;
   & > div {
     color: ${color.greyMedium};
   }

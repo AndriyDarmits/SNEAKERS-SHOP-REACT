@@ -62,6 +62,7 @@ export const SocialIcons = styled.div`
     min-height: 40px;
     border-radius: 50%;
     transition: transform 0.1s ease-in-out;
+    cursor: pointer;
 
     &:hover {
       transform: scale(1.2);

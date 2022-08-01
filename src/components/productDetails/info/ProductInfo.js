@@ -1,11 +1,15 @@
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Rating } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { ProductQuantity } from "../../../reusable-styles/reusableStyle";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import { FaFacebookF, FaDribbble, FaGoogle, FaTwitter } from "react-icons/fa";
-import inc from "../../../assets/icons/cart/inc.png";
+import { FaDribbble, FaFacebookF, FaGoogle, FaTwitter } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import dec from "../../../assets/icons/cart/dec.png";
+import inc from "../../../assets/icons/cart/inc.png";
+import { getDataFromLocalStorage } from "../../../helper";
+import actions from "../../../redux/actions/index";
+import { ProductQuantity } from "../../../reusable-styles/reusableStyle";
 import {
   AbvailabilityContainer,
   AddToCartBtn,
@@ -19,10 +23,6 @@ import {
   WishlistAndSocialsFlexContainer,
   WishListIcon,
 } from "./ProductInfo.style";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { getDataFromLocalStorage } from "../../../helper";
-import actions from "../../../redux/actions/index";
 
 export default function ProductInfo() {
   let { id } = useParams();
@@ -108,7 +108,7 @@ export default function ProductInfo() {
       // update changes in product data
       dispatch(actions.updateProducts(data));
     } else {
-      // remove itemdelete products from wishlist
+      // delete products from wishlist
       dispatch(actions.deleteProductFromWishlist(data));
       // update changes in product data
       data.isInWishList = false;

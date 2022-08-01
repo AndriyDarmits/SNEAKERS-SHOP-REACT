@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { Container } from "../../reusable-styles/reusableStyle";
-import face from "../../assets/icons/footer/ICON.png";
-import twit from "../../assets/icons/footer/twit.png";
-import inst from "../../assets/icons/footer/inst.png";
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import drib from "../../assets/icons/footer/drib.png";
-import pint from "../../assets/icons/footer/pint.png";
+import emailBtn from "../../assets/icons/footer/emailBtn.png";
 import home from "../../assets/icons/footer/home.png";
+import face from "../../assets/icons/footer/ICON.png";
+import inst from "../../assets/icons/footer/inst.png";
 import mail from "../../assets/icons/footer/mail.png";
 import phone from "../../assets/icons/footer/phone.png";
+import pint from "../../assets/icons/footer/pint.png";
 import scedule from "../../assets/icons/footer/scedule.png";
-import emailBtn from "../../assets/icons/footer/emailBtn.png";
-import { Link, useLocation } from "react-router-dom";
+import twit from "../../assets/icons/footer/twit.png";
 import { scrollUp } from "../../helper";
+import { Container } from "../../reusable-styles/reusableStyle";
 
 import {
   Col1,

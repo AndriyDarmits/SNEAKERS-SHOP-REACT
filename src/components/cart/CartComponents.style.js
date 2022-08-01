@@ -56,11 +56,18 @@ export const CartProductItem = styled.li`
   width: 100%;
   padding: 15px 0;
   & > div {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   & > div:nth-of-type(1) {
     width: 5.5%;
     text-align: center;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    &:hover {
+      transform: rotate(90deg);
+    }
   }
   & > div:nth-of-type(2) {
     width: 11.5%;

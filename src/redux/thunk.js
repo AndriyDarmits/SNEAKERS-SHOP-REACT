@@ -3,8 +3,8 @@ import { fetchData } from "../helper";
 //thunk function to get data from api
 export const setDataFromApiThunk = () => {
   return (dispatch) => {
-    fetchData("https://mocki.io/v1/c2978c01-7d3b-4fe2-a179-9ae07db63789").then(
-      (data) => {
+    return fetchData("https://mocki.io/v1/c2978c01-7d3b-4fe2-a179-9ae07db63789")
+      .then((data) => {
         const additionalPropertyAdded = data.map((el) => {
           //initial rate, avaliable in wishlist, product reviews
           el.rate = 0;
@@ -13,16 +13,15 @@ export const setDataFromApiThunk = () => {
           el.reviews = [];
           return el;
         });
-        dispatch(actions.setProductFromApi(additionalPropertyAdded));
-      }
-    );
+        return additionalPropertyAdded;
+      })
+      .then((res) => dispatch(actions.setProductFromApi(res)));
   };
 };
-
 //thunk function to do logging in (geting data about user from google login api)
 export const logInWithGoogle = (googleData, navigate, to) => {
   return (dispatch) => {
-    const request = fetch("api/google-login", {
+    return fetch("api/google-login", {
       method: "POST",
       body: JSON.stringify({
         token: googleData.tokenId,
@@ -30,14 +29,15 @@ export const logInWithGoogle = (googleData, navigate, to) => {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((response) => {
-      return response.json();
-    });
-    request.then((data) => {
-      dispatch(actions.setUser(data));
-      console.log(data);
-      localStorage.setItem("loginData", JSON.stringify(data));
-      navigate(to);
-    });
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        dispatch(actions.setUser(data));
+        console.log(data);
+        localStorage.setItem("loginData", JSON.stringify(data));
+        navigate(to);
+      });
   };
 };

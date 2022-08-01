@@ -1,18 +1,18 @@
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import React, { useState } from "react";
+import { FaCartPlus, FaCheck, FaEye } from "react-icons/fa";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import actions from "../../../redux/actions/index";
 import {
+  AddToCartAndViewIcons,
   ProductContent,
+  ProductImageOverlay,
   ProductImageWrapper,
   ProductItemDiv,
-  ProductImageOverlay,
-  AddToCartAndViewIcons,
   WishListIcon,
 } from "./ProductItem.style";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import { useDispatch } from "react-redux";
-import actions from "../../../redux/actions/index";
-import { FaEye, FaCartPlus, FaCheck } from "react-icons/fa";
 
 export const ProductItem = ({ product, setProductsData }) => {
   const [isVisiableIcon, setIsVisiableIcon] = useState(false);
